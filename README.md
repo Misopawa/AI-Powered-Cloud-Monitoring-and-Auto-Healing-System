@@ -1,22 +1,27 @@
-AI-Based Cloud Server Monitoring & Auto-Healing System
+AI-Based Cloud Server Monitoring & Auto-Healing System 🛡️
+
 🎓 Final Year Project | Bachelor in Network Computing
+
 Author: Mohamad Syahmi
 
-Project Scope: Intelligent Automation, Industry 4.0, and Real-time Infrastructure Reliability.
+Focus: Intelligent Automation, Reliability, and Industry 4.0 Infrastructure.
 
-🚀 Project Overview
-This project implements a hybrid cloud server monitoring system that bridges traditional threshold-based monitoring with AI-driven anomaly detection. By utilizing the Isolation Forest algorithm, the system identifies abnormal server behavior that static thresholds might miss, reducing downtime through automated recovery actions (Auto-Healing) without human intervention.
+📖 Project Overview
+
+This project implements a hybrid cloud server monitoring system that bridges the gap between traditional threshold-based monitoring and AI-driven anomaly detection. By integrating the Isolation Forest algorithm, the system identifies abnormal behavior patterns that static thresholds might miss, while providing automated recovery actions (Auto-Healing) to maintain high system availability.
 
 🧠 Hybrid Detection Logic
+
 The system monitors four core components: CPU, Memory, Disk, and Network.
 
-Threshold-Based Monitoring: Provides immediate, interpretable alerts for CPU, Memory, Disk, and Network when resource usage exceeds predefined limits.
+Threshold-Based Monitoring: Fast and interpretable alerts for resource usage exceeding predefined limits.
 
-AI-Based Anomaly Detection: Uses the Isolation Forest model (trained on a processed Westermo industrial dataset) to detect complex patterns in CPU, Memory, and Disk usage.
+AI-Based Anomaly Detection: Utilizes an Isolation Forest model (trained on the Westermo industrial dataset) to identify unusual behavior in CPU, Memory, and Disk metrics.
 
-Network Monitoring: Handled exclusively via thresholds due to the bursty/cumulative nature of network packet data.
+Network Monitoring: Handled via threshold-based detection to account for the cumulative and bursty nature of network traffic.
 
 📂 Project Structure
+
 Python Bash Code/
 ├── src/
 │   ├── main.py                # Main execution loop
@@ -34,39 +39,43 @@ Python Bash Code/
 │   └── recovery/
 │       └── auto_healer.py
 ├── config/
-│   └── config.yaml            # Thresholds, dataset paths, and log settings
+│   └── config.yaml            # Thresholds and system settings
 ├── data/
 │   ├── raw/                   # Mock metrics and Westermo data
-│   ├── processed/             # Cleaned datasets for training
-│   └── metrics.csv            # Runtime logged metrics
+│   ├── processed/             # Cleaned datasets
+│   └── metrics.csv            # Runtime logs
 ├── models/
 │   └── isolation_forest.pkl   # Saved AI model
-├── logs/
-│   └── system.log             # Event, alert, and recovery logs
-└── README.md
+└── logs/
+    └── system.log             # Event and recovery logs
 
-🛠️ Workflow & Execution
-1. Configuration: Define resource limits and file paths in config/config.yaml.
 
-2. Preprocessing: Run the westermo_preprocessor.py to prepare the industrial dataset.
+🛠️ Installation & Execution
 
-3. Training: Execute train_model.py to generate the isolation_forest.pkl model.
+1. Prerequisites
 
-4. Monitoring: Launch main.py. The system will:
+Ensure you have Python 3.8+ installed. Install the necessary dependencies:
 
-    Collect real-time metrics using psutil.
-
-    Perform concurrent Threshold and AI checks.
-
-    Log all data to metrics.csv.
-
-    Trigger auto_healer.py if a breach or anomaly is detected.
-
-🔧 Installation
-# Clone the repository
-git clone https://github.com/Misopawa/AI-Powered-Cloud-Monitoring-and-Auto-Healing-System.git
-
-# Install required libraries
 pip install psutil pandas scikit-learn pyyaml
 
-Note: This system is designed as a foundation for intelligent fault detection in cloud and industrial environments, aligning with Industry 4.0 automation standards.
+
+2. Training the AI Model
+
+First, preprocess the industrial dataset and train the Isolation Forest model:
+
+python src/utils/westermo_preprocessor.py
+python src/ai/train_model.py
+
+
+3. Running the System
+
+Start the real-time monitoring and auto-healing service:
+
+python src/main.py
+
+
+📝 Configuration
+
+System behavior (including CPU/Memory limits and file paths) is managed via config/config.yaml. This allows for easy adjustments to network thresholds and alert sensitivity without modifying the core logic.
+
+© 2026 Mohamad Syahmi | Final Year Project Submission
