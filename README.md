@@ -2,7 +2,7 @@ AI-Based Cloud Server Monitoring & Auto-Healing System 🛡️
 
 🎓 Final Year Project | Bachelor in Network Computing
 
-Author: Mohamad Syahmi
+Author: Mohamad Syahmi bin Soria
 
 Focus: Intelligent Automation, Reliability, and Industry 4.0 Infrastructure.
 
@@ -46,6 +46,6 @@ Network Monitoring: Handled via threshold-based detection to account for the cum
 
 📝 Configuration
 
-System behavior (including CPU/Memory limits and file paths) is managed via config/config.yaml. This allows for easy adjustments to network thresholds and alert sensitivity without modifying the core logic.
+    System behavior (including CPU/Memory limits and file paths) is managed via config/config.yaml. This allows for easy adjustments to network thresholds and alert sensitivity without modifying the core logic.
 
 © 2026 Mohamad Syahmi | Final Year Project Submission
