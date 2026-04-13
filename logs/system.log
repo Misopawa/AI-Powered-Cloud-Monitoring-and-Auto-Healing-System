@@ -1,0 +1,1482 @@
+2026-01-14 10:08:18,831 - cloud_monitor - INFO - System started
+2026-01-14 10:08:19,834 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:08:19,839 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:08:19,839 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:08:19,839 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:08:19,840 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:08:52,931 - cloud_monitor - INFO - System started
+2026-01-14 10:08:53,933 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:08:53,937 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:08:53,937 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:08:53,938 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:09:20,841 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:09:20,843 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:09:20,843 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:09:20,843 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:09:20,844 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:09:54,939 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:09:54,942 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:09:54,942 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:09:54,942 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:10:21,845 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:10:21,847 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:10:21,847 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:10:21,847 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:10:21,848 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:11:22,849 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:11:22,851 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:11:22,851 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:11:22,852 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:11:22,852 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:12:23,853 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:12:23,855 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:12:23,855 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:12:23,856 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:12:23,856 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:13:24,858 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:13:24,860 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:13:24,860 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:13:24,860 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:13:24,861 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:14:25,862 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:14:25,864 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:14:25,864 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:14:25,864 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:14:25,865 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:15:26,866 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:15:26,868 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:15:26,868 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:15:26,868 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:15:26,869 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:16:27,870 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:16:27,873 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:16:27,874 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:16:27,874 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:16:27,875 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:17:28,877 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:17:28,879 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:17:28,879 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:17:28,879 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:17:28,880 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:18:29,881 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:18:29,883 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:18:29,883 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:18:29,883 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:18:29,883 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:19:30,884 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:19:30,886 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:19:30,886 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:19:30,886 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:19:30,887 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:20:31,888 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:20:31,890 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:20:31,890 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:20:31,891 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:20:31,891 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:21:32,893 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:21:34,236 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:21:34,236 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:21:34,237 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:21:34,237 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:22:35,239 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:22:35,243 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:22:35,243 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:22:35,244 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:22:35,244 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:23:36,246 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:23:36,248 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:23:36,248 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:23:36,249 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:23:36,249 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:24:37,251 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:24:37,253 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:24:37,253 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:24:37,253 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:24:37,253 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:25:38,255 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:25:38,257 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:25:38,257 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:25:38,257 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:25:38,257 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:26:39,259 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:26:39,260 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:26:39,261 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:26:39,261 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:26:39,262 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:27:40,263 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:27:45,712 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:27:45,712 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:27:45,712 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:27:45,713 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:28:46,716 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:28:46,717 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:28:46,718 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:28:46,718 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:28:46,719 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:29:47,721 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:29:47,722 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:29:47,722 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:29:47,723 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:29:47,723 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:30:48,724 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:30:48,727 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:30:48,727 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:30:48,727 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:30:48,728 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:31:49,730 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:31:53,772 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:31:53,773 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:31:53,773 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:31:53,774 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:32:54,776 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:32:57,772 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:32:57,772 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:32:57,772 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:32:57,773 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:33:58,775 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:33:59,803 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:33:59,803 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:33:59,804 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:33:59,805 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:35:00,807 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:35:01,437 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:35:01,438 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:35:01,438 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:35:01,439 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:36:02,441 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:36:02,443 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:36:02,443 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:36:02,443 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:36:02,444 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:37:03,445 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:37:03,448 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:37:03,448 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:37:03,449 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:37:03,449 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:38:04,451 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:38:04,815 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:38:04,815 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:38:04,816 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:38:04,817 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:39:05,818 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:39:09,427 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:39:09,428 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:39:09,428 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:39:09,429 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:40:13,755 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:40:21,901 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:40:21,902 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:40:21,902 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:40:21,903 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:41:22,905 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:41:22,907 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:41:22,907 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:41:22,907 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:41:22,908 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:42:23,909 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:42:23,911 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:42:23,912 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:42:23,912 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:42:23,913 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:43:24,914 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:43:24,916 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:43:24,916 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:43:24,916 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:43:24,917 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:44:25,919 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:44:25,928 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:44:25,928 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:44:25,929 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:44:25,929 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:45:26,931 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:45:26,933 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:45:26,933 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:45:26,934 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:45:26,934 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:46:27,935 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:46:27,937 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:46:27,938 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:46:27,938 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:46:27,939 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:47:28,940 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:47:28,943 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:47:28,943 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:47:28,943 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:47:28,944 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:48:29,946 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:48:29,948 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:48:29,948 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:48:29,948 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:48:29,949 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:49:30,951 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:49:30,953 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:49:30,954 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:49:30,954 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:49:30,955 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:50:31,956 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:50:31,958 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:50:31,959 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:50:31,959 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:50:31,960 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:51:32,961 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:51:32,963 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:51:32,964 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:51:32,964 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:51:32,964 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:52:33,966 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:52:33,968 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:52:33,968 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:52:33,969 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:52:33,969 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:53:34,971 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:53:34,974 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:53:34,975 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:53:34,976 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:53:34,977 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:54:35,979 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:54:35,981 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:54:35,981 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:54:35,982 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:54:35,982 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:55:36,984 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:55:36,986 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:55:36,987 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:55:36,987 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:55:36,988 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:56:37,989 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:56:37,991 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:56:37,992 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:56:37,992 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:56:37,993 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:57:38,994 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:57:38,996 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:57:38,997 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:57:38,997 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:57:38,998 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:58:40,000 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:58:40,002 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:58:40,002 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:58:40,002 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:58:40,003 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 10:59:41,005 - cloud_monitor - INFO - Metrics collected
+2026-01-14 10:59:41,007 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 10:59:41,008 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 10:59:41,008 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 10:59:41,009 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:00:42,010 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:00:42,013 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:00:42,013 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:00:42,013 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:00:42,014 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:01:43,016 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:01:43,018 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:01:43,018 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:01:43,018 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:01:43,019 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:02:44,020 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:02:44,023 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:02:44,023 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:02:44,024 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:02:44,025 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:03:45,026 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:03:45,028 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:03:45,029 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:03:45,029 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:03:45,030 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:04:46,032 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:04:46,034 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:04:46,034 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:04:46,035 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:04:46,036 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:05:47,037 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:05:47,039 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:05:47,039 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:05:47,040 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:05:47,041 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:06:48,042 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:06:48,044 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:06:48,044 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:06:48,045 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:06:48,045 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:07:49,047 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:07:49,049 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:07:49,049 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:07:49,050 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:07:49,050 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:08:50,051 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:08:50,053 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:08:50,054 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:08:50,054 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:08:50,055 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:09:51,057 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:09:51,059 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:09:51,059 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:09:51,059 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:09:51,060 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:10:52,062 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:10:52,064 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:10:52,064 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:10:52,065 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:10:52,065 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:11:53,067 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:11:53,069 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:11:53,069 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:11:53,070 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:11:53,071 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:12:54,072 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:12:54,074 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:12:54,074 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:12:54,075 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:12:54,075 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 11:13:55,078 - cloud_monitor - INFO - Metrics collected
+2026-01-14 11:13:55,080 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 11:13:55,081 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 11:13:55,081 - cloud_monitor - WARNING - Threshold breach detected: {'threshold_exceeded': False, 'exceeded_resources': []}
+2026-01-14 11:13:55,082 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 15:22:10,356 - cloud_monitor - INFO - System started
+2026-01-14 15:22:11,360 - cloud_monitor - INFO - Metrics collected
+2026-01-14 15:22:11,377 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 15:22:11,377 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 15:22:11,380 - cloud_monitor - ERROR - Failed to load model 'models/isolation_forest.pkl': 
+2026-01-14 15:26:18,129 - cloud_monitor - INFO - System started
+2026-01-14 15:26:19,132 - cloud_monitor - INFO - Metrics collected
+2026-01-14 15:26:19,138 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 15:26:19,138 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 15:26:20,175 - cloud_monitor - ERROR - Error in main loop: float() argument must be a string or a real number, not 'dict'
+2026-01-14 20:10:01,621 - cloud_monitor - INFO - System started
+2026-01-14 20:10:02,633 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:10:02,637 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:10:02,637 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:10:02,639 - cloud_monitor - ERROR - Error in main loop: No module named 'sklearn'
+2026-01-14 20:10:36,968 - cloud_monitor - INFO - System started
+2026-01-14 20:10:37,972 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:10:37,988 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:10:37,989 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:10:37,991 - cloud_monitor - ERROR - Error in main loop: No module named 'sklearn'
+2026-01-14 20:15:43,528 - cloud_monitor - INFO - System started
+2026-01-14 20:15:44,531 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:15:44,548 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:15:44,548 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:15:50,335 - cloud_monitor - ERROR - Error in main loop: 'load'
+2026-01-14 20:17:57,489 - cloud_monitor - INFO - System started
+2026-01-14 20:17:58,492 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:17:58,499 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:17:58,501 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:17:59,620 - cloud_monitor - ERROR - Error in main loop: 'load'
+2026-01-14 20:22:33,102 - cloud_monitor - INFO - System started
+2026-01-14 20:22:34,105 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:22:34,117 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:22:34,119 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:22:34,120 - cloud_monitor - ERROR - Error in main loop: cannot import name 'adapt_metrics_for_ai' from 'utils.metrics_adapter' (C:\Users\moham\OneDrive\Desktop\FYP\Python Bash Code\src\utils\metrics_adapter.py)
+2026-01-14 20:28:18,014 - cloud_monitor - INFO - System started
+2026-01-14 20:28:19,017 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:28:19,021 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:28:19,021 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:28:19,021 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-14 20:28:20,163 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- cpu-iowait
+- cpu-system
+- cpu-user
+- load-15m
+- load-1m
+- ...
+Feature names seen at fit time, yet now missing:
+- cpu_usage_percent
+- disk_usage_percent
+- memory_usage_percent
+
+2026-01-14 20:29:52,600 - cloud_monitor - INFO - System started
+2026-01-14 20:29:53,602 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:29:53,609 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:29:53,610 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:29:53,610 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-14 20:29:54,731 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- cpu-iowait
+- cpu-system
+- cpu-user
+- load-15m
+- load-1m
+- ...
+Feature names seen at fit time, yet now missing:
+- cpu_usage_percent
+- disk_usage_percent
+- memory_usage_percent
+
+2026-01-14 20:32:25,252 - cloud_monitor - INFO - System started
+2026-01-14 20:32:26,254 - cloud_monitor - INFO - Metrics collected
+2026-01-14 20:32:26,263 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-14 20:32:26,263 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-14 20:32:26,264 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-14 20:32:27,467 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 00:42:03,551 - cloud_monitor - INFO - System started
+2026-01-15 00:42:04,561 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:42:04,565 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:42:04,566 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:42:04,566 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:43:05,569 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:43:05,576 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:43:05,577 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:43:05,577 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:44:06,580 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:44:06,587 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:44:06,588 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:44:06,588 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:45:07,590 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:45:07,594 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:45:07,594 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:45:07,595 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:46:08,598 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:46:08,604 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:46:08,605 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:46:08,605 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:47:09,606 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:47:09,609 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:47:09,609 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:47:09,610 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:48:10,612 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:48:10,619 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:48:10,619 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:48:10,620 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:49:11,622 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:49:11,624 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:49:11,625 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:49:11,625 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:50:12,627 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:50:12,629 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:50:12,629 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:50:12,629 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:51:13,631 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:51:13,633 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:51:13,633 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:51:13,633 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:52:14,635 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:52:14,637 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:52:14,637 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:52:14,637 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:53:15,639 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:53:15,641 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:53:15,641 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:53:15,641 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:54:16,644 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:54:16,650 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:54:16,651 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:54:16,651 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:55:17,653 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:55:17,660 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:55:17,661 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:55:17,662 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:56:18,665 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:56:18,670 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:56:18,670 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:56:18,671 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:57:19,673 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:57:19,678 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:57:19,678 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:57:19,679 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:58:20,680 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:58:20,683 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:58:20,683 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:58:20,683 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 00:59:21,686 - cloud_monitor - INFO - Metrics collected
+2026-01-15 00:59:21,692 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 00:59:21,693 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 00:59:21,693 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:00:22,695 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:00:22,702 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:00:22,702 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:00:22,702 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:01:23,704 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:01:23,706 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:01:23,706 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:01:23,706 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:02:24,709 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:02:24,714 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:02:24,714 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:02:24,714 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:03:25,717 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:03:25,723 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:03:25,723 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:03:25,724 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:04:26,726 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:04:26,732 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:04:26,732 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:04:26,733 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:05:27,734 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:05:27,736 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:05:27,736 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:05:27,737 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:06:28,739 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:06:28,740 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:06:28,740 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:06:28,741 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:07:29,742 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:07:29,748 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:07:29,748 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:07:29,748 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:08:30,750 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:08:30,755 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:08:30,755 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:08:30,755 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:09:31,758 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:09:31,762 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:09:31,763 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:09:31,763 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:10:17,616 - cloud_monitor - INFO - System started
+2026-01-15 01:10:18,618 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:10:18,625 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:10:18,625 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:10:18,626 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:10:32,764 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:10:32,769 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:10:32,770 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:10:32,770 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:11:20,763 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:11:20,766 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:11:20,768 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:11:20,809 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.7003)
+2026-01-15 01:11:20,810 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.7003228662244109, 'raw_prediction': -1}
+2026-01-15 01:11:20,810 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:11:33,772 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:11:33,773 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:11:33,773 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:11:33,773 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:12:21,811 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:12:21,813 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:12:21,813 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:12:21,830 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6730)
+2026-01-15 01:12:21,830 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.673013729745743, 'raw_prediction': -1}
+2026-01-15 01:12:21,830 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:12:34,775 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:12:34,777 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:12:34,777 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:12:34,777 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:13:22,832 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:13:22,833 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:13:22,833 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:13:22,850 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6224)
+2026-01-15 01:13:22,850 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6223905300560146, 'raw_prediction': -1}
+2026-01-15 01:13:22,851 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:13:35,778 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:13:35,780 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:13:35,780 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:13:35,781 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:14:23,853 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:14:23,858 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:14:23,859 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:14:23,887 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6583)
+2026-01-15 01:14:23,887 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6583048350376732, 'raw_prediction': -1}
+2026-01-15 01:14:23,888 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:14:36,782 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:14:36,784 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:14:36,784 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:14:36,785 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:15:24,889 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:15:24,890 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:15:24,891 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:15:24,906 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6335)
+2026-01-15 01:15:24,907 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6334582430830913, 'raw_prediction': -1}
+2026-01-15 01:15:24,907 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:15:37,786 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:15:37,788 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:15:37,789 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:15:37,789 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:16:25,909 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:16:25,911 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:16:25,911 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:16:25,926 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6820)
+2026-01-15 01:16:25,927 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.681996352022276, 'raw_prediction': -1}
+2026-01-15 01:16:25,927 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:16:38,790 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:16:38,792 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:16:38,792 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:16:38,792 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:17:38,241 - cloud_monitor - INFO - System started
+2026-01-15 01:17:39,242 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:17:39,246 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:17:39,247 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:17:39,248 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:17:39,793 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:17:39,795 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:17:39,795 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:17:39,796 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:18:40,797 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:18:40,799 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:18:40,799 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:18:40,799 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:19:32,181 - cloud_monitor - INFO - System started
+2026-01-15 01:19:33,184 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:19:33,188 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:19:33,188 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:19:33,189 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:19:34,474 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6106)
+2026-01-15 01:19:34,474 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6105891146468412, 'raw_prediction': -1}
+2026-01-15 01:19:34,475 - cloud_monitor - ERROR - Error in main loop: 0
+2026-01-15 01:19:41,801 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:19:41,803 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:19:41,804 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:19:41,804 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:20:42,806 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:20:42,808 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:20:42,808 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:20:42,808 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:21:43,810 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:21:43,812 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:21:43,812 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:21:43,813 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:22:44,814 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:22:44,815 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:22:44,816 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:22:44,816 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:23:45,818 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:23:45,820 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:23:45,820 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:23:45,821 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:24:46,822 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:24:46,824 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:24:46,825 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:24:46,825 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:25:18,584 - cloud_monitor - INFO - System started
+2026-01-15 01:25:19,587 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:25:19,594 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:25:19,594 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:25:19,595 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:25:47,827 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:25:47,829 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:25:47,829 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:25:47,829 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:26:21,994 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:26:21,996 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:26:21,996 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:26:48,831 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:26:48,833 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:26:48,834 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:26:48,834 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:27:07,328 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 01:27:12,648 - cloud_monitor - INFO - System started
+2026-01-15 01:27:13,651 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:27:13,657 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:27:13,658 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:27:13,658 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:27:18,768 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 01:27:43,882 - cloud_monitor - INFO - System started
+2026-01-15 01:27:44,884 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:27:44,891 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:27:44,891 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:27:44,892 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:27:49,836 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:27:49,837 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:27:49,838 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:27:49,838 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:28:47,074 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:28:47,076 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:28:47,076 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:28:50,840 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:28:50,841 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:28:50,842 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:28:50,842 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:29:11,606 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 01:29:14,776 - cloud_monitor - INFO - System started
+2026-01-15 01:29:15,779 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:29:15,785 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:29:15,786 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:29:15,786 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 01:29:51,843 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:29:51,845 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:29:51,845 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:29:51,846 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:30:17,990 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:30:17,992 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:30:17,993 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:30:52,847 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:30:52,849 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:30:52,849 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:30:52,850 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:31:19,012 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:31:19,014 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:31:19,014 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:31:53,851 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:31:53,853 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:31:53,853 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:31:53,854 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:32:20,032 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:32:20,034 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:32:20,035 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:32:54,855 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:32:54,857 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:32:54,858 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:32:54,858 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:33:21,053 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:33:21,055 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:33:21,055 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:33:55,860 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:33:55,862 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:33:55,862 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:33:55,862 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:34:22,076 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:34:22,079 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:34:22,079 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:34:56,864 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:34:56,865 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:34:56,866 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:34:56,866 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:35:23,097 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:35:23,099 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:35:23,099 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:35:57,867 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:35:57,869 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:35:57,869 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:35:57,869 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:36:24,117 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:36:24,119 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:36:24,119 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:36:58,871 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:36:58,873 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:36:58,873 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:36:58,874 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:37:25,138 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:37:25,140 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:37:25,140 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:37:59,875 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:37:59,877 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:37:59,877 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:37:59,877 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:38:26,158 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:38:26,159 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:38:26,160 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:39:00,878 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:39:00,879 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:39:00,880 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:39:00,880 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:39:27,178 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:39:27,180 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:39:27,180 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:40:01,882 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:40:01,884 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:40:01,884 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:40:01,884 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:40:28,198 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:40:28,200 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:40:28,200 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:40:33,924 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 01:41:02,885 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:41:02,887 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:41:02,887 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:41:02,888 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:42:03,889 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:42:03,893 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:42:03,893 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:42:03,894 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:43:04,896 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:43:04,898 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:43:04,898 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:43:04,898 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:44:05,900 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:44:05,903 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:44:05,904 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:44:05,904 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:45:06,907 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:45:06,914 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:45:06,915 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:45:06,916 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:46:07,919 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:46:07,924 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:46:07,924 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:46:07,924 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:47:08,926 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:47:08,929 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:47:08,930 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:47:08,930 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:48:09,933 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:48:09,939 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:48:09,940 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:48:09,941 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:49:10,943 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:49:10,945 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:49:10,945 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:49:10,945 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:50:11,948 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:50:11,953 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:50:11,954 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:50:11,954 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:51:12,956 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:51:12,961 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:51:12,962 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:51:12,962 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:52:13,965 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:52:13,970 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:52:13,971 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:52:13,972 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:53:14,975 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:53:14,980 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:53:14,981 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:53:14,981 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:54:15,982 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:54:15,984 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:54:15,984 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:54:15,984 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:55:16,986 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:55:16,988 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:55:16,988 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:55:16,988 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:56:17,989 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:56:17,991 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:56:17,991 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:56:17,991 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:57:18,993 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:57:18,994 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:57:18,995 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:57:18,995 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:58:19,996 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:58:19,998 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:58:19,998 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:58:19,999 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 01:59:21,000 - cloud_monitor - INFO - Metrics collected
+2026-01-15 01:59:21,002 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 01:59:21,002 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 01:59:21,002 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:00:22,004 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:00:22,006 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:00:22,007 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:00:22,007 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:01:23,009 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:01:23,014 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:01:23,014 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:01:23,014 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:02:24,016 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:02:24,017 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:02:24,017 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:02:24,018 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:03:25,019 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:03:25,021 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:03:25,021 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:03:25,021 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:04:26,023 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:04:26,024 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:04:26,024 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:04:26,025 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:05:27,026 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:05:27,028 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:05:27,028 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:05:27,028 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:06:28,029 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:06:28,031 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:06:28,031 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:06:28,031 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:07:29,032 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:07:29,035 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:07:29,035 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:07:29,035 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:08:30,037 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:08:30,039 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:08:30,039 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:08:30,039 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:09:31,041 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:09:31,045 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:09:31,046 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:09:31,046 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:10:32,049 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:10:32,051 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:10:32,051 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:10:32,052 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:11:33,053 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:11:33,055 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:11:33,055 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:11:33,055 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:12:34,058 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:12:34,063 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:12:34,063 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:12:34,064 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:13:35,066 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:13:35,068 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:13:35,068 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:13:35,068 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:14:36,070 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:14:36,073 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:14:36,073 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:14:36,073 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:15:37,075 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:15:37,077 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:15:37,077 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:15:37,078 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:16:38,079 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:16:38,080 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:16:38,081 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:16:38,081 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:17:39,082 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:17:39,084 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:17:39,084 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:17:39,084 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:18:40,085 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:18:40,087 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:18:40,088 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:18:40,088 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:19:41,090 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:19:41,092 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:19:41,092 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:19:41,092 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:20:42,094 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:20:42,096 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:20:42,096 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:20:42,096 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:21:43,098 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:21:43,100 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:21:43,100 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:21:43,100 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 02:22:44,102 - cloud_monitor - INFO - Metrics collected
+2026-01-15 02:22:44,104 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 02:22:44,104 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 02:22:44,104 - cloud_monitor - ERROR - Error in main loop: name 'detect_anomaly' is not defined
+2026-01-15 06:10:36,233 - cloud_monitor - INFO - System started
+2026-01-15 06:10:37,238 - cloud_monitor - INFO - Metrics collected
+2026-01-15 06:10:37,341 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 06:10:37,341 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 06:10:37,342 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 06:10:39,217 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6954)
+2026-01-15 06:10:39,218 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6954317651488728, 'raw_prediction': -1}
+2026-01-15 06:10:39,219 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=-0.6954
+2026-01-15 06:10:39,219 - cloud_monitor - INFO - Auto-healing triggered
+2026-01-15 06:11:40,222 - cloud_monitor - INFO - Metrics collected
+2026-01-15 06:11:40,227 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 06:11:40,228 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 06:11:40,249 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6097)
+2026-01-15 06:11:40,249 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6096594855136755, 'raw_prediction': -1}
+2026-01-15 06:11:40,250 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=-0.6097
+2026-01-15 06:11:40,250 - cloud_monitor - INFO - Auto-healing triggered
+2026-01-15 06:11:44,125 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 06:38:01,065 - cloud_monitor - INFO - System started
+2026-01-15 06:38:02,096 - cloud_monitor - INFO - Metrics collected
+2026-01-15 06:38:02,113 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 06:38:02,113 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 06:38:02,113 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 51336, 'max': 0}}}
+2026-01-15 06:38:02,114 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-15 06:38:02,114 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 06:38:04,959 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.6407)
+2026-01-15 06:38:04,959 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.6406689944393856, 'raw_prediction': -1}
+2026-01-15 06:38:04,961 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=-0.6407
+2026-01-15 06:38:04,961 - cloud_monitor - INFO - Auto-healing triggered
+2026-01-15 06:38:16,967 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 18:06:41,879 - cloud_monitor - INFO - System started
+2026-01-15 18:06:42,905 - cloud_monitor - INFO - Metrics collected
+2026-01-15 18:06:42,922 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 18:06:42,922 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 18:06:42,922 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 61410, 'max': 0}}}
+2026-01-15 18:06:42,922 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-15 18:06:42,924 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 18:06:50,314 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.5950)
+2026-01-15 18:06:50,314 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.5950381352217228, 'raw_prediction': -1}
+2026-01-15 18:06:50,314 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=-0.5950
+2026-01-15 18:06:50,315 - cloud_monitor - INFO - Auto-healing triggered
+2026-01-15 18:06:52,781 - cloud_monitor - INFO - Shutdown requested
+2026-01-15 18:40:37,571 - cloud_monitor - INFO - System started
+2026-01-15 18:40:38,573 - cloud_monitor - INFO - Metrics collected
+2026-01-15 18:40:38,584 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 18:40:38,584 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 18:40:38,600 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 61751.0, 'max': 10}}}
+2026-01-15 18:40:38,600 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-15 18:40:38,602 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-15 18:40:39,883 - ai.anomaly_detector - WARNING - AI anomaly detected (score=-0.5988)
+2026-01-15 18:40:39,883 - cloud_monitor - WARNING - AI anomaly detected: {'anomaly': True, 'score': -0.5988290614345988, 'raw_prediction': -1}
+2026-01-15 18:40:39,885 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=-0.5988
+2026-01-15 18:40:39,885 - cloud_monitor - INFO - Auto-healing triggered
+2026-01-15 18:41:40,887 - cloud_monitor - INFO - Metrics collected
+2026-01-15 18:41:40,891 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 18:41:40,891 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 18:41:40,903 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 61751.0, 'max': 10}}}
+2026-01-15 18:41:40,904 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-15 18:42:41,921 - cloud_monitor - INFO - Metrics collected
+2026-01-15 18:42:41,922 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 18:42:41,924 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 18:42:41,934 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 61751.0, 'max': 10}}}
+2026-01-15 18:42:41,934 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-15 18:43:42,952 - cloud_monitor - INFO - Metrics collected
+2026-01-15 18:43:42,954 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-15 18:43:42,954 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-15 18:43:42,965 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 61751.0, 'max': 10}}}
+2026-01-15 18:43:42,965 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-15 18:43:45,264 - cloud_monitor - INFO - Shutdown requested
+2026-01-16 01:14:22,772 - cloud_monitor - INFO - System started
+2026-01-16 01:14:23,776 - cloud_monitor - INFO - Metrics collected
+2026-01-16 01:14:23,789 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-16 01:14:23,789 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-16 01:14:23,805 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 64840.0, 'max': 50}}}
+2026-01-16 01:14:23,805 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-16 01:14:23,805 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-01-16 01:15:31,602 - cloud_monitor - INFO - Metrics collected
+2026-01-16 01:15:31,605 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-01-16 01:15:31,605 - cloud_monitor - INFO - Metrics saved to CSV
+2026-01-16 01:15:31,615 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 64840.0, 'max': 50}}}
+2026-01-16 01:15:31,615 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-01-16 01:15:49,068 - cloud_monitor - INFO - Shutdown requested
+2026-02-03 17:08:36,326 - cloud_monitor - INFO - System started
+2026-02-03 17:08:37,331 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:08:37,347 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:08:37,348 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:08:37,362 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:08:37,364 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:08:37,364 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-02-03 17:08:38,734 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:09:39,736 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:09:39,739 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:09:39,739 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:09:39,752 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:09:39,753 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:09:39,754 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:09:47,015 - cloud_monitor - INFO - System started
+2026-02-03 17:09:48,019 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:09:48,037 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:09:48,037 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:09:48,050 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:09:48,051 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:09:48,051 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-02-03 17:09:49,296 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:10:40,756 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:10:40,757 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:10:40,757 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:10:40,767 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:10:40,769 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:10:40,770 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:10:50,298 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:10:50,300 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:10:50,301 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:10:50,313 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:10:50,313 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:10:50,314 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:11:41,772 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:11:41,773 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:11:41,774 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:11:41,784 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:11:41,785 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:11:41,785 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:11:51,316 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:11:51,317 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:11:51,318 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:11:51,329 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:11:51,329 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:11:51,330 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:12:42,786 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:12:42,788 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:12:42,788 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:12:42,799 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:12:42,799 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:12:42,800 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:12:52,332 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:12:52,334 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:12:52,334 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:12:52,345 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:12:52,345 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:12:52,346 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:13:43,802 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:13:43,804 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:13:43,804 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:13:43,814 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:13:43,814 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:13:43,815 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:13:53,347 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:13:53,350 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:13:53,350 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:13:53,363 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:13:53,363 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:13:53,364 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:13:56,887 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-02-03 17:14:12,040 - cloud_monitor - INFO - System started
+2026-02-03 17:14:13,044 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:14:13,047 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:14:13,048 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:14:13,060 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:14:13,060 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:14:13,060 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-02-03 17:14:44,818 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:14:44,820 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:14:44,820 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:14:44,831 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:14:44,831 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:14:44,832 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:14:54,367 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:14:54,369 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:14:54,369 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:14:54,380 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:14:54,380 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:14:54,381 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:15:45,834 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:15:45,835 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:15:45,835 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:15:45,846 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:15:45,846 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:15:45,848 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:15:55,383 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:15:55,385 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:15:55,385 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:15:55,395 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:15:55,395 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:15:55,396 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:16:46,849 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:16:46,851 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:16:46,851 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:16:46,861 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:16:46,861 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:16:46,863 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:16:56,398 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:16:56,400 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:16:56,400 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:16:56,411 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:16:56,411 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:16:56,412 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:17:47,865 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:17:47,866 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:17:47,868 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:17:47,880 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:17:47,881 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:17:47,881 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:17:57,413 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:17:57,415 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:17:57,415 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:17:57,426 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:17:57,426 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:17:57,427 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:18:48,883 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:18:48,884 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:18:48,884 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:18:48,895 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:18:48,897 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:18:48,897 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:18:58,429 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:18:58,430 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:18:58,431 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:18:58,441 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:18:58,441 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:18:58,442 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:19:49,900 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:19:49,901 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:19:49,901 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:19:49,913 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:19:49,914 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:19:49,914 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:19:59,443 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:19:59,445 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:19:59,445 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:19:59,456 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:19:59,457 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:19:59,458 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:20:50,917 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:20:50,925 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:20:50,926 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:20:50,961 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:20:50,961 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:20:50,962 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:21:00,460 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:21:00,462 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:21:00,462 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:21:00,473 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:21:00,474 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:21:00,474 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:21:51,964 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:21:51,965 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:21:51,966 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:21:51,977 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:21:51,977 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:21:51,978 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:22:01,477 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:22:01,478 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:22:01,479 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:22:01,489 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:22:01,489 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:22:01,490 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 17:22:52,979 - cloud_monitor - INFO - Metrics collected
+2026-02-03 17:22:52,981 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 17:22:52,981 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 17:22:52,990 - cloud_monitor - WARNING - Network threshold breach: {'threshold_exceeded': True, 'resource': 'network', 'details': {'dropin': {'value': 410694.0, 'max': 50}}}
+2026-02-03 17:22:52,990 - cloud_monitor - WARNING - Auto-heal triggered for anomaly score=0.0000
+2026-02-03 17:22:52,992 - cloud_monitor - ERROR - Error in main loop: The feature names should match those that were passed during fit.
+Feature names unseen at fit time:
+- bandwidth_usage_mbps
+- jitter_ms
+- latency_ms
+- network_error_rate
+- packet_loss_percent
+
+2026-02-03 18:55:11,753 - cloud_monitor - INFO - System started
+2026-02-03 18:55:12,756 - cloud_monitor - INFO - Metrics collected
+2026-02-03 18:55:12,759 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 18:55:12,759 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 18:55:12,771 - ai.anomaly_detector - INFO - Loading AI model from models\isolation_forest.pkl
+2026-02-03 18:55:12,814 - cloud_monitor - WARNING - Threshold breach detected (AI score normal): {'dropin': {'value': 410694.0, 'max': 50}}, action=soft_auto_heal (logging only)
+2026-02-03 18:55:12,814 - cloud_monitor - INFO - Trace: collected -> evaluated -> AI decision: False -> action: soft_auto_heal
+2026-02-03 18:55:15,816 - cloud_monitor - INFO - Metrics collected
+2026-02-03 18:55:15,817 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 18:55:15,817 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 18:55:15,844 - cloud_monitor - WARNING - Threshold breach detected (AI score normal): {'dropin': {'value': 410694.0, 'max': 50}}, action=soft_auto_heal (logging only)
+2026-02-03 18:55:15,844 - cloud_monitor - INFO - Trace: collected -> evaluated -> AI decision: False -> action: soft_auto_heal
+2026-02-03 18:55:18,846 - cloud_monitor - INFO - Metrics collected
+2026-02-03 18:55:18,848 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 18:55:18,848 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 18:55:18,873 - cloud_monitor - WARNING - Threshold breach detected (AI score normal): {'dropin': {'value': 410694.0, 'max': 50}}, action=soft_auto_heal (logging only)
+2026-02-03 18:55:18,873 - cloud_monitor - INFO - Trace: collected -> evaluated -> AI decision: False -> action: soft_auto_heal
+2026-02-03 18:55:21,875 - cloud_monitor - INFO - Metrics collected
+2026-02-03 18:55:21,878 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 18:55:21,878 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 18:55:21,905 - cloud_monitor - WARNING - Threshold breach detected (AI score normal): {'dropin': {'value': 410694.0, 'max': 50}}, action=soft_auto_heal (logging only)
+2026-02-03 18:55:21,907 - cloud_monitor - INFO - Trace: collected -> evaluated -> AI decision: False -> action: soft_auto_heal
+2026-02-03 18:55:24,908 - cloud_monitor - INFO - Metrics collected
+2026-02-03 18:55:24,910 - cloud_monitor - INFO - Metrics written to data\metrics.csv
+2026-02-03 18:55:24,910 - cloud_monitor - INFO - Metrics saved to CSV
+2026-02-03 18:55:24,940 - cloud_monitor - WARNING - Threshold breach detected (AI score normal): {'dropin': {'value': 410694.0, 'max': 50}}, action=soft_auto_heal (logging only)
+2026-02-03 18:55:24,940 - cloud_monitor - INFO - Trace: collected -> evaluated -> AI decision: False -> action: soft_auto_heal
+2026-02-03 18:55:24,940 - cloud_monitor - INFO - Starting scheduled model retraining (Cycle 5)
+2026-02-03 18:55:25,120 - cloud_monitor - INFO - Model retraining completed
+2026-04-13 23:29:01,543 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-13 23:29:01,548 - AutoHealingEngine - INFO - [ACTION] Demo Mode active. Polling interval reduced to 2s
+2026-04-13 23:29:01,548 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models\isolation_forest.pkl
+2026-04-13 23:29:01,607 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-13 23:29:01,607 - AutoHealingEngine - INFO - System initialized. Monitoring LXC 101 at 127.0.0.1
+2026-04-13 23:29:01,607 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:03,727 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:05,729 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:07,758 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:09,761 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:11,782 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:13,784 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:15,814 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:17,816 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:19,865 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:21,867 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:23,915 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:25,916 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:27,954 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:29,955 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:32,013 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:34,015 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:36,052 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:38,053 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:40,085 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:42,087 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:44,128 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:46,129 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:48,149 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:50,150 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:52,191 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:54,194 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:29:56,220 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:29:58,221 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:00,258 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:02,259 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:04,284 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:06,285 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:08,323 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:10,324 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:12,351 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:14,353 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:16,398 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:18,399 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:20,427 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:22,428 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:24,463 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:26,464 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:28,484 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:30,485 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:32,515 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:34,517 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:36,532 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:38,533 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:40,572 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:42,573 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:44,597 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:46,598 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:48,626 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:50,627 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:52,642 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:54,643 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:30:56,662 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:30:58,663 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-04-13 23:31:00,717 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
+2026-04-13 23:31:02,639 - AutoHealingEngine - INFO - Shutdown requested by user.
