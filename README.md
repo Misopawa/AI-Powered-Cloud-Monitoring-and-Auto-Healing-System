@@ -20,58 +20,28 @@ AI-Based Anomaly Detection: Utilizes an Isolation Forest model (trained on the W
 
 Network Monitoring: Handled via threshold-based detection to account for the cumulative and bursty nature of network traffic.
 
-📂 Project Structure
-
-Python Bash Code/
-├── src/
-│   ├── main.py                # Main execution loop
-│   ├── monitoring/
-│   │   ├── metrics_collector.py
-│   │   └── threshold_monitor.py
-│   ├── ai/
-│   │   ├── train_model.py
-│   │   └── anomaly_detector.py
-│   ├── utils/
-│   │   ├── config_loader.py
-│   │   ├── csv_writer.py
-│   │   ├── logger.py
-│   │   └── westermo_preprocessor.py
-│   └── recovery/
-│       └── auto_healer.py
-├── config/
-│   └── config.yaml            # Thresholds and system settings
-├── data/
-│   ├── raw/                   # Mock metrics and Westermo data
-│   ├── processed/             # Cleaned datasets
-│   └── metrics.csv            # Runtime logs
-├── models/
-│   └── isolation_forest.pkl   # Saved AI model
-└── logs/
-    └── system.log             # Event and recovery logs
-
-
 🛠️ Installation & Execution
 
 1. Prerequisites
 
-Ensure you have Python 3.8+ installed. Install the necessary dependencies:
+    Ensure you have Python 3.8+ installed. Install the necessary dependencies:
 
-pip install psutil pandas scikit-learn pyyaml
+        pip install psutil pandas scikit-learn pyyaml
 
 
 2. Training the AI Model
 
-First, preprocess the industrial dataset and train the Isolation Forest model:
+    First, preprocess the industrial dataset and train the Isolation Forest model:
 
-python src/utils/westermo_preprocessor.py
-python src/ai/train_model.py
+        python src/utils/westermo_preprocessor.py
+        python src/ai/train_model.py
 
 
 3. Running the System
 
-Start the real-time monitoring and auto-healing service:
+    Start the real-time monitoring and auto-healing service:
 
-python src/main.py
+        python src/main.py
 
 
 📝 Configuration
