@@ -36,12 +36,19 @@ def main():
                 logger.info("--------------------------- NEW CYCLE ---------------------------")
                 metrics = collect_metrics(config)
                 
-                if metrics.get('is_booting'):
-                    logger.info("[DETECTION] Boot-up Gap detected. Skipping analysis...")
+                # Null Guard: Skip cycle if Proxmox API returns None (e.g. during reboot)
+                if metrics is None:
+                    logger.info("[DETECTION] API Gap/Reboot detected. Skipping cycle...")
                     time.sleep(interval)
                     continue
 
-                logger.info(f"[DETECTION] Telemetry: CPU={metrics['cpu_usage_percent']}%, MEM={metrics['memory_usage_percent']}%")
+                # Log Telemetry with Westermo-aligned features
+                load_1m = metrics.get('load-1m', 0)
+                mem_free = metrics.get('sys-mem-free', 0)
+                mem_total = metrics.get('sys-mem-total', 1)
+                mem_usage = round(((mem_total - mem_free) / mem_total) * 100, 2)
+                
+                logger.info(f"[DETECTION] Telemetry: LOAD-1M={load_1m}, MEM={mem_usage}%")
                 
                 if monitoring_cfg.get('save_to_csv'):
                     save_metrics_to_csv(metrics)
@@ -53,7 +60,7 @@ def main():
                 action = policy_engine.evaluate_and_heal(anomaly)
                 
                 if action != "none":
-                    logger.info(f"[ACTION] Healing action '{action}' executed. Waiting for stability...")
+                    logger.info(f"[ACTION] Hierarchical recovery '{action}' triggered. Waiting for stability...")
 
                 # Wait for next interval
                 time.sleep(interval)

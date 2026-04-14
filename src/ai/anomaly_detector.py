@@ -29,26 +29,20 @@ class AnomalyDetector:
     def detect_anomaly(self, metrics):
         """
         Multivariate anomaly detection using Isolation Forest.
-        Implements Vector Sync and Forward-Fill (Last Known Good Value).
+        Aligns with Westermo system-1.csv features.
         """
-        if metrics.get('is_booting', False):
-            logger.info("[DETECTION] System is booting. Ignoring metrics to avoid false anomalies.")
-            return {"anomaly": False, "score": 0.0, "is_booting": True}
+        if metrics is None:
+            return {"anomaly": False, "score": 0.0, "skip": True}
 
-        features = ['cpu_usage_percent', 'memory_usage_percent', 'disk_usage_percent', 'net_in_bytes', 'net_out_bytes']
+        features = [
+            'load-1m', 'load-5m', 'load-15m', 
+            'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
+            'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
+            'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
+        ]
         
-        # Forward-Fill (Last Known Good Value) logic
-        current_data = {}
-        for col in features:
-            val = metrics.get(col)
-            if val is None or val == 0: # 0 can also be suspect during boot gap
-                if self.last_known_metrics and self.last_known_metrics.get(col) is not None:
-                    current_data[col] = self.last_known_metrics[col]
-                    logger.debug(f"[DETECTION] Forward-filling {col} with last known good value.")
-                else:
-                    current_data[col] = 0.0
-            else:
-                current_data[col] = float(val)
+        # Extract features from metrics
+        current_data = {col: float(metrics.get(col, 0.0)) for col in features}
         
         self.last_known_metrics = current_data
         
@@ -69,7 +63,6 @@ class AnomalyDetector:
             self.cycles_since_retrain = 0
             
         # Predict
-        pred = self.model.predict(X)[0]
         score = self.model.score_samples(X)[0]
         
         anomaly_threshold = self.ai_cfg.get('anomaly_threshold', -0.5)

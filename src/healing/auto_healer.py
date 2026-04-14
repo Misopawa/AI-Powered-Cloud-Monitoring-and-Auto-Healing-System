@@ -14,12 +14,13 @@ class PolicyEngine:
         self.prox_cfg = config.get('proxmox', {})
         self.vmid = self.prox_cfg.get('vmid', 101)
         self.node = self.prox_cfg.get('node', 'pve')
-        self.cache_file = "status_cache.json"
+        # Path to status cache aligned with project structure
+        self.cache_file = os.path.join("config", "status_cache.json")
         
         # Demo Mode logic
         self.demo_mode = self.mon_cfg.get('demo_mode', False)
         if self.demo_mode:
-            self.cooldown_period = self.mon_cfg.get('demo_cooldown', 30)
+            self.cooldown_period = 30 # Presentation requirement
             logger.info("[ACTION] Demo Mode active. Cooldown reduced to %ds", self.cooldown_period)
         else:
             self.cooldown_period = self.policy_cfg.get('cooldown_period', 90)
@@ -29,6 +30,9 @@ class PolicyEngine:
         self.current_level_idx = 0
         self.last_anomaly_type = None
         self.max_retries = self.policy_cfg.get('max_retries', 2)
+        
+        # Ensure config directory exists
+        os.makedirs("config", exist_ok=True)
         
         # Load state from persistence
         self._load_state()
@@ -73,6 +77,7 @@ class PolicyEngine:
     def evaluate_and_heal(self, anomaly):
         """
         Evaluate anomalies against the Policy Engine and trigger Hierarchical Recovery.
+        Aligns with Chapter 3 5-Tier Escalation Path.
         """
         if not anomaly.get('anomaly'):
             # System is healthy, reset escalation state if it was active
@@ -81,18 +86,22 @@ class PolicyEngine:
                 self.reset_state()
             return "none"
 
-        # Determine anomaly type
+        # Determine anomaly type based on new feature names
         features = anomaly.get('features', {})
-        if features.get('net_in_bytes', 0) > 1000000: # Example: high traffic
-            anomaly_type = 'network'
-        elif features.get('cpu_usage_percent', 0) > 80:
+        load_1m = features.get('load-1m', 0)
+        mem_free = features.get('sys-mem-free', 0)
+        mem_total = features.get('sys-mem-total', 1)
+        mem_usage_percent = ((mem_total - mem_free) / mem_total) * 100
+
+        if load_1m > 80: # CPU anomaly (mapped to load-1m)
             anomaly_type = 'cpu'
-        elif features.get('memory_usage_percent', 0) > 80:
+        elif mem_usage_percent > 85: # Memory anomaly
             anomaly_type = 'memory'
         else:
-            anomaly_type = 'cpu'
+            anomaly_type = 'general'
 
-        path = self._get_path(anomaly_type)
+        # Default escalation path: 1 -> 2 -> 3 -> 4 -> 5
+        path = [1, 2, 3, 4, 5]
         
         # Reset if anomaly type changed
         if anomaly_type != self.last_anomaly_type and self.last_anomaly_type is not None:
@@ -105,16 +114,17 @@ class PolicyEngine:
         
         action_taken = self._trigger_level_action(current_level, anomaly_type)
         
-        # Handle retries for Level 1
+        # Handle retries for Level 1 (Restart Service)
         if current_level == 1:
             self.retries += 1
             if self.retries > self.max_retries:
-                logger.warning(f"[ACTION] Level 1 retry limit ({self.max_retries}) reached. Escalating...")
+                logger.warning(f"[ACTION] Level 1 retry limit ({self.max_retries}) reached. Escalating to Level 2...")
                 self.current_level_idx += 1
                 self.retries = 0
         else:
             # Escalate immediately if level > 1 persists
-            self.current_level_idx = min(self.current_level_idx + 1, len(path) - 1)
+            if self.current_level_idx < len(path) - 1:
+                self.current_level_idx += 1
             
         self._save_state()
         
@@ -131,32 +141,32 @@ class PolicyEngine:
 
     def _trigger_level_action(self, level, anomaly_type):
         """
-        Implement the 5-Tier Escalation actions.
+        Implementation of the 5-Tier Escalation Hierarchy (Table 3.5).
         """
         proxmox = get_proxmox_client(self.config)
         
         if level == 1:
-            logger.warning(f"[ACTION] [Level 1] Restarting services for {anomaly_type} anomaly (Retry {self.retries + 1})")
+            logger.warning(f"[ACTION] [Level 1] Restarting Application Service (Retry {self.retries + 1}/{self.max_retries + 1})")
             return "restart_service"
             
         elif level == 2:
-            logger.warning(f"[ACTION] [Level 2] Process Reset for {anomaly_type} anomaly (VMID {self.vmid})")
+            logger.warning(f"[ACTION] [Level 2] Full LXC Container Reboot (VMID {self.vmid})")
             try:
                 proxmox.nodes(self.node).lxc(self.vmid).status.reboot.post()
             except Exception as e:
                 logger.error(f"Proxmox reboot failed: {e}")
-            return "process_reset"
+            return "lxc_reboot"
             
         elif level == 3:
-            logger.warning(f"[ACTION] [Level 3] Traffic Rerouting for Network anomaly")
-            return "traffic_rerouting"
+            logger.warning(f"[ACTION] [Level 3] Traffic Rerouting to Backup Node")
+            return "traffic_reroute"
             
         elif level == 4:
-            logger.warning(f"[ACTION] [Level 4] Resource Isolation for {anomaly_type} anomaly")
+            logger.warning(f"[ACTION] [Level 4] Resource Isolation & Quotas (Hard Limit)")
             return "resource_isolation"
             
         elif level == 5:
-            logger.error(f"[ACTION] [Level 5] Escalation: Manual intervention required for {anomaly_type} anomaly!")
-            return "escalate_to_admin"
+            logger.critical(f"[ACTION] [Level 5] CRITICAL: Escalating to Admin for Manual Intervention!")
+            return "admin_alert"
             
         return "unknown_action"

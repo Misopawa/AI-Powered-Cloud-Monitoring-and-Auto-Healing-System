@@ -9,21 +9,20 @@ logger = get_logger(__name__)
 
 def preprocess_westermo(file_path):
     """
-    Preprocess Westermo dataset to match our internal feature format.
+    Preprocess Westermo dataset to match the 12 required features exactly.
     """
     df = pd.read_csv(file_path)
     
-    # Map Westermo columns to our internal metrics
-    # Westermo cpu-user and cpu-system are in 0.0-1.0 range usually, but let's check
-    df['cpu_usage_percent'] = (df['cpu-user'] + df['cpu-system']) * 100
-    df['memory_usage_percent'] = (1 - (df['sys-mem-available'] / df['sys-mem-total'])) * 100
-    df['disk_usage_percent'] = df['disk-io-time'] * 100  # Proxy for disk activity
+    # Required Features List (Westermo headers)
+    features = [
+        'load-1m', 'load-5m', 'load-15m', 
+        'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
+        'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
+        'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
+    ]
     
-    # For network, since it's not in the dataset, we'll use 0 or synthetic values for baseline
-    df['net_in_bytes'] = 0
-    df['net_out_bytes'] = 0
-    
-    return df[['cpu_usage_percent', 'memory_usage_percent', 'disk_usage_percent', 'net_in_bytes', 'net_out_bytes']]
+    # Return only the required features
+    return df[features]
 
 def train(config=None, additional_data=None):
     """
@@ -38,12 +37,12 @@ def train(config=None, additional_data=None):
     model_path = ai_cfg.get('model_path', 'models/isolation_forest.pkl')
     
     # Load baseline
-    logger.info(f"Loading baseline data from {westermo_path}")
+    logger.info(f"[LEARNING] Loading baseline data from {westermo_path}")
     baseline_df = preprocess_westermo(westermo_path)
     
     # Combine with additional data (Online Learning)
     if additional_data is not None and not additional_data.empty:
-        logger.info("Merging baseline data with online learning buffer")
+        logger.info("[LEARNING] Merging baseline data with online learning buffer")
         train_df = pd.concat([baseline_df, additional_data], ignore_index=True)
     else:
         train_df = baseline_df
@@ -56,13 +55,18 @@ def train(config=None, additional_data=None):
         random_state=42
     )
     
-    features = ['cpu_usage_percent', 'memory_usage_percent', 'disk_usage_percent', 'net_in_bytes', 'net_out_bytes']
+    features = [
+        'load-1m', 'load-5m', 'load-15m', 
+        'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
+        'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
+        'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
+    ]
     model.fit(train_df[features])
     
     # Save model
     Path(model_path).parent.mkdir(parents=True, exist_ok=True)
     joblib.dump(model, model_path)
-    logger.info(f"Model saved to {model_path}")
+    logger.info(f"[LEARNING] Model saved to {model_path}")
     
     return model
 

@@ -20,6 +20,7 @@ def get_proxmox_client(config):
 def collect_metrics(config):
     """
     Collect real-time telemetry from Proxmox for LXC 101.
+    Aligns with Westermo system-1.csv feature vector requirements.
     Handles the 'Boot-up Gap' where API returns None or 0 for CPU/Memory.
     """
     prox_cfg = config.get('proxmox', {})
@@ -29,38 +30,42 @@ def collect_metrics(config):
     proxmox = get_proxmox_client(config)
     
     # Fetch LXC status/current metrics
-    status = proxmox.nodes(node).lxc(vmid).status.current.get()
+    try:
+        status = proxmox.nodes(node).lxc(vmid).status.current.get()
+    except Exception:
+        return None # Null Guard: Skip if Proxmox API is unreachable
     
     # Robust Parsing (The "Null" Guard)
-    # Proxmox returns None/0 for about 15-30s during container boot
     cpu_raw = status.get('cpu')
     mem_raw = status.get('mem')
     max_mem = status.get('maxmem', 1)
-    disk_raw = status.get('disk')
-    max_disk = status.get('maxdisk', 1)
     
-    is_booting = False
-    if cpu_raw is None or mem_raw is None or cpu_raw == 0 or mem_raw == 0:
-        is_booting = True
+    # If API returns None (during reboot), skip this cycle
+    if cpu_raw is None or mem_raw is None:
+        return None
     
-    cpu_usage = (cpu_raw * 100) if cpu_raw is not None else 0.0
-    mem_usage = ((mem_raw / max_mem) * 100) if mem_raw is not None else 0.0
-    disk_usage = ((disk_raw / max_disk) * 100) if disk_raw is not None else 0.0
+    # Map Proxmox cpu (percentage) to load-1m
+    # Proxmox 'cpu' is 0-1.0 (e.g. 0.05 for 5%), so multiply by 100 as per instructions
+    load_1m = round(cpu_raw * 100, 2)
     
-    # Fetch Network metrics
-    net_in = status.get('netin', 0)
-    net_out = status.get('netout', 0)
+    # Map Proxmox mem and maxmem to sys-mem fields
+    sys_mem_total = max_mem
+    sys_mem_free = max_mem - mem_raw
+    sys_mem_available = max_mem - mem_raw # Approximation
     
+    # Required Features Alignment (Westermo headers)
     return {
         'timestamp': time.time(),
-        'cpu_usage_percent': round(cpu_usage, 2),
-        'memory_usage_percent': round(mem_usage, 2),
-        'disk_usage_percent': round(disk_usage, 2),
-        'net_in_bytes': net_in,
-        'net_out_bytes': net_out,
-        'net_errin': 0,
-        'net_errout': 0,
-        'net_dropin': 0,
-        'net_dropout': 0,
-        'is_booting': is_booting  # Flag for the AI to ignore
+        'load-1m': load_1m,
+        'load-5m': 0.0,
+        'load-15m': 0.0,
+        'sys-mem-swap-total': 0.0,
+        'sys-mem-swap-free': 0.0,
+        'sys-mem-free': sys_mem_free,
+        'sys-mem-cache': 0.0,
+        'sys-mem-buffered': 0.0,
+        'sys-mem-available': sys_mem_available,
+        'sys-mem-total': sys_mem_total,
+        'sys-fork-rate': 0.0,
+        'sys-interrupt-rate': 0.0
     }
