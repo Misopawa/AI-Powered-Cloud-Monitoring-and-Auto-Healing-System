@@ -44,14 +44,17 @@ def collect_metrics(config):
     if cpu_raw is None or mem_raw is None:
         return None
     
-    # Map Proxmox cpu (percentage) to load-1m
-    # Proxmox 'cpu' is 0-1.0 (e.g. 0.05 for 5%), so multiply by 100 as per instructions
-    load_1m = round(cpu_raw * 100, 2)
+    # Map Proxmox cpu to load-1m
+    # Use direct decimal values to match Westermo dataset scale (e.g., 0.09)
+    load_1m = round(float(cpu_raw), 4)
     
     # Map Proxmox mem and maxmem to sys-mem fields
-    sys_mem_total = max_mem
-    sys_mem_free = max_mem - mem_raw
-    sys_mem_available = max_mem - mem_raw # Approximation
+    # Convert memory from Bytes to Gigabytes (GB)
+    gb_divider = 1024 ** 3
+    sys_mem_total = round(max_mem / gb_divider, 4)
+    sys_mem_free = round((max_mem - mem_raw) / gb_divider, 4)
+    sys_mem_available = sys_mem_free # Approximation
+
     
     # Required Features Alignment (Westermo headers)
     return {

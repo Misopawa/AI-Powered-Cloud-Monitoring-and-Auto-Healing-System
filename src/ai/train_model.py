@@ -10,6 +10,7 @@ logger = get_logger(__name__)
 def preprocess_westermo(file_path):
     """
     Preprocess Westermo dataset to match the 12 required features exactly.
+    Includes Unit Normalization Layer (converting memory from Bytes to GB).
     """
     df = pd.read_csv(file_path)
     
@@ -20,6 +21,18 @@ def preprocess_westermo(file_path):
         'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
         'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
     ]
+    
+    # Unit Normalization Layer: Convert memory fields from Bytes to GB
+    mem_fields = [
+        'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
+        'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
+        'sys-mem-total'
+    ]
+    
+    gb_divider = 1024 ** 3
+    for col in mem_fields:
+        if col in df.columns:
+            df[col] = df[col] / gb_divider
     
     # Return only the required features
     return df[features]
@@ -51,7 +64,7 @@ def train(config=None, additional_data=None):
     # multivariate anomaly detection
     model = IsolationForest(
         n_estimators=100,
-        contamination='auto',
+        contamination=0.01,  # 1% contamination for clean lab environment
         random_state=42
     )
     
