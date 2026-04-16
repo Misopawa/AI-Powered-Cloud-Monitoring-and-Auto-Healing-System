@@ -1,6 +1,7 @@
 import time
 import json
 import os
+import subprocess
 from utils.logger import get_logger
 from monitoring.metrics_collector import get_proxmox_client
 
@@ -146,8 +147,37 @@ class PolicyEngine:
         proxmox = get_proxmox_client(self.config)
         
         if level == 1:
-            logger.warning(f"[ACTION] [Level 1] Restarting Application Service (Retry {self.retries + 1}/{self.max_retries + 1})")
-            return "restart_service"
+            service_name = self.mon_cfg.get('service_name', 'unknown-service')
+            mon_infra = self.policy_cfg.get('monitoring_infrastructure', [])
+            docker_containers = self.policy_cfg.get('docker_containers', [])
+            
+            logger.warning(f"[ACTION] [Level 1] Attempting Recovery for Service: {service_name} (Retry {self.retries + 1}/{self.max_retries + 1})")
+            
+            # 2. Container-Aware Restart (Prometheus/Grafana etc)
+            if service_name in docker_containers:
+                logger.info(f"[ACTION] {service_name} identified as Docker container. Using docker restart.")
+                try:
+                    subprocess.run(["docker", "restart", service_name], check=True)
+                    # 3. Stabilization Delay
+                    logger.info(f"[ACTION] Docker restart successful. Forcing 15s stabilization delay...")
+                    time.sleep(15)
+                    return "docker_restart_success"
+                except Exception as e:
+                    logger.error(f"Docker restart failed for {service_name}: {e}")
+                    return "docker_restart_failed"
+            
+            # 1. Critical Service Protection
+            if service_name in mon_infra:
+                logger.error(f"[PROTECTION] {service_name} is part of Monitoring Infrastructure. systemctl restart is FORBIDDEN.")
+                return "skipped_mon_infra_protection"
+            
+            # Default: systemctl restart
+            try:
+                subprocess.run(["systemctl", "restart", service_name], check=True)
+                return "systemctl_restart_success"
+            except Exception as e:
+                logger.error(f"systemctl restart failed for {service_name}: {e}")
+                return "systemctl_restart_failed"
             
         elif level == 2:
             logger.warning(f"[ACTION] [Level 2] Full LXC Container Reboot (VMID {self.vmid})")

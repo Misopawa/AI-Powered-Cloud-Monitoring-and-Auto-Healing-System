@@ -11,6 +11,7 @@ proxmox:
 # Data Collection Layer
 monitoring:
   interval: 60  # Seconds
+  service_name: "app-container"
   save_to_csv: true
   csv_path: "data/metrics.csv"
   demo_mode: true  # If true, overrides interval to 2s and cooldown to 30s
@@ -29,6 +30,8 @@ ai:
 policies:
   cooldown_period: 90  # Seconds
   max_retries: 2       # For Level 1
+  monitoring_infrastructure: ["prometheus", "grafana", "influxdb"]
+  docker_containers: ["prometheus", "grafana", "app-container"]
   escalation_paths:
     cpu: [1, 2, 4, 5]
     memory: [1, 2, 4, 5]

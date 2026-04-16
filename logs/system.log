@@ -1480,3 +1480,16 @@ Feature names unseen at fit time:
 2026-04-13 23:30:58,663 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
 2026-04-13 23:31:00,717 - AutoHealingEngine - ERROR - Error in main loop: HTTPSConnectionPool(host='127.0.0.1', port=8006): Max retries exceeded with url: /api2/json/access/ticket (Caused by NewConnectionError("HTTPSConnection(host='127.0.0.1', port=8006): Failed to establish a new connection: [WinError 10061] No connection could be made because the target machine actively refused it"))
 2026-04-13 23:31:02,639 - AutoHealingEngine - INFO - Shutdown requested by user.
+2026-04-16 15:44:02,786 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-16 15:44:02,786 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: app-container (Retry 1/3)
+2026-04-16 15:44:02,786 - src.healing.auto_healer - INFO - [ACTION] app-container identified as Docker container. Using docker restart.
+2026-04-16 15:44:02,787 - src.healing.auto_healer - INFO - [ACTION] Docker restart successful. Forcing 15s stabilization delay...
+2026-04-16 15:44:02,787 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-16 15:44:02,788 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: prometheus (Retry 1/3)
+2026-04-16 15:44:02,788 - src.healing.auto_healer - INFO - [ACTION] prometheus identified as Docker container. Using docker restart.
+2026-04-16 15:44:02,788 - src.healing.auto_healer - INFO - [ACTION] Docker restart successful. Forcing 15s stabilization delay...
+2026-04-16 15:44:02,788 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-16 15:44:02,789 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: influxdb (Retry 1/3)
+2026-04-16 15:44:02,789 - src.healing.auto_healer - ERROR - [PROTECTION] influxdb is part of Monitoring Infrastructure. systemctl restart is FORBIDDEN.
+2026-04-16 15:44:02,789 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-16 15:44:02,789 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: other-service (Retry 1/3)
