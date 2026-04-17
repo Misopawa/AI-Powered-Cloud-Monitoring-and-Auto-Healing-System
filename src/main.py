@@ -54,10 +54,18 @@ def main():
                     save_metrics_to_csv(metrics)
                 
                 # 2. AI/ML Layer
-                anomaly = detector.detect_anomaly(metrics)
+                if metrics.get('critical_data_loss', False):
+                    # Bypassing inference for data loss (handled in auto_healer)
+                    anomaly = {"anomaly": False, "critical_data_loss": True, "features": metrics}
+                else:
+                    anomaly = detector.detect_anomaly(metrics)
                 
                 # 3. Auto-Healing Layer (Policy Engine & Validation Loop)
                 action = policy_engine.evaluate_and_heal(anomaly)
+                
+                if action == "admin_escalation_halt":
+                    logger.critical("SYSTEM HALTED. Level 5 escalation reached. Manual intervention required.")
+                    break # Exit the automated loop as per requirements
                 
                 if action != "none":
                     logger.info(f"[ACTION] Hierarchical recovery '{action}' triggered. Waiting for stability...")

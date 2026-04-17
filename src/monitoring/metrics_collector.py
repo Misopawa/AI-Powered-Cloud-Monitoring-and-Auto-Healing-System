@@ -1,6 +1,7 @@
 from proxmoxer import ProxmoxAPI
 import time
 import urllib3
+import math
 
 # Suppress SSL warnings for local Proxmox connections
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
@@ -44,31 +45,42 @@ def collect_metrics(config):
     if cpu_raw is None or mem_raw is None:
         return None
     
-    # Map Proxmox cpu to load-1m
-    # Use direct decimal values to match Westermo dataset scale (e.g., 0.09)
+    # Decimal Normalization [0,1]
+    # CPU: Proxmox returns value in decimal (e.g. 0.5 for 50%). Use directly.
     load_1m = round(float(cpu_raw), 4)
     
-    # Map Proxmox mem and maxmem to sys-mem fields
-    # Convert memory from Bytes to Gigabytes (GB)
-    gb_divider = 1024 ** 3
-    sys_mem_total = round(max_mem / gb_divider, 4)
-    sys_mem_free = round((max_mem - mem_raw) / gb_divider, 4)
+    # Memory/Swap: Convert absolute byte values into ratios
+    # Memory Ratio = current_usage / total_capacity
+    sys_mem_total = float(max_mem)
+    sys_mem_free = float(max_mem - mem_raw)
     sys_mem_available = sys_mem_free # Approximation
-
     
-    # Required Features Alignment (Westermo headers)
-    return {
+    # Normalized features (ratios)
+    mem_ratio = round(mem_raw / max_mem, 4)
+    free_ratio = round(sys_mem_free / max_mem, 4)
+    available_ratio = round(sys_mem_available / max_mem, 4)
+
+    # Required Features Alignment (Exactly 12 features in specific order)
+    vector = {
         'timestamp': time.time(),
         'load-1m': load_1m,
         'load-5m': 0.0,
         'load-15m': 0.0,
-        'sys-mem-swap-total': 0.0,
-        'sys-mem-swap-free': 0.0,
-        'sys-mem-free': sys_mem_free,
+        'sys-mem-free': free_ratio,
+        'sys-mem-available': available_ratio,
+        'sys-mem-total': 1.0, # Capacity as denominator for ratios
         'sys-mem-cache': 0.0,
         'sys-mem-buffered': 0.0,
-        'sys-mem-available': sys_mem_available,
-        'sys-mem-total': sys_mem_total,
+        'sys-mem-swap-total': 1.0, # Placeholder ratio denominator
+        'sys-mem-swap-free': 1.0,   # Placeholder ratio
         'sys-fork-rate': 0.0,
         'sys-interrupt-rate': 0.0
     }
+
+    # 1. Data Sanitization (Anti-Crash Layer)
+    for key, value in vector.items():
+        if key == 'timestamp': continue
+        if value is None or (isinstance(value, float) and math.isnan(value)):
+            return {**vector, 'critical_data_loss': True}
+            
+    return {**vector, 'critical_data_loss': False}

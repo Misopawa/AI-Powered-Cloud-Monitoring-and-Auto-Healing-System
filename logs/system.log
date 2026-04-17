@@ -1493,3 +1493,36 @@ Feature names unseen at fit time:
 2026-04-16 15:44:02,789 - src.healing.auto_healer - ERROR - [PROTECTION] influxdb is part of Monitoring Infrastructure. systemctl restart is FORBIDDEN.
 2026-04-16 15:44:02,789 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
 2026-04-16 15:44:02,789 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: other-service (Retry 1/3)
+2026-04-17 09:43:30,788 - src.ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-17 09:43:51,311 - src.ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-17 09:43:51,311 - src.ai.anomaly_detector - INFO - [DETECTION] System healthy (score=0.0000)
+2026-04-17 09:50:01,012 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 09:50:01,013 - src.healing.auto_healer - WARNING - [ACTION] [Level 4] Resource Isolation & Container Soft Reboot (VMID 101)
+2026-04-17 09:50:01,013 - src.healing.auto_healer - INFO - [ACTION] Soft reboot initiated for LXC 101
+2026-04-17 09:50:01,014 - src.healing.auto_healer - INFO - [ACTION] Level 4 reboot triggered. Extending stabilization window to 120s for OS boot.
+2026-04-17 09:50:01,014 - src.healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (19s remaining).
+2026-04-17 09:50:01,014 - src.healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-17 09:50:01,014 - src.healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-17 09:50:01,014 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 09:50:01,014 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: app-container (Retry 1/3)
+2026-04-17 09:50:01,015 - src.healing.auto_healer - INFO - [ACTION] app-container identified as Docker container. Using docker restart.
+2026-04-17 09:50:01,015 - src.healing.auto_healer - INFO - [ACTION] Docker restart successful. Forcing 15s initialization wait...
+2026-04-17 09:50:01,015 - src.healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (89s remaining).
+2026-04-17 09:50:01,015 - src.healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-17 09:50:01,015 - src.healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-17 09:55:08,333 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 09:55:08,333 - src.healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-17 09:55:08,334 - src.healing.auto_healer - INFO - [ACTION] Cooldown: Entering 30s stabilization period...
+2026-04-17 09:55:08,334 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 09:55:08,335 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: app-container (Retry 2/3)
+2026-04-17 09:55:08,335 - src.healing.auto_healer - INFO - [ACTION] app-container identified as Docker container. Using docker restart.
+2026-04-17 09:55:08,335 - src.healing.auto_healer - INFO - [ACTION] Docker restart successful. Forcing 15s initialization wait...
+2026-04-17 09:55:23,336 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 09:55:23,336 - src.healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 2, First Anomaly: 123456789
+2026-04-17 09:55:23,336 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 09:55:23,337 - src.healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: app-container (Retry 2/3)
+2026-04-17 09:55:23,337 - src.healing.auto_healer - INFO - [ACTION] app-container identified as Docker container. Using docker restart.
+2026-04-17 09:55:23,337 - src.healing.auto_healer - INFO - [ACTION] Docker restart successful. Forcing 15s initialization wait...
+2026-04-17 09:55:23,337 - src.healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-17 09:55:23,337 - src.healing.auto_healer - WARNING - [ACTION] Level 1 verification failed. Escalating immediately...
+2026-04-17 09:55:23,338 - src.healing.auto_healer - WARNING - [STABILIZATION] Verification failed. Skipping stabilization window to expedite recovery.

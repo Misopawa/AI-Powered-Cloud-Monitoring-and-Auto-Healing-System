@@ -36,9 +36,10 @@ class AnomalyDetector:
 
         features = [
             'load-1m', 'load-5m', 'load-15m', 
-            'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
-            'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
-            'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
+            'sys-mem-free', 'sys-mem-available', 'sys-mem-total', 
+            'sys-mem-cache', 'sys-mem-buffered', 
+            'sys-mem-swap-total', 'sys-mem-swap-free', 
+            'sys-fork-rate', 'sys-interrupt-rate'
         ]
         
         # Extract features from metrics
