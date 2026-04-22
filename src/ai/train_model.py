@@ -1,5 +1,6 @@
 import pandas as pd
 import joblib
+import os
 from sklearn.ensemble import IsolationForest
 from pathlib import Path
 from utils.config_loader import load_config
@@ -63,6 +64,7 @@ def train(config=None, additional_data=None):
     """
     Phase 1: Baseline training with Westermo dataset.
     Phase 2: Continuous training with rolling buffer data.
+    Phase 3: Local Baseline Adaptation using data/metrics.csv if available.
     """
     if config is None:
         config = load_config("config/config.yaml")
@@ -70,18 +72,48 @@ def train(config=None, additional_data=None):
     ai_cfg = config.get('ai', {})
     westermo_path = ai_cfg.get('westermo_path', 'data/westermo/system-1.csv')
     model_path = ai_cfg.get('model_path', 'models/isolation_forest.pkl')
+    local_metrics_path = config.get('monitoring', {}).get('csv_path', 'data/metrics.csv')
     
     # Load baseline
     logger.info(f"[LEARNING] Loading baseline data from {westermo_path}")
     baseline_df = preprocess_westermo(westermo_path)
     
-    # Combine with additional data (Online Learning)
+    # Local Baseline Adaptation: Load live data from metrics.csv if exists
+    local_df = pd.DataFrame()
+    if os.path.exists(local_metrics_path):
+        try:
+            logger.info(f"[LEARNING] Loading local baseline adaptation data from {local_metrics_path}")
+            local_df = pd.read_csv(local_metrics_path)
+            # Standardize column names for local data
+            mapping = {
+                'load1_norm': 'load1_norm',
+                'load5_norm': 'load5_norm',
+                'load15_norm': 'load15_norm',
+                'mem_free_ratio': 'mem_free_ratio',
+                'mem_available_ratio': 'mem_available_ratio',
+                'mem_total_ratio': 'mem_total_ratio',
+                'mem_cache_ratio': 'mem_cache_ratio',
+                'mem_buffered_ratio': 'mem_buffered_ratio',
+                'swap_total_ratio': 'swap_total_ratio',
+                'swap_free_ratio': 'swap_free_ratio',
+                'fork_rate': 'fork_rate',
+                'intr_rate': 'intr_rate'
+            }
+            # Only keep the 12 features
+            features = list(mapping.keys())
+            local_df = local_df[features]
+            logger.info(f"[LEARNING] Local adaptation data loaded: {len(local_df)} rows")
+        except Exception as e:
+            logger.warning(f"[LEARNING] Failed to load local metrics for adaptation: {e}")
+
+    # Combine data: Baseline + Local + Additional (Buffer)
+    train_df = baseline_df
+    if not local_df.empty:
+        train_df = pd.concat([train_df, local_df], ignore_index=True)
+    
     if additional_data is not None and not additional_data.empty:
         logger.info("[LEARNING] Merging baseline data with online learning buffer")
-        # Ensure additional_data has the correct columns
-        train_df = pd.concat([baseline_df, additional_data], ignore_index=True)
-    else:
-        train_df = baseline_df
+        train_df = pd.concat([train_df, additional_data], ignore_index=True)
         
     # Train Isolation Forest
     # multivariate anomaly detection

@@ -24,7 +24,7 @@ ai:
   westermo_path: "data/westermo/system-1.csv"
   retrain_interval: 10  # Number of monitoring cycles
   rolling_buffer_size: 1000  # Online Learning buffer
-  anomaly_threshold: -0.5  # Isolation Forest decision threshold
+  anomaly_threshold: -0.75  # Calibrated for OptiPlex 7060 idle states
 
 # Auto-Healing Layer (Policy Engine)
 policies:

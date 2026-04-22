@@ -36,6 +36,10 @@ class PolicyEngine:
         self.last_anomaly_type = None
         self.max_retries = self.policy_cfg.get('max_retries', 2)
         
+        # Hysteresis Logic: 3 consecutive anomalies required for Level 1
+        self.anomaly_counter = 0
+        self.required_consecutive_anomalies = 3
+        
         # 3. State Persistence (Memory Layer)
         self.timestamp_of_first_anomaly = None
         
@@ -164,12 +168,20 @@ class PolicyEngine:
 
         if not anomaly.get('anomaly'):
             # System is healthy, reset escalation state if it was active
-            if self.current_level_idx > 0 or self.retries > 0:
-                logger.info("[ACTION] System healthy. Resetting escalation state.")
+            if self.current_level_idx > 0 or self.retries > 0 or self.anomaly_counter > 0:
+                logger.info("[ACTION] System healthy. Resetting escalation state and anomaly counter.")
                 self.reset_state()
                 self.timestamp_of_first_anomaly = None
                 self._save_system_state()
             return "none"
+
+        # Hysteresis Implementation: Require 3 consecutive detections
+        self.anomaly_counter += 1
+        if self.anomaly_counter < self.required_consecutive_anomalies:
+            logger.warning(f"[HYSTERESIS] Anomaly detected ({self.anomaly_counter}/{self.required_consecutive_anomalies}). Waiting for confirmation...")
+            return "hysteresis_waiting"
+
+        logger.info(f"[HYSTERESIS] Anomaly confirmed after {self.anomaly_counter} cycles. Proceeding with recovery.")
 
         # Record first anomaly timestamp for state persistence
         if self.timestamp_of_first_anomaly is None:
@@ -250,6 +262,7 @@ class PolicyEngine:
         self.current_level_idx = 0
         self.last_anomaly_type = None
         self.timestamp_of_first_anomaly = None
+        self.anomaly_counter = 0
         self._save_state()
         self._save_system_state()
 
@@ -286,6 +299,50 @@ class PolicyEngine:
                 logger.error(f"[VERIFICATION] Failed to check LXC status via Proxmox: {e}")
                 return False
 
+    def _verified_docker_restart(self, service_name):
+        """
+        Verified Restart function: ensures the service actually restarts and stays running.
+        """
+        logger.info(f"[ACTION] Attempting Verified Restart for Docker container: {service_name}")
+        try:
+            # 1. Execute docker restart
+            subprocess.run(["docker", "restart", service_name], check=True)
+            
+            # 2. Wait for 5 seconds
+            logger.info("[ACTION] Waiting 5s for container state to settle...")
+            time.sleep(5)
+            
+            # 3. Verify it is running
+            result = subprocess.run(
+                ["docker", "inspect", "-f", "{{.State.Running}}", service_name],
+                capture_output=True, text=True, check=True
+            )
+            is_running = result.stdout.strip().lower() == "true"
+            
+            if is_running:
+                logger.info(f"[VERIFICATION] {service_name} is successfully RUNNING.")
+                return True
+            else:
+                # 4. Fallback: attempt docker start
+                logger.warning(f"[VERIFICATION] {service_name} failed to restart (state: Exited). Attempting fallback: docker start...")
+                subprocess.run(["docker", "start", service_name], check=True)
+                time.sleep(5)
+                
+                # Final verification
+                final_check = subprocess.run(
+                    ["docker", "inspect", "-f", "{{.State.Running}}", service_name],
+                    capture_output=True, text=True, check=True
+                )
+                if final_check.stdout.strip().lower() == "true":
+                    logger.info(f"[VERIFICATION] {service_name} is now RUNNING after fallback start.")
+                    return True
+                else:
+                    logger.critical(f"[VERIFICATION] FATAL: {service_name} still won't start after multiple attempts!")
+                    return False
+        except Exception as e:
+            logger.error(f"[ACTION] Verified restart process failed for {service_name}: {e}")
+            return False
+
     def _trigger_level_action(self, level, anomaly_type):
         """
         Implementation of the 5-Tier Escalation Hierarchy (Table 3.5).
@@ -300,22 +357,12 @@ class PolicyEngine:
             
             # Container-Aware Logic (Prometheus/Grafana etc)
             if service_name in docker_containers:
-                logger.info(f"[ACTION] {service_name} identified as Docker container. Using docker restart.")
-                try:
-                    subprocess.run(["docker", "restart", service_name], check=True)
-                    logger.info(f"[ACTION] Docker restart successful. Forcing 15s initialization wait...")
-                    time.sleep(15)
-                    
-                    # 2. Verification
-                    if self._verify_service(service_name, docker_containers):
-                        self.last_action_timestamp = time.time()
-                        self.STABILIZATION_WINDOW = 90
-                        return "docker_restart_success"
-                    else:
-                        return "docker_restart_verification_failed"
-                except Exception as e:
-                    logger.error(f"Docker restart failed for {service_name}: {e}")
-                    return "docker_restart_failed"
+                if self._verified_docker_restart(service_name):
+                    self.last_action_timestamp = time.time()
+                    self.STABILIZATION_WINDOW = 90
+                    return "docker_restart_success"
+                else:
+                    return "docker_restart_verification_failed"
             
             # LXC-Aware Logic (Daemon inside LXC)
             logger.info(f"[ACTION] {service_name} identified as LXC daemon. Using Proxmox pct exec.")

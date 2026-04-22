@@ -47,7 +47,8 @@ def collect_metrics(config):
     
     # Decimal Normalization [0,1]
     # CPU: Proxmox returns value in decimal (e.g. 0.5 for 50%). Use directly.
-    load_1m = round(float(cpu_raw), 4)
+    # High-precision scaling for idle values (e.g., 0.0024)
+    load_1m = round(float(cpu_raw), 6)
     
     # Memory/Swap: Convert absolute byte values into ratios
     # Memory Ratio = current_usage / total_capacity
@@ -56,9 +57,9 @@ def collect_metrics(config):
     sys_mem_available = sys_mem_free # Approximation
     
     # Normalized features (ratios)
-    mem_ratio = round(mem_raw / max_mem, 4)
-    free_ratio = round(sys_mem_free / max_mem, 4)
-    available_ratio = round(sys_mem_available / max_mem, 4)
+    mem_ratio = round(mem_raw / max_mem, 6)
+    free_ratio = round(sys_mem_free / max_mem, 6)
+    available_ratio = round(sys_mem_available / max_mem, 6)
 
     # Required Features Alignment (Exactly 12 features in specific order)
     # 1. load1_norm 2. load5_norm 3. load15_norm 

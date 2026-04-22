@@ -1,5 +1,6 @@
 import time
 import argparse
+import subprocess
 from utils.config_loader import load_config
 from utils.logger import get_logger
 from monitoring.metrics_collector import collect_metrics
@@ -10,6 +11,30 @@ from ui.dashboard_tui import HealingDashboard
 from rich.live import Live
 
 logger = get_logger("AutoHealingEngine")
+
+def cleanup(config):
+    """
+    Shutdown Protection: Ensures all monitored services are in a Running state before exiting.
+    """
+    logger.info("[SHUTDOWN] Initiating Cleanup Routine...")
+    policies = config.get('policies', {})
+    docker_containers = policies.get('docker_containers', [])
+    
+    for container in docker_containers:
+        try:
+            # Check if running
+            check = subprocess.run(
+                ["docker", "inspect", "-f", "{{.State.Running}}", container],
+                capture_output=True, text=True
+            )
+            if check.returncode == 0 and check.stdout.strip().lower() != "true":
+                logger.warning(f"[SHUTDOWN] Service {container} is NOT running. Attempting emergency start...")
+                subprocess.run(["docker", "start", container], check=True)
+                logger.info(f"[SHUTDOWN] Service {container} started successfully.")
+            elif check.returncode == 0:
+                logger.info(f"[SHUTDOWN] Service {container} is already healthy.")
+        except Exception as e:
+            logger.error(f"[SHUTDOWN] Failed to verify/start {container}: {e}")
 
 def main():
     parser = argparse.ArgumentParser(description="AI-Powered Auto-Healing Engine")
@@ -124,6 +149,9 @@ def main():
     except KeyboardInterrupt:
         if not args.tui:
             logger.info("Shutdown requested by user.")
+        cleanup(config)
+        if not args.tui:
+            logger.info("Cleanup complete. Exiting.")
 
 if __name__ == "__main__":
     import os

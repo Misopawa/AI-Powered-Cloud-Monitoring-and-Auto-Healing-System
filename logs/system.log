@@ -2606,3 +2606,43 @@ Feature names must be in the same order as they were in fit.
 2026-04-22 11:06:27,089 - healing.auto_healer - INFO - [AUDIT] Failure logged for VMID 101. Anomaly Type: general. Escalating to Admin.
 2026-04-22 11:06:27,089 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
 2026-04-22 11:06:27,089 - healing.auto_healer - CRITICAL - [ACTION] Level 5 reached. System in Halted state. Waiting for manual intervention.
+2026-04-22 11:17:51,425 - __main__ - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-22 11:17:51,644 - __main__ - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-22 11:17:51,644 - __main__ - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-22 11:17:52,042 - __main__ - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-22 11:18:12,638 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-22 11:18:12,638 - src.healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-22 11:18:12,638 - src.healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776827051.7750225
+2026-04-22 11:18:12,639 - src.healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-22 11:18:12,639 - src.healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (2/3). Waiting for confirmation...
+2026-04-22 11:18:12,682 - src.healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 3 cycles. Proceeding with recovery.
+2026-04-22 11:18:12,683 - src.healing.auto_healer - INFO - [ACTION] Cooldown: Entering 30s stabilization period...
+2026-04-22 11:18:42,686 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-22 11:18:42,686 - src.healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: 1776827892.6828196
+2026-04-22 11:18:42,687 - src.healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-22 11:18:42,687 - src.healing.auto_healer - INFO - [ACTION] System healthy. Resetting escalation state and anomaly counter.
+2026-04-22 11:39:53,619 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-22 11:39:53,620 - src.healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-22 11:39:53,620 - src.healing.auto_healer - INFO - [ACTION] Attempting Verified Restart for Docker container: app-container
+2026-04-22 11:39:53,621 - src.healing.auto_healer - INFO - [ACTION] Waiting 5s for container state to settle...
+2026-04-22 11:39:53,621 - src.healing.auto_healer - WARNING - [VERIFICATION] app-container failed to restart (state: Exited). Attempting fallback: docker start...
+2026-04-22 11:39:53,621 - src.healing.auto_healer - INFO - [VERIFICATION] app-container is now RUNNING after fallback start.
+2026-04-22 11:39:53,621 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-22 11:39:53,621 - src.healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-22 11:39:53,622 - src.healing.auto_healer - INFO - [ACTION] Attempting Verified Restart for Docker container: app-container
+2026-04-22 11:39:53,622 - src.healing.auto_healer - INFO - [ACTION] Waiting 5s for container state to settle...
+2026-04-22 11:39:53,622 - src.healing.auto_healer - WARNING - [VERIFICATION] app-container failed to restart (state: Exited). Attempting fallback: docker start...
+2026-04-22 11:39:53,622 - src.healing.auto_healer - CRITICAL - [VERIFICATION] FATAL: app-container still won't start after multiple attempts!
+2026-04-22 11:39:53,623 - src.healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-22 11:39:53,623 - src.healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-22 11:39:53,623 - src.healing.auto_healer - INFO - [ACTION] Attempting Verified Restart for Docker container: app-container
+2026-04-22 11:39:53,623 - src.healing.auto_healer - INFO - [ACTION] Waiting 5s for container state to settle...
+2026-04-22 11:39:53,624 - src.healing.auto_healer - INFO - [VERIFICATION] app-container is successfully RUNNING.
+2026-04-22 11:40:10,755 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-04-22 11:40:10,755 - AutoHealingEngine - INFO - [SHUTDOWN] Service prometheus is already healthy.
+2026-04-22 11:40:10,755 - AutoHealingEngine - INFO - [SHUTDOWN] Service grafana is already healthy.
+2026-04-22 11:40:10,756 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-04-22 11:40:10,756 - AutoHealingEngine - INFO - [SHUTDOWN] Service prometheus is already healthy.
+2026-04-22 11:40:10,756 - AutoHealingEngine - WARNING - [SHUTDOWN] Service grafana is NOT running. Attempting emergency start...
+2026-04-22 11:40:10,756 - AutoHealingEngine - INFO - [SHUTDOWN] Service grafana started successfully.

@@ -69,7 +69,7 @@ class AnomalyDetector:
         # Predict using decision_function to get the score
         score = self.model.score_samples(X)[0]
         
-        anomaly_threshold = self.ai_cfg.get('anomaly_threshold', -0.5)
+        anomaly_threshold = self.ai_cfg.get('anomaly_threshold', -0.75)
         is_anomaly = score < anomaly_threshold
             
         if is_anomaly:

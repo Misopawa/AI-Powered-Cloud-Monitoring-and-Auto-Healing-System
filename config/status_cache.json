@@ -1,8 +1,8 @@
 {
     "101": {
-        "level_idx": 4,
+        "level_idx": 0,
         "retries": 0,
-        "anomaly_type": "general",
-        "last_updated": 1776827187.0894375
+        "anomaly_type": null,
+        "last_updated": 1776827922.6875134
     }
 }
