@@ -61,20 +61,25 @@ def collect_metrics(config):
     available_ratio = round(sys_mem_available / max_mem, 4)
 
     # Required Features Alignment (Exactly 12 features in specific order)
+    # 1. load1_norm 2. load5_norm 3. load15_norm 
+    # 4. mem_free_ratio 5. mem_available_ratio 6. mem_total_ratio 
+    # 7. mem_cache_ratio 8. mem_buffered_ratio 
+    # 9. swap_total_ratio 10. swap_free_ratio 
+    # 11. fork_rate 12. intr_rate
     vector = {
         'timestamp': time.time(),
-        'load-1m': load_1m,
-        'load-5m': 0.0,
-        'load-15m': 0.0,
-        'sys-mem-free': free_ratio,
-        'sys-mem-available': available_ratio,
-        'sys-mem-total': 1.0, # Capacity as denominator for ratios
-        'sys-mem-cache': 0.0,
-        'sys-mem-buffered': 0.0,
-        'sys-mem-swap-total': 1.0, # Placeholder ratio denominator
-        'sys-mem-swap-free': 1.0,   # Placeholder ratio
-        'sys-fork-rate': 0.0,
-        'sys-interrupt-rate': 0.0
+        'load1_norm': load_1m,
+        'load5_norm': 0.0,
+        'load15_norm': 0.0,
+        'mem_free_ratio': free_ratio,
+        'mem_available_ratio': available_ratio,
+        'mem_total_ratio': 1.0, # Capacity as denominator for ratios
+        'mem_cache_ratio': 0.0,
+        'mem_buffered_ratio': 0.0,
+        'swap_total_ratio': 1.0, # Placeholder ratio denominator
+        'swap_free_ratio': 1.0,   # Placeholder ratio
+        'fork_rate': 0.0,
+        'intr_rate': 0.0
     }
 
     # 1. Data Sanitization (Anti-Crash Layer)

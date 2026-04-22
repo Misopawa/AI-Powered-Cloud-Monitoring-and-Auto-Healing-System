@@ -3,7 +3,7 @@ proxmox:
   host: "127.0.0.1"
   port: 8006
   user: "root@pam"
-  password: "YOUR_PROXMOX_PASSWORD"  # Placeholder
+  password: "Syahmi0367"  # Placeholder
   vmid: 101
   node: "pve"
   verify_ssl: false

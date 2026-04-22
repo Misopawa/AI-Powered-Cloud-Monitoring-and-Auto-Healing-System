@@ -14,28 +14,50 @@ def preprocess_westermo(file_path):
     """
     df = pd.read_csv(file_path)
     
-    # Required Features List (Westermo headers)
-    features = [
+    # Required Features List (Normalized Names)
+    # 1. load1_norm 2. load5_norm 3. load15_norm 
+    # 4. mem_free_ratio 5. mem_available_ratio 6. mem_total_ratio 
+    # 7. mem_cache_ratio 8. mem_buffered_ratio 
+    # 9. swap_total_ratio 10. swap_free_ratio 
+    # 11. fork_rate 12. intr_rate
+    
+    # Mapping from Westermo headers to normalized names
+    mapping = {
+        'load-1m': 'load1_norm',
+        'load-5m': 'load5_norm',
+        'load-15m': 'load15_norm',
+        'sys-mem-free': 'mem_free_ratio',
+        'sys-mem-available': 'mem_available_ratio',
+        'sys-mem-total': 'mem_total_ratio',
+        'sys-mem-cache': 'mem_cache_ratio',
+        'sys-mem-buffered': 'mem_buffered_ratio',
+        'sys-mem-swap-total': 'swap_total_ratio',
+        'sys-mem-swap-free': 'swap_free_ratio',
+        'sys-fork-rate': 'fork_rate',
+        'sys-interrupt-rate': 'intr_rate'
+    }
+    
+    # Return only the required features in exact order
+    features_old = [
         'load-1m', 'load-5m', 'load-15m', 
-        'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
-        'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
-        'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
+        'sys-mem-free', 'sys-mem-available', 'sys-mem-total', 
+        'sys-mem-cache', 'sys-mem-buffered', 
+        'sys-mem-swap-total', 'sys-mem-swap-free', 
+        'sys-fork-rate', 'sys-interrupt-rate'
     ]
+    df = df[features_old]
+
+    # Rename columns to match FEATURE_COLUMNS
+    df = df.rename(columns=mapping)
     
-    # Unit Normalization Layer: Convert memory fields from Bytes to GB
-    mem_fields = [
-        'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
-        'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
-        'sys-mem-total'
+    features_new = [
+        'load1_norm', 'load5_norm', 'load15_norm', 
+        'mem_free_ratio', 'mem_available_ratio', 'mem_total_ratio', 
+        'mem_cache_ratio', 'mem_buffered_ratio', 
+        'swap_total_ratio', 'swap_free_ratio', 
+        'fork_rate', 'intr_rate'
     ]
-    
-    gb_divider = 1024 ** 3
-    for col in mem_fields:
-        if col in df.columns:
-            df[col] = df[col] / gb_divider
-    
-    # Return only the required features
-    return df[features]
+    return df[features_new]
 
 def train(config=None, additional_data=None):
     """
@@ -56,6 +78,7 @@ def train(config=None, additional_data=None):
     # Combine with additional data (Online Learning)
     if additional_data is not None and not additional_data.empty:
         logger.info("[LEARNING] Merging baseline data with online learning buffer")
+        # Ensure additional_data has the correct columns
         train_df = pd.concat([baseline_df, additional_data], ignore_index=True)
     else:
         train_df = baseline_df
@@ -69,10 +92,11 @@ def train(config=None, additional_data=None):
     )
     
     features = [
-        'load-1m', 'load-5m', 'load-15m', 
-        'sys-mem-swap-total', 'sys-mem-swap-free', 'sys-mem-free', 
-        'sys-mem-cache', 'sys-mem-buffered', 'sys-mem-available', 
-        'sys-mem-total', 'sys-fork-rate', 'sys-interrupt-rate'
+        'load1_norm', 'load5_norm', 'load15_norm', 
+        'mem_free_ratio', 'mem_available_ratio', 'mem_total_ratio', 
+        'mem_cache_ratio', 'mem_buffered_ratio', 
+        'swap_total_ratio', 'swap_free_ratio', 
+        'fork_rate', 'intr_rate'
     ]
     model.fit(train_df[features])
     

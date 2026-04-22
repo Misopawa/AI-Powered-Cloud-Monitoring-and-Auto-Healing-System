@@ -178,9 +178,9 @@ class PolicyEngine:
 
         # Determine anomaly type based on new feature names
         features = anomaly.get('features', {})
-        load_1m = features.get('load-1m', 0)
-        mem_free = features.get('sys-mem-free', 0)
-        mem_total = features.get('sys-mem-total', 1)
+        load_1m = features.get('load1_norm', 0)
+        mem_free = features.get('mem_free_ratio', 0)
+        mem_total = features.get('mem_total_ratio', 1)
         mem_usage_percent = ((mem_total - mem_free) / mem_total) * 100
 
         if load_1m > 0.8: # CPU anomaly (0.8 = 80% load)

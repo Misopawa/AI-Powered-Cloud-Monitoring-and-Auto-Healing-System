@@ -29,29 +29,32 @@ class AnomalyDetector:
     def detect_anomaly(self, metrics):
         """
         Multivariate anomaly detection using Isolation Forest.
-        Aligns with Westermo system-1.csv features.
+        Aligns with FEATURE_COLUMNS from training data.
         """
         if metrics is None:
             return {"anomaly": False, "score": 0.0, "skip": True}
 
-        features = [
-            'load-1m', 'load-5m', 'load-15m', 
-            'sys-mem-free', 'sys-mem-available', 'sys-mem-total', 
-            'sys-mem-cache', 'sys-mem-buffered', 
-            'sys-mem-swap-total', 'sys-mem-swap-free', 
-            'sys-fork-rate', 'sys-interrupt-rate'
+        # The 12 features must match the order in training data
+        FEATURE_COLUMNS = [
+            'load1_norm', 'load5_norm', 'load15_norm', 
+            'mem_free_ratio', 'mem_available_ratio', 'mem_total_ratio', 
+            'mem_cache_ratio', 'mem_buffered_ratio', 
+            'swap_total_ratio', 'swap_free_ratio', 
+            'fork_rate', 'intr_rate'
         ]
         
-        # Extract features from metrics
-        current_data = {col: float(metrics.get(col, 0.0)) for col in features}
+        # Extract features from metrics in the correct order
+        current_vector = [float(metrics.get(col, 0.0)) for col in FEATURE_COLUMNS]
+        current_data_dict = {col: val for col, val in zip(FEATURE_COLUMNS, current_vector)}
         
-        self.last_known_metrics = current_data
+        self.last_known_metrics = current_data_dict
         
-        # Sync into a single 2D array (1 row DataFrame)
-        X = pd.DataFrame([current_data], columns=features)
+        # Convert the raw vector into a 2D DataFrame with headers
+        # This prevents the "Feature names mismatch" error
+        X = pd.DataFrame([current_vector], columns=FEATURE_COLUMNS)
         
         # Add to rolling buffer for Online Learning
-        self.rolling_buffer.append(current_data)
+        self.rolling_buffer.append(current_data_dict)
         if len(self.rolling_buffer) > self.buffer_size:
             self.rolling_buffer.pop(0)
             
@@ -63,7 +66,7 @@ class AnomalyDetector:
             self.model = retrain_model(self.config, additional_data=buffer_df)
             self.cycles_since_retrain = 0
             
-        # Predict
+        # Predict using decision_function to get the score
         score = self.model.score_samples(X)[0]
         
         anomaly_threshold = self.ai_cfg.get('anomaly_threshold', -0.5)
@@ -77,5 +80,5 @@ class AnomalyDetector:
         return {
             "anomaly": bool(is_anomaly),
             "score": float(score),
-            "features": current_data
+            "features": current_data_dict
         }

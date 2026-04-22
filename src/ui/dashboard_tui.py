@@ -66,11 +66,11 @@ class HealingDashboard:
         table.add_column("Value", justify="right")
 
         features = [
-            ('load-1m', 'load-1m'), ('load-5m', 'load-5m'), ('load-15m', 'load-15m'),
-            ('mem-free', 'sys-mem-free'), ('mem-avail', 'sys-mem-available'), ('mem-total', 'sys-mem-total'),
-            ('mem-cache', 'sys-mem-cache'), ('mem-buffer', 'sys-mem-buffered'),
-            ('swap-total', 'sys-mem-swap-total'), ('swap-free', 'sys-mem-swap-free'),
-            ('fork-rate', 'sys-fork-rate'), ('intr-rate', 'sys-interrupt-rate')
+            ('load-1m', 'load1_norm'), ('load-5m', 'load5_norm'), ('load-15m', 'load15_norm'),
+            ('mem-free', 'mem_free_ratio'), ('mem-avail', 'mem_available_ratio'), ('mem-total', 'mem_total_ratio'),
+            ('mem-cache', 'mem_cache_ratio'), ('mem-buffer', 'mem_buffered_ratio'),
+            ('swap-total', 'swap_total_ratio'), ('swap-free', 'swap_free_ratio'),
+            ('fork-rate', 'fork_rate'), ('intr-rate', 'intr_rate')
         ]
 
         for label, key in features:
