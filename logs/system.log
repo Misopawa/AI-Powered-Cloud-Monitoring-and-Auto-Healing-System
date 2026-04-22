@@ -1526,3 +1526,23 @@ Feature names unseen at fit time:
 2026-04-17 09:55:23,337 - src.healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
 2026-04-17 09:55:23,337 - src.healing.auto_healer - WARNING - [ACTION] Level 1 verification failed. Escalating immediately...
 2026-04-17 09:55:23,338 - src.healing.auto_healer - WARNING - [STABILIZATION] Verification failed. Skipping stabilization window to expedite recovery.
+2026-04-17 10:15:22,324 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-17 10:15:22,327 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-17 10:15:22,353 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 10:15:22,353 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 1
+2026-04-17 10:15:22,354 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 1, First Anomaly: 1776390923.33708
+2026-04-17 10:20:30,750 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-17 10:20:30,753 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-17 10:20:30,779 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 10:20:30,779 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 1
+2026-04-17 10:20:30,779 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 1, First Anomaly: 1776390923.33708
+2026-04-17 10:30:59,331 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-17 10:30:59,334 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-17 10:30:59,361 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 10:30:59,361 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 1
+2026-04-17 10:30:59,361 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 1, First Anomaly: 1776390923.33708
+2026-04-17 10:51:00,235 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-17 10:51:00,238 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-17 10:51:00,264 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-17 10:51:00,265 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 1
+2026-04-17 10:51:00,265 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 1, First Anomaly: 1776390923.33708
