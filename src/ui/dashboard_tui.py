@@ -2,6 +2,7 @@ import os
 import time
 import pandas as pd
 from datetime import datetime
+from collections import deque
 from rich.layout import Layout
 from rich.panel import Panel
 from rich.table import Table
@@ -14,32 +15,43 @@ class HealingDashboard:
     def __init__(self, config):
         self.config = config
         self.console = Console()
-        self.layout = Layout()
+        self.layout = Layout(name="root")
         self.forensics_file = "anomalies_forensics.csv"
+        self.is_connected = True
+        self.waiting_for_data = False
+        self.ui_messages = deque(maxlen=50)
         self._setup_layout()
 
     def _setup_layout(self):
-        self.layout.split(
+        self.layout.split_row(
+            Layout(name="left", ratio=2),
+            Layout(name="right", ratio=1),
+        )
+
+        self.layout["left"].split(
             Layout(name="header", size=3),
-            Layout(name="body", ratio=1),
-            Layout(name="footer", size=10)
+            Layout(name="telemetry", ratio=5),
+            Layout(name="ai_brain", ratio=2),
+            Layout(name="forensics", ratio=2),
         )
-        self.layout["body"].split_row(
-            Layout(name="telemetry", ratio=1),
-            Layout(name="ai_brain", ratio=1)
-        )
-        
-        # Initialize with placeholder panels for a cleaner "Loading" sequence
-        self.layout["header"].update(Panel(Align.center(Text("Initializing Connection...", style="bold cyan")), style="blue"))
+
+        self.layout["header"].update(self._make_header(True))
         self.layout["telemetry"].update(Panel(Align.center(Text("Waiting for first telemetry scrape...", style="dim")), title="Telemetry", border_style="dim"))
         self.layout["ai_brain"].update(Panel(Align.center(Text("Analyzing...", style="dim")), title="AI Decision Logic", border_style="dim"))
-        self.layout["footer"].update(Panel(Text("System boot sequence initiated...", style="dim"), title="Anomaly Forensics", border_style="dim"))
+        self.layout["forensics"].update(Panel(Text("System boot sequence initiated...", style="dim"), title="Anomaly Forensics (Last 10)", border_style="dim"))
+        self.layout["right"].update(self._make_background_panel())
 
-    def update_view(self, metrics, anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp, is_connected=False):
-        self.layout["header"].update(self._make_header(is_connected))
+    def generate_layout(self):
+        return self.layout
+
+    def update_view(self, metrics, anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp, is_connected=False, ui_messages=None):
+        if ui_messages:
+            self.ui_messages.extend(list(ui_messages))
+        self.layout["header"].update(self._make_header(True))
         self.layout["telemetry"].update(self._make_telemetry_table(metrics))
         self.layout["ai_brain"].update(self._make_ai_brain_panel(anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp))
-        self.layout["footer"].update(self._make_logs_panel())
+        self.layout["forensics"].update(self._make_logs_panel())
+        self.layout["right"].update(self._make_background_panel())
         return self.layout
 
     def _make_header(self, is_connected=False):
@@ -80,12 +92,16 @@ class HealingDashboard:
             elif val > 0.7: color = "yellow"
             table.add_row(label, Text(f"{val:.4f}", style=color))
         
-        return Panel(table, border_style="white")
+        return Panel(table, border_style="white", padding=(0, 1))
 
     def _make_ai_brain_panel(self, score, threshold, level, action, window, last_action):
         current_time = time.time()
         time_diff = current_time - last_action
         remaining = max(0, int(window - time_diff)) if last_action > 0 else 0
+
+        if level >= 5:
+            content = Text("LEVEL 5: SYSTEM HALTED - MANUAL INTERVENTION REQUIRED", style="bold red")
+            return Panel(Align.center(content, vertical="middle"), title="AI Brain Decision Matrix", border_style="red")
         
         score_color = "red" if score < threshold else "green"
         score_text = Text(f"Anomaly Score S(x): {score:.4f}", style=f"bold {score_color}")
@@ -105,6 +121,10 @@ class HealingDashboard:
 
     def _make_logs_panel(self):
         logs_text = Text()
+        if self.ui_messages:
+            for msg in list(self.ui_messages)[-10:]:
+                logs_text.append(str(msg) + "\n", style="dim white")
+            logs_text.append("\n")
         if os.path.exists(self.forensics_file):
             try:
                 df = pd.read_csv(self.forensics_file).tail(10)
@@ -120,3 +140,8 @@ class HealingDashboard:
             logs_text = Text("No anomalies recorded yet.", style="dim")
             
         return Panel(logs_text, title="Anomaly Forensics (Last 10)", border_style="white")
+
+    def _make_background_panel(self):
+        logs = "\n".join(list(self.ui_messages))
+        logs_text = Text(logs if logs else "No background operations yet.", style="dim green")
+        return Panel(logs_text, title="Background Operations", border_style="green")

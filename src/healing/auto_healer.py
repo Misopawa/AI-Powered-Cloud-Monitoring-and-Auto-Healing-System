@@ -46,6 +46,7 @@ class PolicyEngine:
         # Stabilization Window (Post-action cooling)
         self.STABILIZATION_WINDOW = 90 # Standard (seconds)
         self.last_action_timestamp = 0
+        self.is_halted = False
         
         # Ensure config directory exists
         os.makedirs("config", exist_ok=True)
@@ -147,6 +148,9 @@ class PolicyEngine:
         Evaluate anomalies against the Policy Engine and trigger Hierarchical Recovery.
         Aligns with Chapter 3 5-Tier Escalation Path.
         """
+        if self.is_halted:
+            return "[ MAINTENANCE REQUIRED ]"
+
         current_time = time.time()
         time_diff = current_time - self.last_action_timestamp
         
@@ -243,9 +247,9 @@ class PolicyEngine:
         self._save_state()
         
         if action_taken == "admin_escalation_halt":
-            logger.critical("[ACTION] Level 5 reached. System in Halted state. Waiting for manual intervention.")
-            # In a real system, we might set a 'halted' flag in state or config
-            return action_taken
+            logger.critical("[ACTION] Level 5 reached. Entering MAINTENANCE REQUIRED mode.")
+            self.is_halted = True
+            return "[ MAINTENANCE REQUIRED ]"
 
         # 2. Verification Failure Logic: skip stabilization window if verification failed
         if "verification_failed" in action_taken:
@@ -263,6 +267,7 @@ class PolicyEngine:
         self.last_anomaly_type = None
         self.timestamp_of_first_anomaly = None
         self.anomaly_counter = 0
+        self.is_halted = False
         self._save_state()
         self._save_system_state()
 

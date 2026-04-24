@@ -6,6 +6,14 @@ import math
 # Suppress SSL warnings for local Proxmox connections
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
+def _looks_like_auth_error(exc):
+    msg = str(exc)
+    return "401" in msg or "Unauthorized" in msg or "authentication" in msg.lower()
+
+def _looks_like_connection_error(exc):
+    msg = str(exc).lower()
+    return "timeout" in msg or "timed out" in msg or "connection" in msg or "max retries" in msg
+
 def get_proxmox_client(config):
     """
     Initialize and return a Proxmox API client.
@@ -29,12 +37,18 @@ def collect_metrics(config):
     vmid = prox_cfg.get('vmid', 101)
     
     proxmox = get_proxmox_client(config)
-    
-    # Fetch LXC status/current metrics
+
     try:
         status = proxmox.nodes(node).lxc(vmid).status.current.get()
-    except Exception:
-        return None # Null Guard: Skip if Proxmox API is unreachable
+    except Exception as e:
+        if _looks_like_auth_error(e) or _looks_like_connection_error(e):
+            try:
+                proxmox = get_proxmox_client(config)
+                status = proxmox.nodes(node).lxc(vmid).status.current.get()
+            except Exception:
+                return None
+        else:
+            return None
     
     # Robust Parsing (The "Null" Guard)
     cpu_raw = status.get('cpu')

@@ -14,6 +14,14 @@ def save_metrics(metrics, file_path):
     else:
         df_new.to_csv(file_path, mode='w', header=True, index=False)
 
+    try:
+        df_existing = pd.read_csv(file_path)
+        if len(df_existing) >= 1000:
+            df_existing = df_existing.iloc[500:]
+            df_existing.to_csv(file_path, mode='w', header=True, index=False)
+    except Exception:
+        pass
+
 def save_metrics_to_csv(metrics, config=None):
     path = None
     if isinstance(config, dict):

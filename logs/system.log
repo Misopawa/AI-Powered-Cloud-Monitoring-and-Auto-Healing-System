@@ -2646,3 +2646,1560 @@ Feature names must be in the same order as they were in fit.
 2026-04-22 11:40:10,756 - AutoHealingEngine - INFO - [SHUTDOWN] Service prometheus is already healthy.
 2026-04-22 11:40:10,756 - AutoHealingEngine - WARNING - [SHUTDOWN] Service grafana is NOT running. Attempting emergency start...
 2026-04-22 11:40:10,756 - AutoHealingEngine - INFO - [SHUTDOWN] Service grafana started successfully.
+2026-04-23 16:45:17,573 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-23 16:45:17,576 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-23 16:45:17,603 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-23 16:45:17,603 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-23 16:45:17,912 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:17,927 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6290)
+2026-04-23 16:45:20,129 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:20,139 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6322)
+2026-04-23 16:45:22,339 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:22,347 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6355)
+2026-04-23 16:45:24,554 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:24,563 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6322)
+2026-04-23 16:45:26,760 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:26,769 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6355)
+2026-04-23 16:45:28,964 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:28,973 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6316)
+2026-04-23 16:45:31,167 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:31,176 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6355)
+2026-04-23 16:45:33,387 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:33,396 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6314)
+2026-04-23 16:45:35,600 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:35,609 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6355)
+2026-04-23 16:45:37,836 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:37,836 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:45:37,839 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:45:38,089 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:45:38,089 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:45:38,089 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:45:38,572 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:45:38,581 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6398)
+2026-04-23 16:45:40,782 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:40,790 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6431)
+2026-04-23 16:45:42,993 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:43,002 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6418)
+2026-04-23 16:45:45,239 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:45,251 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6398)
+2026-04-23 16:45:47,460 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:47,473 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6413)
+2026-04-23 16:45:49,678 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:49,687 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6393)
+2026-04-23 16:45:51,886 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:51,894 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6431)
+2026-04-23 16:45:54,102 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:54,111 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6393)
+2026-04-23 16:45:56,350 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:56,359 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6398)
+2026-04-23 16:45:58,561 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:45:58,570 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6372)
+2026-04-23 16:46:00,773 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:00,774 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:46:00,774 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:46:01,008 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:46:01,009 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:46:01,009 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:46:01,427 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:46:01,436 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6454)
+2026-04-23 16:46:03,638 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:03,647 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6450)
+2026-04-23 16:46:05,847 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:05,856 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6454)
+2026-04-23 16:46:08,082 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:08,091 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6454)
+2026-04-23 16:46:10,295 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:10,304 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6461)
+2026-04-23 16:46:12,506 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:12,515 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6483)
+2026-04-23 16:46:14,717 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:14,725 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6433)
+2026-04-23 16:46:16,924 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:16,933 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6466)
+2026-04-23 16:46:19,144 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:19,154 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6430)
+2026-04-23 16:46:21,359 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:21,368 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6466)
+2026-04-23 16:46:23,569 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:23,569 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:46:23,569 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:46:23,797 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:46:23,798 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:46:23,798 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:46:24,216 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:46:24,225 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6557)
+2026-04-23 16:46:26,425 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:26,434 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6561)
+2026-04-23 16:46:28,659 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:28,668 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6552)
+2026-04-23 16:46:30,873 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:30,886 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6552)
+2026-04-23 16:46:33,247 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:33,256 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6540)
+2026-04-23 16:46:35,507 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:35,520 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6590)
+2026-04-23 16:46:37,736 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:37,745 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6573)
+2026-04-23 16:46:39,948 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:39,956 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6552)
+2026-04-23 16:46:42,157 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:42,165 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6573)
+2026-04-23 16:46:44,375 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:44,384 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6540)
+2026-04-23 16:46:46,586 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:46,586 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:46:46,587 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:46:46,802 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:46:46,802 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:46:46,802 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:46:47,307 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:46:47,317 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6644)
+2026-04-23 16:46:49,520 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:49,529 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6606)
+2026-04-23 16:46:51,739 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:51,748 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6610)
+2026-04-23 16:46:53,949 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:53,958 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6574)
+2026-04-23 16:46:56,161 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:56,170 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6644)
+2026-04-23 16:46:58,393 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:46:58,406 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6592)
+2026-04-23 16:47:00,632 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:00,640 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6626)
+2026-04-23 16:47:02,850 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:02,859 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6626)
+2026-04-23 16:47:05,054 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:05,063 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6644)
+2026-04-23 16:47:07,259 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:07,268 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6610)
+2026-04-23 16:47:09,476 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:09,477 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:47:09,477 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:47:09,714 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:47:09,715 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:47:09,715 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:47:10,125 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:47:10,134 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6661)
+2026-04-23 16:47:12,332 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:12,340 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6712)
+2026-04-23 16:47:14,537 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:14,546 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6677)
+2026-04-23 16:47:16,742 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:16,750 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6712)
+2026-04-23 16:47:18,945 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:18,953 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6694)
+2026-04-23 16:47:21,150 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:21,159 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6712)
+2026-04-23 16:47:23,354 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:23,363 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6661)
+2026-04-23 16:47:25,560 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:25,569 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6677)
+2026-04-23 16:47:27,769 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:27,778 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6712)
+2026-04-23 16:47:29,976 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:29,985 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6661)
+2026-04-23 16:47:32,180 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:32,180 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:47:32,181 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:47:32,390 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:47:32,391 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:47:32,391 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:47:32,784 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:47:32,794 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6682)
+2026-04-23 16:47:34,990 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:34,999 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6677)
+2026-04-23 16:47:37,196 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:37,204 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6677)
+2026-04-23 16:47:39,402 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:39,411 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6666)
+2026-04-23 16:47:41,606 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:41,615 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6717)
+2026-04-23 16:47:43,809 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:43,818 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6666)
+2026-04-23 16:47:46,012 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:46,021 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6682)
+2026-04-23 16:47:48,226 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:48,236 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6677)
+2026-04-23 16:47:50,433 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:50,442 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6686)
+2026-04-23 16:47:52,642 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:52,651 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6686)
+2026-04-23 16:47:54,847 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:54,848 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:47:54,848 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:47:55,060 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:47:55,060 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:47:55,060 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:47:55,449 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:47:55,459 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6680)
+2026-04-23 16:47:57,656 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:57,665 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6707)
+2026-04-23 16:47:59,863 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:47:59,871 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6696)
+2026-04-23 16:48:02,067 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:02,076 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6726)
+2026-04-23 16:48:04,271 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:04,280 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6696)
+2026-04-23 16:48:06,479 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:06,488 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6696)
+2026-04-23 16:48:08,689 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:08,697 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6696)
+2026-04-23 16:48:10,892 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:10,901 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6707)
+2026-04-23 16:48:13,177 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:13,185 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6680)
+2026-04-23 16:48:15,383 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:15,391 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6696)
+2026-04-23 16:48:17,587 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:17,588 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:48:17,588 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:48:17,800 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:48:17,800 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:48:17,801 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:48:18,249 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:48:18,259 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-23 16:48:20,457 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:20,466 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6754)
+2026-04-23 16:48:22,663 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:22,672 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-23 16:48:24,869 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:24,877 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6802)
+2026-04-23 16:48:27,072 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:27,081 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-23 16:48:29,275 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:29,284 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6802)
+2026-04-23 16:48:31,479 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:31,488 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6773)
+2026-04-23 16:48:33,683 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:33,691 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6768)
+2026-04-23 16:48:35,888 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:35,896 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6802)
+2026-04-23 16:48:38,167 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:38,176 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6756)
+2026-04-23 16:48:40,372 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:40,372 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:48:40,372 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:48:40,581 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:48:40,581 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:48:40,581 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:48:40,974 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:48:40,983 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6754)
+2026-04-23 16:48:43,227 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:43,236 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6777)
+2026-04-23 16:48:45,434 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:45,443 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6761)
+2026-04-23 16:48:47,638 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:47,646 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6788)
+2026-04-23 16:48:49,888 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:49,897 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6773)
+2026-04-23 16:48:52,091 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:52,100 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6777)
+2026-04-23 16:48:54,295 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:54,304 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6752)
+2026-04-23 16:48:56,499 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:56,508 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6777)
+2026-04-23 16:48:58,703 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:48:58,711 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6761)
+2026-04-23 16:49:00,914 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:00,923 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6802)
+2026-04-23 16:49:03,364 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:03,364 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:49:03,365 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:49:03,596 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:49:03,596 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:49:03,596 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:49:03,991 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:49:04,000 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6834)
+2026-04-23 16:49:06,194 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:06,203 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6848)
+2026-04-23 16:49:08,397 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:08,406 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6836)
+2026-04-23 16:49:10,604 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:10,613 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6882)
+2026-04-23 16:49:12,815 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:12,823 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6882)
+2026-04-23 16:49:15,023 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:15,032 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6852)
+2026-04-23 16:49:17,229 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:17,237 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6882)
+2026-04-23 16:49:19,446 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:19,462 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6882)
+2026-04-23 16:49:21,658 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:21,666 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6857)
+2026-04-23 16:49:23,863 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:23,872 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6848)
+2026-04-23 16:49:26,072 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:26,072 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:49:26,072 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:49:26,281 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:49:26,282 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:49:26,282 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:49:26,666 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:49:26,675 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6896)
+2026-04-23 16:49:28,871 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:28,880 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6890)
+2026-04-23 16:49:31,077 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:31,086 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6894)
+2026-04-23 16:49:33,333 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:33,342 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6885)
+2026-04-23 16:49:35,536 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:35,545 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6896)
+2026-04-23 16:49:37,742 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:37,751 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6915)
+2026-04-23 16:49:39,951 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:39,960 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6861)
+2026-04-23 16:49:42,154 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:42,163 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6915)
+2026-04-23 16:49:44,365 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:44,374 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6858)
+2026-04-23 16:49:46,574 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:46,582 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6896)
+2026-04-23 16:49:48,778 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:48,778 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:49:48,779 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:49:48,984 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:49:48,984 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:49:48,984 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:49:49,374 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:49:49,384 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6904)
+2026-04-23 16:49:51,580 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:51,589 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:49:53,786 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:53,795 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6898)
+2026-04-23 16:49:55,991 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:56,000 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:49:58,262 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:49:58,271 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6922)
+2026-04-23 16:50:00,467 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:00,475 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:50:02,678 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:02,687 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6954)
+2026-04-23 16:50:04,883 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:04,891 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:50:07,087 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:07,096 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:50:09,293 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:09,302 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6900)
+2026-04-23 16:50:11,498 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:11,498 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:50:11,499 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:50:11,711 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:50:11,711 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:50:11,711 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:50:12,096 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:50:12,106 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:50:14,300 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:14,309 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6918)
+2026-04-23 16:50:16,509 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:16,518 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:50:18,716 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:18,725 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6904)
+2026-04-23 16:50:20,920 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:20,929 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6938)
+2026-04-23 16:50:23,222 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:23,233 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6922)
+2026-04-23 16:50:25,428 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:25,437 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6934)
+2026-04-23 16:50:27,632 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:27,641 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6934)
+2026-04-23 16:50:29,837 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:29,846 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6922)
+2026-04-23 16:50:32,041 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:32,050 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+2026-04-23 16:50:34,248 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:34,249 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:50:34,249 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:50:34,459 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:50:34,460 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:50:34,460 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:50:34,861 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:50:34,871 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7076)
+2026-04-23 16:50:37,070 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:37,079 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7107)
+2026-04-23 16:50:39,275 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:39,284 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7102)
+2026-04-23 16:50:41,479 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:41,488 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7099)
+2026-04-23 16:50:43,688 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:43,697 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7039)
+2026-04-23 16:50:45,895 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:45,903 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7102)
+2026-04-23 16:50:48,137 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:48,150 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7071)
+2026-04-23 16:50:50,345 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:50,354 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7076)
+2026-04-23 16:50:52,550 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:52,559 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7076)
+2026-04-23 16:50:54,758 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:54,766 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7056)
+2026-04-23 16:50:56,964 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:56,964 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:50:56,965 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:50:57,175 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:50:57,175 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:50:57,175 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:50:57,567 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:50:57,576 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7127)
+2026-04-23 16:50:59,774 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:50:59,783 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7075)
+2026-04-23 16:51:01,984 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:01,993 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7126)
+2026-04-23 16:51:04,188 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:04,197 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7075)
+2026-04-23 16:51:06,402 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:06,411 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7126)
+2026-04-23 16:51:08,607 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:08,616 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7077)
+2026-04-23 16:51:10,811 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:10,820 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7095)
+2026-04-23 16:51:13,025 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:13,034 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7100)
+2026-04-23 16:51:15,232 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:15,241 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7095)
+2026-04-23 16:51:17,434 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:17,442 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7126)
+2026-04-23 16:51:19,638 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:19,639 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:51:19,639 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:51:19,850 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:51:19,851 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:51:19,851 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:51:20,240 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:51:20,249 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7138)
+2026-04-23 16:51:22,443 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:22,453 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7150)
+2026-04-23 16:51:24,651 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:24,660 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7143)
+2026-04-23 16:51:26,864 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:26,873 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7155)
+2026-04-23 16:51:29,068 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:29,077 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7118)
+2026-04-23 16:51:31,274 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:31,282 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7169)
+2026-04-23 16:51:33,477 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:33,486 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7138)
+2026-04-23 16:51:35,680 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:35,689 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7150)
+2026-04-23 16:51:37,887 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:37,896 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7169)
+2026-04-23 16:51:40,095 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:40,104 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7169)
+2026-04-23 16:51:42,300 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:42,301 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:51:42,301 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:51:42,512 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:51:42,513 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:51:42,513 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:51:42,899 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:51:42,913 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7220)
+2026-04-23 16:51:45,112 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:45,121 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7193)
+2026-04-23 16:51:47,318 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:47,327 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7213)
+2026-04-23 16:51:49,524 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:49,533 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7213)
+2026-04-23 16:51:51,728 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:51,737 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7220)
+2026-04-23 16:51:53,937 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:53,946 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7193)
+2026-04-23 16:51:56,144 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:56,152 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7240)
+2026-04-23 16:51:58,385 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:51:58,394 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7218)
+2026-04-23 16:52:00,590 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:00,598 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7240)
+2026-04-23 16:52:02,795 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:02,804 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7220)
+2026-04-23 16:52:05,000 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:05,000 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:52:05,000 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:52:05,214 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:52:05,215 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:52:05,215 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:52:05,603 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:52:05,613 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7203)
+2026-04-23 16:52:07,809 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:07,818 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7228)
+2026-04-23 16:52:10,015 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:10,024 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7218)
+2026-04-23 16:52:12,337 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:12,346 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7225)
+2026-04-23 16:52:14,564 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:14,572 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7223)
+2026-04-23 16:52:16,770 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:16,778 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7223)
+2026-04-23 16:52:18,971 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:18,980 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7203)
+2026-04-23 16:52:21,179 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:21,188 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7250)
+2026-04-23 16:52:23,415 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:23,423 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7198)
+2026-04-23 16:52:25,617 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:25,626 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7218)
+2026-04-23 16:52:27,820 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:27,821 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:52:27,822 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:52:28,038 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:52:28,039 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:52:28,039 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:52:28,462 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:52:28,471 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7255)
+2026-04-23 16:52:30,669 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:30,677 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7212)
+2026-04-23 16:52:32,873 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:32,881 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7228)
+2026-04-23 16:52:35,079 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:35,088 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7212)
+2026-04-23 16:52:37,283 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:37,292 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7233)
+2026-04-23 16:52:39,488 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:39,497 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7233)
+2026-04-23 16:52:41,693 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:41,702 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7233)
+2026-04-23 16:52:43,898 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:43,907 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7212)
+2026-04-23 16:52:46,101 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:46,109 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7260)
+2026-04-23 16:52:48,410 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:48,419 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7208)
+2026-04-23 16:52:50,621 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:50,621 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:52:50,622 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:52:50,828 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:52:50,828 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:52:50,828 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:52:51,213 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:52:51,223 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7255)
+2026-04-23 16:52:53,487 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:53,496 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7212)
+2026-04-23 16:52:55,693 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:55,702 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7260)
+2026-04-23 16:52:57,914 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:52:57,923 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7260)
+2026-04-23 16:53:00,119 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:00,127 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7235)
+2026-04-23 16:53:02,322 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:02,331 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7255)
+2026-04-23 16:53:04,533 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:04,542 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7255)
+2026-04-23 16:53:06,736 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:06,745 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7235)
+2026-04-23 16:53:08,946 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:08,955 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7228)
+2026-04-23 16:53:11,149 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:11,158 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7212)
+2026-04-23 16:53:13,402 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:13,403 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:53:13,403 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:53:13,628 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:53:13,629 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:53:13,629 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:53:14,019 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:53:14,028 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7257)
+2026-04-23 16:53:16,225 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:16,234 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7273)
+2026-04-23 16:53:18,515 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:18,523 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7262)
+2026-04-23 16:53:20,718 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:20,727 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7282)
+2026-04-23 16:53:22,927 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:22,936 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7278)
+2026-04-23 16:53:25,134 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:25,143 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7282)
+2026-04-23 16:53:27,341 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:27,350 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7309)
+2026-04-23 16:53:29,545 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:29,553 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7257)
+2026-04-23 16:53:31,751 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:31,760 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7282)
+2026-04-23 16:53:33,959 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:33,967 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7282)
+2026-04-23 16:53:36,336 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:36,336 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:53:36,337 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:53:36,547 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:53:36,548 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:53:36,548 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:53:36,938 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:53:36,947 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7291)
+2026-04-23 16:53:39,142 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:39,151 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7247)
+2026-04-23 16:53:41,409 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:41,418 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:53:43,612 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:43,621 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:53:45,819 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:45,828 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:53:48,026 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:48,035 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7280)
+2026-04-23 16:53:50,237 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:50,246 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:53:52,443 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:52,452 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:53:54,649 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:54,659 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7247)
+2026-04-23 16:53:56,855 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:56,864 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:53:59,063 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:53:59,064 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:53:59,064 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:53:59,269 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:53:59,270 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:53:59,270 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:53:59,659 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:53:59,668 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7258)
+2026-04-23 16:54:01,864 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:01,872 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7289)
+2026-04-23 16:54:04,072 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:04,081 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7242)
+2026-04-23 16:54:06,277 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:06,286 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7289)
+2026-04-23 16:54:08,502 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:08,512 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7247)
+2026-04-23 16:54:10,709 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:10,718 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7294)
+2026-04-23 16:54:13,088 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:13,097 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:54:15,295 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:15,304 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7247)
+2026-04-23 16:54:17,499 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:17,507 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7294)
+2026-04-23 16:54:19,703 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:19,711 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7268)
+2026-04-23 16:54:21,905 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:21,906 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:54:21,906 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:54:22,117 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:54:22,117 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:54:22,117 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:54:22,504 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:54:22,514 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7312)
+2026-04-23 16:54:24,711 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:24,719 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7322)
+2026-04-23 16:54:26,915 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:26,924 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7349)
+2026-04-23 16:54:29,188 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:29,197 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7312)
+2026-04-23 16:54:31,393 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:31,402 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7339)
+2026-04-23 16:54:33,595 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:33,604 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7291)
+2026-04-23 16:54:35,800 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:35,809 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7339)
+2026-04-23 16:54:38,006 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:38,015 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7312)
+2026-04-23 16:54:40,209 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:40,218 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7319)
+2026-04-23 16:54:42,415 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:42,424 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7346)
+2026-04-23 16:54:44,621 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:44,621 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:54:44,622 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:54:44,835 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:54:44,836 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:54:44,836 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:54:45,230 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:54:45,239 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7321)
+2026-04-23 16:54:47,436 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:47,445 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7365)
+2026-04-23 16:54:49,641 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:49,650 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7321)
+2026-04-23 16:54:51,850 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:51,859 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7374)
+2026-04-23 16:54:54,065 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:54,074 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7276)
+2026-04-23 16:54:56,268 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:56,277 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7349)
+2026-04-23 16:54:58,549 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:54:58,558 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7347)
+2026-04-23 16:55:00,756 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:00,765 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7326)
+2026-04-23 16:55:02,962 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:02,970 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7359)
+2026-04-23 16:55:05,167 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:05,175 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7331)
+2026-04-23 16:55:07,466 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:07,466 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:55:07,467 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:55:07,678 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:55:07,678 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:55:07,678 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:55:08,064 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:55:08,073 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7369)
+2026-04-23 16:55:10,270 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:10,279 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7327)
+2026-04-23 16:55:12,485 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:12,494 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7327)
+2026-04-23 16:55:14,689 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:14,698 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7337)
+2026-04-23 16:55:16,895 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:16,904 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7337)
+2026-04-23 16:55:19,100 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:19,109 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7321)
+2026-04-23 16:55:21,307 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:21,316 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7354)
+2026-04-23 16:55:23,549 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:23,558 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7332)
+2026-04-23 16:55:25,752 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:25,761 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7359)
+2026-04-23 16:55:27,958 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:27,967 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7339)
+2026-04-23 16:55:30,161 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:30,161 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:55:30,162 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:55:30,375 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:55:30,375 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:55:30,376 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:55:30,769 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:55:30,778 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7342)
+2026-04-23 16:55:32,975 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:32,984 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7354)
+2026-04-23 16:55:35,179 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:35,188 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7326)
+2026-04-23 16:55:38,039 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:38,048 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7354)
+2026-04-23 16:55:40,243 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:40,252 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7347)
+2026-04-23 16:55:42,448 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:42,457 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7349)
+2026-04-23 16:55:44,674 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:44,686 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7347)
+2026-04-23 16:55:46,882 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:46,891 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7326)
+2026-04-23 16:55:49,086 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:49,095 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7326)
+2026-04-23 16:55:51,290 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:51,298 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7374)
+2026-04-23 16:55:53,577 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:53,577 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:55:53,578 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:55:53,788 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:55:53,789 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:55:53,789 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:55:54,174 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:55:54,183 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7372)
+2026-04-23 16:55:56,379 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:56,387 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7372)
+2026-04-23 16:55:58,603 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:55:58,612 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7338)
+2026-04-23 16:56:00,810 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:00,818 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7394)
+2026-04-23 16:56:03,014 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:03,023 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7390)
+2026-04-23 16:56:05,219 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:05,228 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7367)
+2026-04-23 16:56:07,426 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:07,435 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7394)
+2026-04-23 16:56:09,631 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:09,639 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7362)
+2026-04-23 16:56:11,835 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:11,844 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7389)
+2026-04-23 16:56:14,040 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:14,049 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7351)
+2026-04-23 16:56:16,244 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:16,244 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:56:16,245 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:56:16,452 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:56:16,452 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:56:16,452 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:56:16,848 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:56:16,857 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7435)
+2026-04-23 16:56:19,054 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:19,062 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7403)
+2026-04-23 16:56:21,258 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:21,266 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7430)
+2026-04-23 16:56:23,528 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:23,536 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7387)
+2026-04-23 16:56:25,736 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:25,744 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7415)
+2026-04-23 16:56:27,940 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:27,948 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7408)
+2026-04-23 16:56:30,145 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:30,154 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7413)
+2026-04-23 16:56:32,352 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:32,361 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7440)
+2026-04-23 16:56:34,563 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:34,572 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7387)
+2026-04-23 16:56:36,769 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:36,777 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7435)
+2026-04-23 16:56:38,974 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:38,974 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:56:38,975 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:56:39,192 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:56:39,192 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:56:39,192 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:56:39,583 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:56:39,592 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7462)
+2026-04-23 16:56:41,797 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:41,806 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7467)
+2026-04-23 16:56:44,011 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:44,020 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7446)
+2026-04-23 16:56:46,216 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:46,224 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7445)
+2026-04-23 16:56:48,486 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:48,494 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7457)
+2026-04-23 16:56:50,691 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:50,699 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7457)
+2026-04-23 16:56:52,897 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:52,906 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7461)
+2026-04-23 16:56:55,102 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:55,111 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7461)
+2026-04-23 16:56:57,309 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:57,318 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7445)
+2026-04-23 16:56:59,513 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:56:59,522 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7446)
+2026-04-23 16:57:01,718 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:01,719 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:57:01,719 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:57:01,928 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:57:01,928 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:57:01,928 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:57:02,313 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:57:02,322 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7509)
+2026-04-23 16:57:02,322 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-23 16:57:04,520 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:04,529 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7514)
+2026-04-23 16:57:04,529 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (2/3). Waiting for confirmation...
+2026-04-23 16:57:06,725 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:06,733 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7497)
+2026-04-23 16:57:06,733 - healing.auto_healer - INFO - [ACTION] System healthy. Resetting escalation state and anomaly counter.
+2026-04-23 16:57:08,932 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:08,941 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7477)
+2026-04-23 16:57:11,137 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:11,146 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7499)
+2026-04-23 16:57:13,356 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:13,367 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7487)
+2026-04-23 16:57:15,569 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:15,578 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7502)
+2026-04-23 16:57:15,578 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-23 16:57:17,776 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:17,785 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7499)
+2026-04-23 16:57:17,785 - healing.auto_healer - INFO - [ACTION] System healthy. Resetting escalation state and anomaly counter.
+2026-04-23 16:57:20,148 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:20,157 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7493)
+2026-04-23 16:57:22,353 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:22,361 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7497)
+2026-04-23 16:57:24,560 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:24,561 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:57:24,562 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:57:24,768 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:57:24,768 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:57:24,768 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:57:25,160 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:57:25,168 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7467)
+2026-04-23 16:57:27,363 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:27,372 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7489)
+2026-04-23 16:57:29,569 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:29,577 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7462)
+2026-04-23 16:57:31,773 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:31,781 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7483)
+2026-04-23 16:57:33,979 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:33,987 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7462)
+2026-04-23 16:57:36,184 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:36,193 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7483)
+2026-04-23 16:57:38,396 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:38,405 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7477)
+2026-04-23 16:57:40,602 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:40,611 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7467)
+2026-04-23 16:57:42,806 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:42,815 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7489)
+2026-04-23 16:57:45,011 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:45,025 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7489)
+2026-04-23 16:57:47,220 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:47,221 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:57:47,221 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:57:47,428 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:57:47,428 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:57:47,428 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:57:47,821 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:57:47,830 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7542)
+2026-04-23 16:57:47,830 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-23 16:57:50,025 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:50,034 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7534)
+2026-04-23 16:57:50,034 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (2/3). Waiting for confirmation...
+2026-04-23 16:57:52,232 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:52,241 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7534)
+2026-04-23 16:57:52,241 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 3 cycles. Proceeding with recovery.
+2026-04-23 16:57:52,375 - healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: app-container (Retry 1/3)
+2026-04-23 16:57:52,375 - healing.auto_healer - INFO - [ACTION] Attempting Verified Restart for Docker container: app-container
+2026-04-23 16:57:52,487 - healing.auto_healer - ERROR - [ACTION] Verified restart process failed for app-container: Command '['docker', 'restart', 'app-container']' returned non-zero exit status 1.
+2026-04-23 16:57:52,487 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 16:57:52,487 - healing.auto_healer - WARNING - [ACTION] Level 1 verification failed. Escalating immediately...
+2026-04-23 16:57:52,487 - healing.auto_healer - WARNING - [STABILIZATION] Verification failed. Skipping stabilization window to expedite recovery.
+2026-04-23 16:57:54,685 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:57:54,694 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7539)
+2026-04-23 16:57:54,694 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 4 cycles. Proceeding with recovery.
+2026-04-23 16:57:54,826 - healing.auto_healer - WARNING - [ACTION] [Level 2] Process Reset: Identifying high-resource PIDs in LXC 101
+2026-04-23 16:57:54,860 - healing.auto_healer - ERROR - Process reset failed in LXC 101: 501 Not Implemented: Method 'POST /nodes/pve/lxc/101/exec' not implemented
+2026-04-23 16:57:54,860 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 16:57:54,861 - healing.auto_healer - INFO - [ACTION] Cooldown: Entering 30s stabilization period...
+2026-04-23 16:58:27,060 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:58:27,069 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7527)
+2026-04-23 16:58:27,069 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 5 cycles. Proceeding with recovery.
+2026-04-23 16:58:27,204 - healing.auto_healer - WARNING - [ACTION] [Level 3] Traffic Rerouting triggered for general anomaly
+2026-04-23 16:58:27,204 - healing.auto_healer - INFO - [SIMULATION] Updating IP tables / Nginx config to redirect traffic to backup node...
+2026-04-23 16:58:27,204 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 16:58:27,204 - healing.auto_healer - INFO - [ACTION] Cooldown: Entering 30s stabilization period...
+2026-04-23 16:58:59,401 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:58:59,410 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7549)
+2026-04-23 16:58:59,410 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (57s remaining).
+2026-04-23 16:58:59,410 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:58:59,410 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:01,696 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:01,705 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7544)
+2026-04-23 16:59:01,705 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (55s remaining).
+2026-04-23 16:59:01,705 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:01,705 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:03,901 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:03,909 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7549)
+2026-04-23 16:59:03,909 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (53s remaining).
+2026-04-23 16:59:03,909 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:03,910 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:06,107 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:06,116 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7544)
+2026-04-23 16:59:06,117 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (51s remaining).
+2026-04-23 16:59:06,117 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:06,117 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:08,315 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:08,324 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7558)
+2026-04-23 16:59:08,324 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (48s remaining).
+2026-04-23 16:59:08,324 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:08,324 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:10,521 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:10,521 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:59:10,522 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:59:10,732 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:59:10,733 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:59:10,733 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:59:11,118 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:59:11,126 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7502)
+2026-04-23 16:59:11,126 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (46s remaining).
+2026-04-23 16:59:11,126 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:11,127 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:13,322 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:13,331 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7524)
+2026-04-23 16:59:13,331 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (43s remaining).
+2026-04-23 16:59:13,331 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:13,331 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:15,530 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:15,539 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7513)
+2026-04-23 16:59:15,539 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (41s remaining).
+2026-04-23 16:59:15,539 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:15,539 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:17,737 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:17,746 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7512)
+2026-04-23 16:59:17,746 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (39s remaining).
+2026-04-23 16:59:17,746 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:17,746 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:19,950 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:19,959 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7470)
+2026-04-23 16:59:19,959 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (37s remaining).
+2026-04-23 16:59:19,959 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:19,959 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:22,155 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:22,163 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7527)
+2026-04-23 16:59:22,163 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (35s remaining).
+2026-04-23 16:59:22,163 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:22,163 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:24,368 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:24,377 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7532)
+2026-04-23 16:59:24,377 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (32s remaining).
+2026-04-23 16:59:24,377 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:24,377 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:26,573 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:26,582 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7524)
+2026-04-23 16:59:26,582 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (30s remaining).
+2026-04-23 16:59:26,582 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:26,582 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:28,786 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:28,794 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7518)
+2026-04-23 16:59:28,794 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (28s remaining).
+2026-04-23 16:59:28,794 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:28,794 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:30,991 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:30,999 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7518)
+2026-04-23 16:59:30,999 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (26s remaining).
+2026-04-23 16:59:30,999 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:31,000 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:33,198 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:33,199 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:59:33,199 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:59:33,404 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:59:33,405 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:59:33,405 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:59:33,837 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:59:33,845 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7507)
+2026-04-23 16:59:33,846 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (23s remaining).
+2026-04-23 16:59:33,846 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:33,846 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:36,042 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:36,050 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7542)
+2026-04-23 16:59:36,051 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (21s remaining).
+2026-04-23 16:59:36,051 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:36,051 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:38,244 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:38,253 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7534)
+2026-04-23 16:59:38,253 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (18s remaining).
+2026-04-23 16:59:38,253 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:38,253 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:40,450 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:40,459 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7529)
+2026-04-23 16:59:40,459 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (16s remaining).
+2026-04-23 16:59:40,459 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:40,459 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:42,662 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:42,671 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7537)
+2026-04-23 16:59:42,671 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (14s remaining).
+2026-04-23 16:59:42,671 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:42,671 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:44,869 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:44,877 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7512)
+2026-04-23 16:59:44,877 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (12s remaining).
+2026-04-23 16:59:44,878 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:44,878 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:47,077 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:47,086 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7534)
+2026-04-23 16:59:47,086 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (10s remaining).
+2026-04-23 16:59:47,086 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:47,086 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:49,285 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:49,294 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7480)
+2026-04-23 16:59:49,294 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (7s remaining).
+2026-04-23 16:59:49,294 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:49,294 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:51,489 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:51,498 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7524)
+2026-04-23 16:59:51,498 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (5s remaining).
+2026-04-23 16:59:51,498 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:51,498 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:53,751 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:53,760 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7502)
+2026-04-23 16:59:53,760 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (3s remaining).
+2026-04-23 16:59:53,760 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:53,760 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:55,957 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:55,957 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 16:59:55,958 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 16:59:56,167 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 16:59:56,167 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 16:59:56,168 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 16:59:56,558 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 16:59:56,567 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7517)
+2026-04-23 16:59:56,567 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (0s remaining).
+2026-04-23 16:59:56,567 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 16:59:56,567 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 16:59:58,792 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 16:59:58,801 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.7475)
+2026-04-23 16:59:58,801 - healing.auto_healer - INFO - [ACTION] System healthy. Resetting escalation state and anomaly counter.
+2026-04-23 17:00:00,999 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:00:01,007 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7518)
+2026-04-23 17:00:01,007 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-23 17:00:03,202 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:00:03,211 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7537)
+2026-04-23 17:00:03,211 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (2/3). Waiting for confirmation...
+2026-04-23 17:00:05,407 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:00:05,416 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7534)
+2026-04-23 17:00:05,416 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 3 cycles. Proceeding with recovery.
+2026-04-23 17:00:05,549 - healing.auto_healer - WARNING - [ACTION] [Level 1] Attempting Recovery for Service: app-container (Retry 1/3)
+2026-04-23 17:00:05,549 - healing.auto_healer - INFO - [ACTION] Attempting Verified Restart for Docker container: app-container
+2026-04-23 17:00:05,656 - healing.auto_healer - ERROR - [ACTION] Verified restart process failed for app-container: Command '['docker', 'restart', 'app-container']' returned non-zero exit status 1.
+2026-04-23 17:00:05,657 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 17:00:05,657 - healing.auto_healer - WARNING - [ACTION] Level 1 verification failed. Escalating immediately...
+2026-04-23 17:00:05,657 - healing.auto_healer - WARNING - [STABILIZATION] Verification failed. Skipping stabilization window to expedite recovery.
+2026-04-23 17:00:07,854 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:00:07,863 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7542)
+2026-04-23 17:00:07,863 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 4 cycles. Proceeding with recovery.
+2026-04-23 17:00:07,998 - healing.auto_healer - WARNING - [ACTION] [Level 2] Process Reset: Identifying high-resource PIDs in LXC 101
+2026-04-23 17:00:08,031 - healing.auto_healer - ERROR - Process reset failed in LXC 101: 501 Not Implemented: Method 'POST /nodes/pve/lxc/101/exec' not implemented
+2026-04-23 17:00:08,031 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 17:00:08,032 - healing.auto_healer - INFO - [ACTION] Cooldown: Entering 30s stabilization period...
+2026-04-23 17:00:40,227 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:00:40,235 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7529)
+2026-04-23 17:00:40,235 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 5 cycles. Proceeding with recovery.
+2026-04-23 17:00:40,369 - healing.auto_healer - WARNING - [ACTION] [Level 3] Traffic Rerouting triggered for general anomaly
+2026-04-23 17:00:40,369 - healing.auto_healer - INFO - [SIMULATION] Updating IP tables / Nginx config to redirect traffic to backup node...
+2026-04-23 17:00:40,369 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 17:00:40,369 - healing.auto_healer - INFO - [ACTION] Cooldown: Entering 30s stabilization period...
+2026-04-23 17:01:12,564 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:12,573 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7532)
+2026-04-23 17:01:12,573 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (57s remaining).
+2026-04-23 17:01:12,573 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:12,573 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:14,770 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:14,778 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7524)
+2026-04-23 17:01:14,779 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (55s remaining).
+2026-04-23 17:01:14,779 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:14,779 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:16,975 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:16,984 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7518)
+2026-04-23 17:01:16,984 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (53s remaining).
+2026-04-23 17:01:16,984 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:16,984 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:19,182 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:19,182 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 17:01:19,183 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 17:01:19,395 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 17:01:19,395 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 17:01:19,395 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 17:01:19,784 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 17:01:19,794 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7567)
+2026-04-23 17:01:19,794 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (50s remaining).
+2026-04-23 17:01:19,794 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:19,794 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:21,995 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:22,004 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7577)
+2026-04-23 17:01:22,005 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (48s remaining).
+2026-04-23 17:01:22,005 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:22,005 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:24,199 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:24,207 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7567)
+2026-04-23 17:01:24,208 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (46s remaining).
+2026-04-23 17:01:24,208 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:24,208 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:26,412 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:26,421 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7597)
+2026-04-23 17:01:26,421 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (43s remaining).
+2026-04-23 17:01:26,421 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:26,421 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:28,725 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:28,738 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7557)
+2026-04-23 17:01:28,739 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (41s remaining).
+2026-04-23 17:01:28,739 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:28,739 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:30,932 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:30,941 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7578)
+2026-04-23 17:01:30,941 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (39s remaining).
+2026-04-23 17:01:30,941 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:30,941 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:33,144 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:33,153 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7587)
+2026-04-23 17:01:33,153 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (37s remaining).
+2026-04-23 17:01:33,153 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:33,153 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:35,349 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:35,358 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7584)
+2026-04-23 17:01:35,358 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (35s remaining).
+2026-04-23 17:01:35,358 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:35,358 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:37,554 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:37,563 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7592)
+2026-04-23 17:01:37,563 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (32s remaining).
+2026-04-23 17:01:37,563 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:37,563 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:39,757 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:39,766 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7578)
+2026-04-23 17:01:39,766 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (30s remaining).
+2026-04-23 17:01:39,766 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:39,766 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:41,961 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:41,961 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 17:01:41,962 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 17:01:42,176 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 17:01:42,177 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 17:01:42,177 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 17:01:42,573 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 17:01:42,582 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7609)
+2026-04-23 17:01:42,582 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (27s remaining).
+2026-04-23 17:01:42,582 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:42,582 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:44,812 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:44,821 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7609)
+2026-04-23 17:01:44,821 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (25s remaining).
+2026-04-23 17:01:44,821 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:44,821 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:47,018 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:47,026 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7609)
+2026-04-23 17:01:47,027 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (23s remaining).
+2026-04-23 17:01:47,027 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:47,027 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:49,222 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:49,231 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7609)
+2026-04-23 17:01:49,231 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (21s remaining).
+2026-04-23 17:01:49,231 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:49,231 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:51,430 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:51,438 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-23 17:01:51,438 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (18s remaining).
+2026-04-23 17:01:51,438 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:51,439 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:53,674 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:53,687 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7620)
+2026-04-23 17:01:53,687 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (16s remaining).
+2026-04-23 17:01:53,687 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:53,687 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:55,887 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:55,896 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7588)
+2026-04-23 17:01:55,896 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (14s remaining).
+2026-04-23 17:01:55,896 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:55,896 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:01:58,094 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:01:58,102 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7625)
+2026-04-23 17:01:58,102 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (12s remaining).
+2026-04-23 17:01:58,102 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:01:58,103 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:02:00,299 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:00,308 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7588)
+2026-04-23 17:02:00,308 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (10s remaining).
+2026-04-23 17:02:00,308 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:02:00,308 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:02:02,505 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:02,513 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7630)
+2026-04-23 17:02:02,513 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (7s remaining).
+2026-04-23 17:02:02,513 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:02:02,513 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:02:04,708 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:04,709 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-23 17:02:04,709 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-23 17:02:04,918 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-23 17:02:04,919 - ai.train_model - WARNING - [LEARNING] Failed to load local metrics for adaptation: Error tokenizing data. C error: Expected 3 fields in line 207, saw 12
+
+2026-04-23 17:02:04,919 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-23 17:02:05,310 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-23 17:02:05,319 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7593)
+2026-04-23 17:02:05,319 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (5s remaining).
+2026-04-23 17:02:05,319 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:02:05,319 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:02:07,515 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:07,524 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7640)
+2026-04-23 17:02:07,524 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (2s remaining).
+2026-04-23 17:02:07,524 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:02:07,525 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:02:09,722 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:09,730 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7604)
+2026-04-23 17:02:09,731 - healing.auto_healer - INFO - [STABILIZATION] System is currently in a stabilization window (0s remaining).
+2026-04-23 17:02:09,731 - healing.auto_healer - INFO - [STABILIZATION] Skipping inference and 3-cycle counter check to allow services to initialize.
+2026-04-23 17:02:09,731 - healing.auto_healer - INFO - [STABILIZATION] Waiting for Prometheus scraper to catch up with the newly restarted service state.
+2026-04-23 17:02:11,928 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:11,937 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7609)
+2026-04-23 17:02:11,937 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 6 cycles. Proceeding with recovery.
+2026-04-23 17:02:12,070 - healing.auto_healer - WARNING - [ACTION] [Level 4] Resource Isolation & Container Soft Reboot (VMID 101)
+2026-04-23 17:02:12,121 - healing.auto_healer - INFO - [ACTION] Soft reboot initiated for LXC 101
+2026-04-23 17:02:22,228 - healing.auto_healer - ERROR - [VERIFICATION] Failed to inspect docker container app-container: Command '['docker', 'inspect', '-f', '{{.State.Running}}', 'app-container']' returned non-zero exit status 1.
+2026-04-23 17:02:22,228 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 17:02:22,229 - healing.auto_healer - WARNING - [ACTION] Level 4 verification failed. Escalating immediately...
+2026-04-23 17:02:22,229 - healing.auto_healer - WARNING - [STABILIZATION] Verification failed. Skipping stabilization window to expedite recovery.
+2026-04-23 17:02:24,529 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-23 17:02:24,541 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7635)
+2026-04-23 17:02:24,542 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 7 cycles. Proceeding with recovery.
+2026-04-23 17:02:24,683 - healing.auto_healer - CRITICAL - [ACTION] [Level 5] CRITICAL: Automated loop halted. Manual intervention required!
+2026-04-23 17:02:24,683 - healing.auto_healer - INFO - [AUDIT] Failure logged for VMID 101. Anomaly Type: general. Escalating to Admin.
+2026-04-23 17:02:24,683 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-23 17:02:24,687 - healing.auto_healer - CRITICAL - [ACTION] Level 5 reached. System in Halted state. Waiting for manual intervention.
+2026-04-24 10:58:27,781 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 10:58:27,784 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 10:58:27,809 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 10:58:27,809 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 10:58:27,809 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 10:58:28,037 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 10:58:28,046 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7640)
+2026-04-24 10:58:28,046 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-24 10:58:30,239 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 10:58:30,248 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-24 10:58:30,248 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (2/3). Waiting for confirmation...
+2026-04-24 10:58:32,440 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 10:58:32,448 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-24 10:58:32,449 - healing.auto_healer - INFO - [HYSTERESIS] Anomaly confirmed after 3 cycles. Proceeding with recovery.
+2026-04-24 10:58:32,580 - healing.auto_healer - CRITICAL - [ACTION] [Level 5] CRITICAL: Automated loop halted. Manual intervention required!
+2026-04-24 10:58:32,580 - healing.auto_healer - INFO - [AUDIT] Failure logged for VMID 101. Anomaly Type: general. Escalating to Admin.
+2026-04-24 10:58:32,580 - healing.auto_healer - INFO - [RESEARCH] Forensic snapshot recorded in anomalies_forensics.csv
+2026-04-24 10:58:32,581 - healing.auto_healer - CRITICAL - [ACTION] Level 5 reached. System in Halted state. Waiting for manual intervention.
+2026-04-24 11:44:11,197 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 11:44:11,200 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 11:44:11,225 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 11:44:11,225 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 11:44:11,225 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 11:44:11,457 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:44:11,467 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-24 11:44:11,467 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-24 11:44:13,665 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:44:13,674 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7593)
+2026-04-24 11:44:13,674 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (2/3). Waiting for confirmation...
+2026-04-24 11:44:15,769 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-04-24 11:46:04,626 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 11:46:04,629 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 11:46:04,654 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 11:46:04,654 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 11:46:04,654 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 11:46:04,883 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:46:04,892 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-24 11:46:04,892 - healing.auto_healer - WARNING - [HYSTERESIS] Anomaly detected (1/3). Waiting for confirmation...
+2026-04-24 11:46:06,330 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-04-24 11:48:45,801 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 11:48:45,804 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 11:48:45,829 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 11:48:45,829 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 11:48:45,829 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 11:48:46,054 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:46,063 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-24 11:48:48,257 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:48,266 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7614)
+2026-04-24 11:48:50,474 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:50,483 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7620)
+2026-04-24 11:48:52,676 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:52,685 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7609)
+2026-04-24 11:48:54,882 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:54,891 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7620)
+2026-04-24 11:48:57,088 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:57,097 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7593)
+2026-04-24 11:48:59,295 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:48:59,304 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7620)
+2026-04-24 11:49:01,501 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:01,510 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7593)
+2026-04-24 11:49:03,704 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:03,713 - ai.anomaly_detector - WARNING - [DETECTION] AI anomaly detected (score=-0.7640)
+2026-04-24 11:49:05,909 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:05,910 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-24 11:49:05,910 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-24 11:49:06,132 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-24 11:49:06,133 - ai.train_model - INFO - [LEARNING] Local adaptation data loaded: 10 rows
+2026-04-24 11:49:06,135 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-24 11:49:06,543 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-24 11:49:06,551 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6428)
+2026-04-24 11:49:08,752 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:08,761 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6450)
+2026-04-24 11:49:10,959 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:10,968 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6430)
+2026-04-24 11:49:13,160 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:13,169 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6450)
+2026-04-24 11:49:15,391 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:15,399 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6466)
+2026-04-24 11:49:17,593 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:17,602 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6483)
+2026-04-24 11:49:19,807 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:19,815 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6475)
+2026-04-24 11:49:22,013 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:22,021 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6483)
+2026-04-24 11:49:24,226 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:24,235 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6454)
+2026-04-24 11:49:26,431 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:26,440 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6483)
+2026-04-24 11:49:28,640 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:28,640 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-24 11:49:28,641 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-24 11:49:28,861 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-24 11:49:28,863 - ai.train_model - INFO - [LEARNING] Local adaptation data loaded: 20 rows
+2026-04-24 11:49:28,864 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-24 11:49:29,263 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-24 11:49:29,273 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6644)
+2026-04-24 11:49:31,471 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:31,480 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6610)
+2026-04-24 11:49:33,675 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:33,684 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6606)
+2026-04-24 11:49:35,931 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:35,942 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6606)
+2026-04-24 11:49:38,139 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:38,147 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6644)
+2026-04-24 11:49:40,351 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:40,360 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6626)
+2026-04-24 11:49:42,564 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:42,573 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6606)
+2026-04-24 11:49:44,769 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:44,777 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6644)
+2026-04-24 11:49:46,976 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:46,984 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6606)
+2026-04-24 11:49:49,185 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:49,193 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6606)
+2026-04-24 11:49:51,390 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:51,390 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-24 11:49:51,390 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-24 11:49:51,605 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-24 11:49:51,606 - ai.train_model - INFO - [LEARNING] Local adaptation data loaded: 30 rows
+2026-04-24 11:49:51,608 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-24 11:49:52,003 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-24 11:49:52,012 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6666)
+2026-04-24 11:49:54,216 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:54,225 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6717)
+2026-04-24 11:49:56,430 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:56,439 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6682)
+2026-04-24 11:49:58,642 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:49:58,650 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6698)
+2026-04-24 11:50:00,854 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:00,862 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6664)
+2026-04-24 11:50:03,059 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:03,067 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6698)
+2026-04-24 11:50:05,269 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:05,278 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6717)
+2026-04-24 11:50:07,480 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:07,488 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6682)
+2026-04-24 11:50:09,685 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:09,694 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6717)
+2026-04-24 11:50:11,891 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:11,900 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6655)
+2026-04-24 11:50:14,095 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:14,095 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-24 11:50:14,101 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-24 11:50:14,312 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-24 11:50:14,313 - ai.train_model - INFO - [LEARNING] Local adaptation data loaded: 40 rows
+2026-04-24 11:50:14,315 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-24 11:50:14,721 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-24 11:50:14,731 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-24 11:50:16,947 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:16,959 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6754)
+2026-04-24 11:50:19,158 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:19,167 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-24 11:50:21,364 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:21,373 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-24 11:50:23,567 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:23,576 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6777)
+2026-04-24 11:50:25,928 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:25,937 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6756)
+2026-04-24 11:50:28,140 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:28,149 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-24 11:50:30,351 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:30,359 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6773)
+2026-04-24 11:50:32,574 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:32,583 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6802)
+2026-04-24 11:50:34,797 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:34,806 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6784)
+2026-04-24 11:50:37,036 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:37,036 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-24 11:50:37,037 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-24 11:50:37,269 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-24 11:50:37,271 - ai.train_model - INFO - [LEARNING] Local adaptation data loaded: 50 rows
+2026-04-24 11:50:37,273 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-24 11:50:37,705 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-24 11:50:37,714 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6878)
+2026-04-24 11:50:39,941 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:39,950 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6864)
+2026-04-24 11:50:42,294 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:42,328 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6829)
+2026-04-24 11:50:44,542 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:44,551 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6859)
+2026-04-24 11:50:46,753 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:46,762 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6902)
+2026-04-24 11:50:48,965 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:48,975 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6829)
+2026-04-24 11:50:51,187 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:51,196 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6831)
+2026-04-24 11:50:53,395 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:53,403 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6859)
+2026-04-24 11:50:55,651 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:55,679 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6949)
+2026-04-24 11:50:57,881 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:50:57,890 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6843)
+2026-04-24 11:51:00,091 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:51:00,091 - ai.anomaly_detector - INFO - [LEARNING] Updating model with online learning buffer (10 cycles)...
+2026-04-24 11:51:00,092 - ai.train_model - INFO - [LEARNING] Loading baseline data from data/westermo/system-1.csv
+2026-04-24 11:51:00,310 - ai.train_model - INFO - [LEARNING] Loading local baseline adaptation data from data/metrics.csv
+2026-04-24 11:51:00,312 - ai.train_model - INFO - [LEARNING] Local adaptation data loaded: 60 rows
+2026-04-24 11:51:00,313 - ai.train_model - INFO - [LEARNING] Merging baseline data with online learning buffer
+2026-04-24 11:51:00,750 - ai.train_model - INFO - [LEARNING] Model saved to models/isolation_forest.pkl
+2026-04-24 11:51:00,759 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6934)
+2026-04-24 11:51:02,961 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:51:02,970 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6929)
+2026-04-24 11:51:05,178 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:51:05,187 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6934)
+2026-04-24 11:51:07,386 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:51:07,395 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6929)
+2026-04-24 11:51:09,591 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-04-24 11:51:09,600 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6952)
+2026-04-24 11:51:10,428 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-04-24 11:52:39,673 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 11:52:39,677 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 11:52:39,702 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 11:52:39,702 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 11:52:39,702 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 11:52:39,926 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+INFO:cloud_monitor:Metrics written to data/metrics.csv
+2026-04-24 11:52:39,936 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6922)
+INFO:ai.anomaly_detector:[DETECTION] System healthy (score=-0.6922)
+2026-04-24 11:52:42,134 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+INFO:cloud_monitor:Metrics written to data/metrics.csv
+2026-04-24 11:52:42,143 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6927)
+INFO:ai.anomaly_detector:[DETECTION] System healthy (score=-0.6927)
+2026-04-24 11:52:44,338 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+INFO:cloud_monitor:Metrics written to data/metrics.csv
+2026-04-24 11:52:44,347 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6957)
+INFO:ai.anomaly_detector:[DETECTION] System healthy (score=-0.6957)
+2026-04-24 11:52:46,554 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+INFO:cloud_monitor:Metrics written to data/metrics.csv
+2026-04-24 11:52:46,563 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6933)
+INFO:ai.anomaly_detector:[DETECTION] System healthy (score=-0.6933)
+2026-04-24 11:52:48,760 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+INFO:cloud_monitor:Metrics written to data/metrics.csv
+2026-04-24 11:52:48,769 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6957)
+INFO:ai.anomaly_detector:[DETECTION] System healthy (score=-0.6957)
+2026-04-24 11:52:49,516 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+INFO:AutoHealingEngine:[SHUTDOWN] Initiating Cleanup Routine...
+2026-04-24 11:52:52,305 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 11:52:52,308 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 11:52:52,332 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 11:52:52,333 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 11:52:52,333 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 11:52:52,555 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+INFO:cloud_monitor:Metrics written to data/metrics.csv
+2026-04-24 11:52:52,565 - ai.anomaly_detector - INFO - [DETECTION] System healthy (score=-0.6952)
+INFO:ai.anomaly_detector:[DETECTION] System healthy (score=-0.6952)
+2026-04-24 11:52:53,052 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+INFO:AutoHealingEngine:[SHUTDOWN] Initiating Cleanup Routine...
+2026-04-24 11:57:25,613 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 11:57:25,616 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 11:57:25,639 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 11:57:25,639 - healing.auto_healer - INFO - [ACTION] Resumed escalation state for VMID 101: Level Index 4
+2026-04-24 11:57:25,639 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 4, First Anomaly: 1776934805.4169817
+2026-04-24 12:04:44,077 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:04:44,080 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:04:44,104 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:04:44,105 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-24 12:10:03,868 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:10:03,871 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:10:03,896 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:10:03,896 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-24 12:14:40,630 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:14:40,633 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:14:40,658 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:14:40,658 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-24 12:20:48,353 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:20:48,356 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:20:48,380 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:20:48,380 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-24 12:24:52,819 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:24:52,822 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:24:52,847 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:24:52,847 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-24 12:27:14,310 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:27:14,313 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:27:14,337 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:27:14,337 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None
+2026-04-24 12:29:10,846 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-04-24 12:29:10,849 - ai.anomaly_detector - INFO - [LEARNING] Loading AI model from models/isolation_forest.pkl
+2026-04-24 12:29:10,874 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-04-24 12:29:10,874 - healing.auto_healer - INFO - [MEMORY] Resumed System State: Level Index 0, First Anomaly: None

@@ -1,4 +1,4 @@
 {
-    "current_escalation_level": 0,
-    "timestamp_of_first_anomaly": null
+    "current_escalation_level": 4,
+    "timestamp_of_first_anomaly": 1777005339.4262254
 }

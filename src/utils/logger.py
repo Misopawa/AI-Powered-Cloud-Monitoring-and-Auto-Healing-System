@@ -30,21 +30,17 @@ def get_logger(name):
     if not logger.handlers:
         # Create handlers
         f_handler = logging.FileHandler(log_path)
-        c_handler = logging.StreamHandler() # Also log to console for visibility
 
         # Set level for handlers
         f_handler.setLevel(logging.INFO)
-        c_handler.setLevel(logging.INFO)
 
         # Create formatters and add it to handlers
         # Format: Timestamp - Logger Name - Log Level - Message
         formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
         f_handler.setFormatter(formatter)
-        c_handler.setFormatter(formatter)
 
         # Add handlers to the logger
         logger.addHandler(f_handler)
-        logger.addHandler(c_handler)
 
     return logger
  
