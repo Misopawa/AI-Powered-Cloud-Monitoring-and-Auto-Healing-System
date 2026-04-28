@@ -10,17 +10,20 @@ from monitoring.metrics_collector import get_proxmox_client
 logger = get_logger(__name__)
 
 class PolicyEngine:
-    def __init__(self, config):
+    def __init__(self, config, notifier=None):
         self.config = config
         self.policy_cfg = config.get('policies', {})
         self.mon_cfg = config.get('monitoring', {})
         self.prox_cfg = config.get('proxmox', {})
+        self.notifier = notifier
         self.vmid = self.prox_cfg.get('vmid', 101)
         self.node = self.prox_cfg.get('node', 'pve')
         # Path to status cache aligned with project structure
         self.cache_file = os.path.join("config", "status_cache.json")
         self.system_state_file = os.path.join("config", "system_state.json")
         self.forensics_file = "anomalies_forensics.csv"
+        self.threshold_file = os.path.join("config", "threshold.json")
+        self.threshold = self._load_threshold()
         
         # Demo Mode logic
         self.demo_mode = self.mon_cfg.get('demo_mode', False)
@@ -47,13 +50,85 @@ class PolicyEngine:
         self.STABILIZATION_WINDOW = 90 # Standard (seconds)
         self.last_action_timestamp = 0
         self.is_halted = False
+        self.cooldown_until = 0.0
         
         # Ensure config directory exists
         os.makedirs("config", exist_ok=True)
         
-        # Load state from persistence
-        self._load_state()
-        self._load_system_state()
+        self.current_level_idx = 0
+        self.current_level = 0
+        self._last_notified_level = 0
+        self.required_consecutive_head_anomalies = 10
+        self.component_counters = {"CPU": 0, "MEMORY": 0, "STORAGE": 0, "NETWORK": 0}
+
+    def manual_resume(self):
+        self.current_level_idx = 0
+        self.current_level = 0
+        self.is_halted = False
+        self.anomaly_counter = 0
+        self.component_counters = {"CPU": 0, "MEMORY": 0, "STORAGE": 0, "NETWORK": 0}
+        self.retries = 0
+        self.last_anomaly_type = None
+        self.timestamp_of_first_anomaly = None
+        self.cooldown_until = time.time() + 60
+        self._last_notified_level = 0
+        if self.notifier:
+            self.notifier.send("✅ [INFO] Admin resumed system via 'R' key. Returning to Level 0.", min_interval_seconds=60)
+        return "ADMIN_OVERRIDE: System manually resumed. Level 0 restored."
+
+    def _load_threshold(self):
+        try:
+            if os.path.exists(self.threshold_file):
+                with open(self.threshold_file, "r") as f:
+                    data = json.load(f) or {}
+                if "threshold" in data:
+                    return float(data["threshold"])
+        except Exception as e:
+            logger.error(f"Failed to load dynamic threshold: {e}")
+        return float(self.config.get("ai", {}).get("anomaly_threshold", -0.75))
+
+    def update_dynamic_threshold(self, history_file=None):
+        if not history_file:
+            history_file = os.path.join("data", "historical_scores.csv")
+        if not os.path.exists(history_file):
+            return None
+
+        scores = []
+        try:
+            with open(history_file, "r", newline="") as f:
+                reader = csv.DictReader(f)
+                for row in reader:
+                    try:
+                        scores.append(float(row.get("score", 0) or 0))
+                    except Exception:
+                        continue
+        except Exception as e:
+            logger.error(f"Failed to read historical scores: {e}")
+            return None
+
+        if not scores:
+            return None
+
+        avg_score = sum(scores) / len(scores)
+        max_score = max(scores)
+        new_threshold = min(max_score * 0.90, avg_score * 0.80)
+        self.threshold = float(new_threshold)
+
+        try:
+            os.makedirs(os.path.dirname(self.threshold_file), exist_ok=True)
+            payload = {
+                "threshold": self.threshold,
+                "updated_at": time.time(),
+                "avg_score": float(avg_score),
+                "max_score": float(max_score),
+                "n": int(len(scores)),
+            }
+            with open(self.threshold_file, "w") as f:
+                json.dump(payload, f, indent=2)
+        except Exception as e:
+            logger.error(f"Failed to save dynamic threshold: {e}")
+
+        return self.threshold
         
     def _load_system_state(self):
         """Logic: Create a simple system_state.json file."""
@@ -149,7 +224,33 @@ class PolicyEngine:
         Aligns with Chapter 3 5-Tier Escalation Path.
         """
         if self.is_halted:
+            self.current_level = 5
+            if self.notifier and self._last_notified_level != 5:
+                self._last_notified_level = 5
+                self.notifier.send("🚨 [CRITICAL] SYSTEM HALTED. Level 5 reached. Manual intervention required.", min_interval_seconds=60)
             return "[ MAINTENANCE REQUIRED ]"
+
+        if time.time() < float(self.cooldown_until or 0.0):
+            remaining = max(0, int(float(self.cooldown_until) - time.time()))
+            return f"manual_resume_cooldown_{remaining}s"
+
+        culprits = anomaly.get("culprits") or []
+        culprits = [str(c).upper() for c in culprits]
+        if "SITE_DOWN" in culprits:
+            try:
+                proxmox = get_proxmox_client(self.config)
+                proxmox.nodes(self.node).lxc(self.vmid).exec.post(command="systemctl restart nginx")
+                self.current_level = max(1, int(self.current_level or 0))
+                self.current_level_idx = max(0, int(self.current_level) - 1)
+                self.last_action_timestamp = time.time()
+                if self.notifier:
+                    self.notifier.send("🚨 [CRITICAL] SITE_DOWN detected. Restarting nginx immediately.", min_interval_seconds=60)
+                time.sleep(self.cooldown_period)
+                return "site_down_nginx_restart"
+            except Exception:
+                if self.notifier:
+                    self.notifier.send("🚨 [CRITICAL] SITE_DOWN detected, but nginx restart failed.", min_interval_seconds=60)
+                return "site_down_nginx_restart_failed"
 
         current_time = time.time()
         time_diff = current_time - self.last_action_timestamp
@@ -166,107 +267,108 @@ class PolicyEngine:
             logger.critical("[DETECTION] CRITICAL DATA LOSS detected! Bypassing inference and triggering Level 4 recovery.")
             # Trigger Level 4 immediately
             self.current_level_idx = 3 # Level 4 is index 3 in path [1,2,3,4,5]
+            self.current_level = 4
+            if self.notifier and self._last_notified_level != 4:
+                self._last_notified_level = 4
+                score_val = anomaly.get("score", 0.0)
+                try:
+                    score_val = float(score_val)
+                except Exception:
+                    score_val = 0.0
+                self.notifier.send(f"⚠️ [ALERT] Anomaly Detected (Score: {score_val:.4f}). Escalating to Level 4.", min_interval_seconds=60)
             action_taken = self._trigger_level_action(4, "critical_data_loss")
             self._save_state()
             return action_taken
 
         if not anomaly.get('anomaly'):
-            # System is healthy, reset escalation state if it was active
-            if self.current_level_idx > 0 or self.retries > 0 or self.anomaly_counter > 0:
-                logger.info("[ACTION] System healthy. Resetting escalation state and anomaly counter.")
+            if self.current_level > 0 or self.is_halted:
                 self.reset_state()
-                self.timestamp_of_first_anomaly = None
-                self._save_system_state()
+            for key in self.component_counters.keys():
+                self.component_counters[key] = 0
+            self.current_level = 0
             return "none"
 
-        # Hysteresis Implementation: Require 3 consecutive detections
-        self.anomaly_counter += 1
-        if self.anomaly_counter < self.required_consecutive_anomalies:
-            logger.warning(f"[HYSTERESIS] Anomaly detected ({self.anomaly_counter}/{self.required_consecutive_anomalies}). Waiting for confirmation...")
-            return "hysteresis_waiting"
+        heads = anomaly.get("heads") or {}
 
-        logger.info(f"[HYSTERESIS] Anomaly confirmed after {self.anomaly_counter} cycles. Proceeding with recovery.")
+        cpu_usage = 0.0
+        mem_usage = 0.0
+        try:
+            cpu_usage = float((heads.get("CPU") or {}).get("value", anomaly.get("features", {}).get("cpu_usage_ratio", 0.0)) or 0.0)
+        except Exception:
+            cpu_usage = 0.0
+        try:
+            mem_usage = float((heads.get("MEMORY") or {}).get("value", anomaly.get("features", {}).get("mem_used_ratio", 0.0)) or 0.0)
+        except Exception:
+            mem_usage = 0.0
 
-        # Record first anomaly timestamp for state persistence
-        if self.timestamp_of_first_anomaly is None:
-            self.timestamp_of_first_anomaly = time.time()
-            self._save_system_state()
+        if cpu_usage < 0.40 and mem_usage < 0.70:
+            self.current_level = 0
+            for key in self.component_counters.keys():
+                self.component_counters[key] = 0
+            if self.notifier:
+                culprit_text = ",".join(culprits) if culprits else "UNKNOWN"
+                self.notifier.send(f"🛡️ [GATE] High [{culprit_text}] usage detected, but bypassed due to safety limits.", min_interval_seconds=60)
+            return "sanity_skip"
 
-        # Determine anomaly type based on new feature names
-        features = anomaly.get('features', {})
-        load_1m = features.get('load1_norm', 0)
-        mem_free = features.get('mem_free_ratio', 0)
-        mem_total = features.get('mem_total_ratio', 1)
-        mem_usage_percent = ((mem_total - mem_free) / mem_total) * 100
-
-        if load_1m > 0.8: # CPU anomaly (0.8 = 80% load)
-            anomaly_type = 'cpu'
-        elif mem_usage_percent > 85: # Memory anomaly
-            anomaly_type = 'memory'
-        else:
-            anomaly_type = 'general'
-
-        # Default escalation path: 1 -> 2 -> 3 -> 4 -> 5
-        path = [1, 2, 3, 4, 5]
-        
-        # Reset if anomaly type changed
-        if anomaly_type != self.last_anomaly_type and self.last_anomaly_type is not None:
-            logger.info(f"[ACTION] Anomaly type changed from {self.last_anomaly_type} to {anomaly_type}. Resetting path.")
-            self.reset_state()
-            
-        self.last_anomaly_type = anomaly_type
-            
-        current_level = path[self.current_level_idx]
-        
-        action_taken = self._trigger_level_action(current_level, anomaly_type)
-        
-        # 4. Record forensics for Chapter 5
-        self._record_forensics(anomaly, current_level)
-        
-        # Handle retries for Level 1 (Restart Service)
-        if current_level == 1:
-            if "failed" in action_taken or "verification_failed" in action_taken:
-                # 2. Failure Handling: escalate immediately if verification failed
-                logger.warning("[ACTION] Level 1 verification failed. Escalating immediately...")
-                self.current_level_idx += 1
-                self.retries = 0
+        for head in self.component_counters.keys():
+            if head in culprits:
+                self.component_counters[head] = int(self.component_counters.get(head, 0)) + 1
             else:
-                self.retries += 1
-                if self.retries > self.max_retries:
-                    logger.warning(f"[ACTION] Level 1 retry limit ({self.max_retries}) reached. Escalating to Level 2...")
-                    self.current_level_idx += 1
-                    self.retries = 0
-        else:
-            # Escalate immediately if level > 1 persists or verification failed
-            if "verification_failed" in action_taken:
-                logger.warning(f"[ACTION] Level {current_level} verification failed. Escalating immediately...")
-            
-            if self.current_level_idx < len(path) - 1:
-                self.current_level_idx += 1
-            
+                self.component_counters[head] = 0
+
+        worst_head = None
+        worst_count = 0
+        for head, count in self.component_counters.items():
+            if int(count) > int(worst_count):
+                worst_head = head
+                worst_count = int(count)
+
+        if int(worst_count) < int(self.required_consecutive_head_anomalies):
+            label = worst_head or (culprits[0] if culprits else "UNKNOWN")
+            return f"[ VERIFYING {label} ] {worst_count}/{self.required_consecutive_head_anomalies}"
+
+        self.current_level = min(5, int(self.current_level) + 1)
+        self.current_level_idx = max(0, int(self.current_level) - 1)
+
+        anomaly_type = "general"
+        if len(culprits) == 1:
+            mapping = {"CPU": "cpu", "MEMORY": "memory", "STORAGE": "storage", "NETWORK": "network"}
+            anomaly_type = mapping.get(culprits[0], "general")
+
+        culprit_text = ",".join(culprits) if culprits else "UNKNOWN"
+        if self.notifier and self._last_notified_level != self.current_level:
+            self._last_notified_level = self.current_level
+            self.notifier.send(f"⚠️ [ALERT] Anomaly detected in [{culprit_text}]. Escalating to Level {self.current_level}.", min_interval_seconds=60)
+
+        action_taken = self._trigger_level_action(self.current_level, anomaly_type)
+        self._record_forensics(anomaly, self.current_level)
         self._save_state()
-        
-        if action_taken == "admin_escalation_halt":
-            logger.critical("[ACTION] Level 5 reached. Entering MAINTENANCE REQUIRED mode.")
+
+        if self.current_level >= 5 or action_taken == "admin_escalation_halt":
             self.is_halted = True
+            self.current_level = 5
+            if self.notifier and self._last_notified_level != 5:
+                self._last_notified_level = 5
+                self.notifier.send("🚨 [CRITICAL] SYSTEM HALTED. Level 5 reached. Manual intervention required.", min_interval_seconds=60)
             return "[ MAINTENANCE REQUIRED ]"
 
-        # 2. Verification Failure Logic: skip stabilization window if verification failed
-        if "verification_failed" in action_taken:
-            logger.warning("[STABILIZATION] Verification failed. Skipping stabilization window to expedite recovery.")
+        for key in self.component_counters.keys():
+            self.component_counters[key] = 0
+
+        if "verification_failed" in str(action_taken):
             return action_taken
 
-        logger.info(f"[ACTION] Cooldown: Entering {self.cooldown_period}s stabilization period...")
         time.sleep(self.cooldown_period)
-        
         return action_taken
 
     def reset_state(self):
         self.retries = 0
         self.current_level_idx = 0
+        self.current_level = 0
         self.last_anomaly_type = None
         self.timestamp_of_first_anomaly = None
         self.anomaly_counter = 0
+        self.component_counters = {"CPU": 0, "MEMORY": 0, "STORAGE": 0, "NETWORK": 0}
         self.is_halted = False
         self._save_state()
         self._save_system_state()
