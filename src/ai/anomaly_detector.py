@@ -1,71 +1,92 @@
+from collections import deque
 import math
+
 from utils.logger import get_logger
 
 logger = get_logger(__name__)
 
+
 class AnomalyDetector:
     def __init__(self, config):
-        self.config = config
-        self.ai_cfg = config.get('ai', {})
-        self.alpha = float(self.ai_cfg.get("head_ema_alpha", 0.05))
-        self.std_k = float(self.ai_cfg.get("head_std_k", 3.0))
-        self.head_states = {
-            "CPU": {"mean": None, "var": 0.0},
-            "MEMORY": {"mean": None, "var": 0.0},
-            "STORAGE": {"mean": None, "var": 0.0},
-        }
-        self.net_latency_state = {"mean": None, "var": 0.0}
-        self.net_retrans_state = {"mean": None, "var": 0.0}
+        self.config = config or {}
+
+        self.recent_maxlen = 100
+        self.study_maxlen = 200
+        self.study_min_points = 20
+        self.safe_start_min_points = 10
+        self.floor_threshold = 70.0
+        self.study_padding = 2.0
+
+        self.cpu_recent = deque(maxlen=self.recent_maxlen)
+        self.mem_recent = deque(maxlen=self.recent_maxlen)
+        self.stg_recent = deque(maxlen=self.recent_maxlen)
+        self.net_recent = deque(maxlen=self.recent_maxlen)
+
+        self.cpu_study = deque(maxlen=self.study_maxlen)
+        self.mem_study = deque(maxlen=self.study_maxlen)
+        self.stg_study = deque(maxlen=self.study_maxlen)
+        self.net_study = deque(maxlen=self.study_maxlen)
 
     def detect_anomaly(self, metrics):
         if metrics is None:
-            return {"anomaly": False, "score": 1.0, "skip": True, "culprits": [], "heads": {}}
+            return {"anomaly": False, "score": 0.0, "skip": True, "culprits": [], "heads": {}}
 
-        cpu = self._as_float(metrics.get("cpu_usage_ratio", metrics.get("load1_norm", 0.0)))
-        mem = self._as_float(metrics.get("mem_used_ratio", 1.0 - self._as_float(metrics.get("mem_available_ratio", 1.0))))
-        storage = self._as_float(metrics.get("storage_used_ratio", 0.0))
-        net_ratio = self._as_float(metrics.get("network_ratio", 1.0))
-        net_latency_ms = self._as_float(metrics.get("network_latency_ms", 0.0))
-        net_retrans_per_sec = self._as_float(metrics.get("network_retrans_per_sec", 0.0))
-        probe_success = self._as_float(metrics.get("probe_success", 1.0))
-        net_latency_threshold_ms = self._as_float(metrics.get("network_latency_threshold_ms", 500.0), 500.0)
-        net_retrans_threshold = self._as_float(metrics.get("network_retrans_threshold", 5.0), 5.0)
+        cpu = self._as_float(metrics.get("cpu_usage_pct", metrics.get("cpu_usage_ratio", 0.0) * 100.0))
+        mem = self._as_float(metrics.get("mem_used_pct", metrics.get("mem_used_ratio", 0.0) * 100.0))
+        stg = self._as_float(metrics.get("storage_used_pct", metrics.get("storage_used_ratio", 0.0) * 100.0))
+        net = self._as_float(metrics.get("network_pct", metrics.get("network_ratio", 0.0) * 100.0))
 
-        heads = {}
-        heads["CPU"] = self._eval_high_ratio_head("CPU", cpu, floor=0.85)
-        heads["MEMORY"] = self._eval_high_ratio_head("MEMORY", mem, floor=0.85)
-        heads["STORAGE"] = self._eval_high_ratio_head("STORAGE", storage, floor=0.90)
-        heads["NETWORK"] = self._eval_network_qos_head(
-            net_ratio,
-            net_latency_ms,
-            net_retrans_per_sec,
-            probe_success,
-            net_latency_threshold_ms,
-            net_retrans_threshold,
-        )
+        cpu_head = self._study_head("CPU", cpu, self.cpu_recent, self.cpu_study)
+        mem_head = self._study_head("MEMORY", mem, self.mem_recent, self.mem_study)
+        stg_head = self._study_head("STORAGE", stg, self.stg_recent, self.stg_study)
+        net_head = self._study_head("NETWORK", net, self.net_recent, self.net_study)
 
-        culprits = []
-        for name, info in heads.items():
-            if info.get("anomaly"):
-                culprits.append(name)
-        net_info = heads.get("NETWORK") or {}
-        if net_info.get("anomaly"):
-            for tag in (net_info.get("tags") or []):
-                if tag not in culprits:
-                    culprits.append(tag)
-        is_anomaly = bool(culprits)
+        net_head["latency_ms"] = float(self._as_float(metrics.get("network_latency_ms", 0.0)))
+        net_head["retrans_per_sec"] = float(self._as_float(metrics.get("network_retrans_per_sec", 0.0)))
+        net_head["probe_success"] = float(self._as_float(metrics.get("probe_success", 1.0)))
+        net_head["speed_mbps"] = float(self._as_float(metrics.get("network_speed_mbps", 0.0)))
+        net_head["network_bytes_per_sec"] = float(self._as_float(metrics.get("network_bytes_per_sec", 0.0)))
 
-        score = 1.0
-        for info in heads.values():
-            excess = float(info.get("excess_ratio", 0.0) or 0.0)
-            score = min(score, max(0.0, 1.0 - excess))
+        heads = {"CPU": cpu_head, "MEMORY": mem_head, "STORAGE": stg_head, "NETWORK": net_head}
+        culprits = [name for name, info in heads.items() if bool(info.get("anomaly"))]
 
-        if is_anomaly:
-            logger.warning("[DETECTION] Multi-head anomaly detected in %s", ",".join(culprits))
+        init_mode = any(bool(info.get("init_mode", False)) for info in heads.values())
+
+        max_over = 0.0
+        chosen_threshold = float(self.floor_threshold)
+        if culprits:
+            for name in culprits:
+                try:
+                    chosen_threshold = max(chosen_threshold, float((heads.get(name) or {}).get("threshold", self.floor_threshold)))
+                except Exception:
+                    continue
         else:
-            logger.info("[DETECTION] System healthy (multi-head)")
+            for info in heads.values():
+                try:
+                    chosen_threshold = max(chosen_threshold, float(info.get("threshold", self.floor_threshold)))
+                except Exception:
+                    continue
+        for info in heads.values():
+            over = float(info.get("value", 0.0) or 0.0) - float(info.get("threshold", 0.0) or 0.0)
+            if over > max_over:
+                max_over = over
+        score = -float(max_over) if culprits else float(abs(max_over))
 
-        return {"anomaly": is_anomaly, "score": float(score), "features": metrics, "culprits": culprits, "heads": heads}
+        if culprits:
+            logger.warning("[DETECTION] Thermostat anomaly in %s (over=%.2f)", ",".join(culprits), float(max_over))
+        else:
+            logger.info("[DETECTION] Thermostat healthy")
+
+        status = "Initializing..." if init_mode else "OK"
+        return {
+            "anomaly": bool(culprits),
+            "score": float(score),
+            "threshold": float(chosen_threshold),
+            "status": str(status),
+            "features": metrics,
+            "culprits": culprits,
+            "heads": heads,
+        }
 
     def _as_float(self, value, default: float = 0.0) -> float:
         try:
@@ -73,143 +94,56 @@ class AnomalyDetector:
         except Exception:
             return float(default)
 
-    def _eval_high_ratio_head(self, name: str, value: float, floor: float) -> dict:
-        state = self.head_states.get(name) or {"mean": None, "var": 0.0}
-        mean = state.get("mean")
-        var = float(state.get("var", 0.0) or 0.0)
+    def _p95(self, values):
+        if not values:
+            return None
+        data = sorted([float(v) for v in values])
+        n = len(data)
+        if n == 1:
+            return float(data[0])
+        k = int(math.ceil(0.95 * n)) - 1
+        k = max(0, min(n - 1, k))
+        return float(data[k])
 
-        if mean is None:
-            state["mean"] = float(value)
-            state["var"] = 0.0
-            self.head_states[name] = state
-            threshold = max(float(floor), float(value))
-            return {
-                "value": float(value),
-                "baseline": float(value),
-                "deviation": 0.0,
-                "threshold": float(threshold),
-                "anomaly": False,
-                "excess_ratio": 0.0,
-            }
+    def _study_head(self, name: str, current: float, recent_window: deque, study_buffer: deque) -> dict:
+        current = max(0.0, min(100.0, float(current)))
+        recent_window.append(float(current))
+        if float(current) > float(self.floor_threshold):
+            study_buffer.append(float(current))
 
-        mean = float(mean)
-        std = math.sqrt(max(0.0, var))
-        threshold = max(float(floor), mean + (self.std_k * std))
-        anomaly = bool(float(value) > float(threshold))
-        deviation = abs(float(value) - float(mean))
+        baseline = float(sum(recent_window) / max(1, len(recent_window)))
+        deviation = abs(float(current) - float(baseline))
 
-        if not anomaly:
-            diff = float(value) - mean
-            mean = mean + (self.alpha * diff)
-            var = (1.0 - self.alpha) * (var + (self.alpha * diff * diff))
-            state["mean"] = float(mean)
-            state["var"] = float(var)
-            self.head_states[name] = state
+        p95 = None
+        study_active = False
+        init_mode = bool(len(study_buffer) < int(self.safe_start_min_points))
+        if not init_mode and len(study_buffer) >= int(self.study_min_points):
+            try:
+                p95 = self._p95(study_buffer)
+                study_active = True
+            except Exception:
+                p95 = None
+                study_active = False
 
-        denom = max(1e-6, 1.0 - float(threshold))
-        excess = max(0.0, (float(value) - float(threshold)) / denom)
+        try:
+            if p95 is None:
+                threshold_active = float(self.floor_threshold)
+            else:
+                threshold_active = float(max(self.floor_threshold, float(p95) + float(self.study_padding)))
+        except Exception:
+            threshold_active = float(self.floor_threshold)
+
+        anomaly = bool(float(current) > float(threshold_active))
+        in_study_zone = bool(float(current) > float(self.floor_threshold) and float(current) <= float(threshold_active))
+
         return {
-            "value": float(value),
-            "baseline": float(mean),
+            "value": float(current),
+            "baseline": float(baseline),
             "deviation": float(deviation),
-            "threshold": float(threshold),
+            "threshold": float(threshold_active),
             "anomaly": anomaly,
-            "excess_ratio": float(excess),
+            "excess_ratio": float(max(0.0, float(current) - float(threshold_active)) / 100.0),
+            "study_active": bool(study_active),
+            "in_study_zone": bool(in_study_zone),
+            "init_mode": bool(init_mode),
         }
-
-    def _eval_network_qos_head(
-        self,
-        health_ratio: float,
-        latency_ms: float,
-        retrans_per_sec: float,
-        probe_success: float,
-        latency_threshold_ms: float,
-        retrans_threshold: float,
-    ) -> dict:
-
-        tags = []
-        is_site_down = bool(float(probe_success) <= 0.0)
-        if is_site_down:
-            tags.append("SITE_DOWN")
-        if float(latency_ms) > float(latency_threshold_ms):
-            tags.append("NET_LATENCY")
-        if float(retrans_per_sec) > float(retrans_threshold):
-            tags.append("NET_CONGESTION")
-
-        anomaly = bool(tags)
-
-        baseline_latency = self.net_latency_state.get("mean")
-        baseline_retrans = self.net_retrans_state.get("mean")
-
-        if baseline_latency is None:
-            baseline_latency = float(latency_ms)
-            self.net_latency_state["mean"] = float(latency_ms)
-            self.net_latency_state["var"] = 0.0
-        if baseline_retrans is None:
-            baseline_retrans = float(retrans_per_sec)
-            self.net_retrans_state["mean"] = float(retrans_per_sec)
-            self.net_retrans_state["var"] = 0.0
-
-        if not anomaly:
-            lat_mean = float(self.net_latency_state.get("mean", latency_ms) or latency_ms)
-            lat_var = float(self.net_latency_state.get("var", 0.0) or 0.0)
-            lat_diff = float(latency_ms) - lat_mean
-            lat_mean = lat_mean + (self.alpha * lat_diff)
-            lat_var = (1.0 - self.alpha) * (lat_var + (self.alpha * lat_diff * lat_diff))
-            self.net_latency_state["mean"] = float(lat_mean)
-            self.net_latency_state["var"] = float(lat_var)
-
-            rt_mean = float(self.net_retrans_state.get("mean", retrans_per_sec) or retrans_per_sec)
-            rt_var = float(self.net_retrans_state.get("var", 0.0) or 0.0)
-            rt_diff = float(retrans_per_sec) - rt_mean
-            rt_mean = rt_mean + (self.alpha * rt_diff)
-            rt_var = (1.0 - self.alpha) * (rt_var + (self.alpha * rt_diff * rt_diff))
-            self.net_retrans_state["mean"] = float(rt_mean)
-            self.net_retrans_state["var"] = float(rt_var)
-
-        baseline_latency = float(self.net_latency_state.get("mean", baseline_latency) or baseline_latency)
-        deviation_latency = abs(float(latency_ms) - baseline_latency)
-
-        info = {
-            "value": float(health_ratio),
-            "baseline": float(baseline_latency),
-            "deviation": float(deviation_latency),
-            "threshold": float(latency_threshold_ms),
-            "anomaly": anomaly,
-            "excess_ratio": float(max(0.0, 1.0 - float(health_ratio))),
-            "latency_ms": float(latency_ms),
-            "retrans_per_sec": float(retrans_per_sec),
-            "probe_success": float(probe_success),
-            "site_down": bool(is_site_down),
-            "tags": list(tags),
-        }
-        return info
-
-    def _eval_high_rate_head(self, name: str, value_bps: float, floor_bps: float) -> dict:
-        state = self.head_states.get(name) or {"mean": None, "var": 0.0}
-        mean = state.get("mean")
-        var = float(state.get("var", 0.0) or 0.0)
-
-        if mean is None:
-            state["mean"] = float(value_bps)
-            state["var"] = 0.0
-            self.head_states[name] = state
-            threshold = max(float(floor_bps), float(value_bps))
-            return {"value": float(value_bps), "threshold": float(threshold), "anomaly": False, "excess_ratio": 0.0}
-
-        mean = float(mean)
-        std = math.sqrt(max(0.0, var))
-        threshold = max(float(floor_bps), mean + (self.std_k * std))
-        anomaly = bool(float(value_bps) > float(threshold))
-
-        if not anomaly:
-            diff = float(value_bps) - mean
-            mean = mean + (self.alpha * diff)
-            var = (1.0 - self.alpha) * (var + (self.alpha * diff * diff))
-            state["mean"] = float(mean)
-            state["var"] = float(var)
-            self.head_states[name] = state
-
-        denom = max(1e-6, float(threshold))
-        excess = max(0.0, (float(value_bps) - float(threshold)) / denom)
-        return {"value": float(value_bps), "threshold": float(threshold), "anomaly": anomaly, "excess_ratio": float(excess)}

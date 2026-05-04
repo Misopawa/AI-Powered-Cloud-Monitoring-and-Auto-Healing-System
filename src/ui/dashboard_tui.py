@@ -29,6 +29,8 @@ class HealingDashboard:
         self.source_label = "UNKNOWN"
         self.net_label = None
         self.stg_label = None
+        self.cycle_count = 0
+        self.culprits = []
         self._stdin_fd = None
         self._stdin_old_settings = None
         self._setup_layout()
@@ -100,11 +102,21 @@ class HealingDashboard:
     def generate_layout(self):
         return self.layout
 
-    def update_view(self, metrics, anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp, is_connected=False, ui_messages=None, raw_score=None, decision_heads=None):
+    def update_view(self, metrics, anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp, is_connected=False, ui_messages=None, raw_score=None, decision_heads=None, cycle_count=None, culprits=None):
         if ui_messages:
             self.ui_messages.extend(list(ui_messages))
+        if cycle_count is not None:
+            try:
+                self.cycle_count = int(cycle_count)
+            except Exception:
+                pass
+        if culprits is not None:
+            try:
+                self.culprits = list(culprits)
+            except Exception:
+                self.culprits = []
         self.layout["header"].update(self._make_header(True))
-        self.layout["ai_brain"].update(self._make_ai_brain_panel(decision_heads, escalation_level, action_name, stabilization_window, last_action_timestamp))
+        self.layout["ai_brain"].update(self._make_ai_brain_panel(decision_heads, escalation_level, action_name, stabilization_window, last_action_timestamp, self.culprits))
         self.layout["forensics"].update(self._make_logs_panel())
         self.layout["right"].update(self._make_background_panel())
         self.layout["footer"].update(self._make_footer())
@@ -123,12 +135,12 @@ class HealingDashboard:
             title_style = "bold cyan"
             
         title = Text("AI-Powered Cloud Monitoring & Auto-Healing System", style=title_style)
-        info = Text(f" [Time: {current_time}] [Node: {node}] [VMID: {vmid}]", style="white")
+        info = Text(f" [Time: {current_time}] [Node: {node}] [VMID: {vmid}] [Cycles: {self.cycle_count}]", style="white")
         
         header_content = title + status_text + info
         return Panel(Align.center(header_content), style="blue")
 
-    def _make_ai_brain_panel(self, decision_heads, level, action, window, last_action):
+    def _make_ai_brain_panel(self, decision_heads, level, action, window, last_action, culprits):
         current_time = time.time()
         time_diff = current_time - last_action
         remaining = max(0, int(window - time_diff)) if last_action > 0 else 0
@@ -144,6 +156,21 @@ class HealingDashboard:
         table.add_column("Current", justify="right")
         table.add_column("Baseline", justify="right")
         table.add_column("Deviation", justify="right")
+        table.add_column("Thresh", justify="right")
+
+        if not heads:
+            waiting = Text("Waiting for Data...", style="dim")
+            dash = Text("-", style="dim")
+            thresh = Text("70.0(I)%", style="dim")
+            table.add_row(Text("[CPU]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
+            table.add_row(Text("[MEM]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
+            table.add_row(Text("[STG]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
+            table.add_row(Text("[NET]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
+            state_text = Text(f"\nEscalation State: Level {level}\nAction: {action}", style="bold green")
+            panel_content = Table.grid(expand=True)
+            panel_content.add_row(table)
+            panel_content.add_row(Align.center(state_text))
+            return Panel(panel_content, title="System Status", border_style="blue")
 
         def row_for(name, label, formatter):
             info = heads.get(name) or {}
@@ -151,6 +178,10 @@ class HealingDashboard:
             value = info.get("value", 0.0)
             baseline = info.get("baseline", 0.0)
             deviation = info.get("deviation", 0.0)
+            threshold = info.get("threshold", 0.0)
+            in_study_zone = bool(info.get("in_study_zone", False))
+            study_active = bool(info.get("study_active", False))
+            init_mode = bool(info.get("init_mode", False))
             site_down = bool(info.get("site_down", False)) if name == "NETWORK" else False
             try:
                 value = float(value)
@@ -164,9 +195,33 @@ class HealingDashboard:
                 deviation = float(deviation)
             except Exception:
                 deviation = abs(value - baseline)
+            try:
+                threshold = float(threshold)
+            except Exception:
+                threshold = 0.0
+            if init_mode:
+                thresh_label = f"{threshold:.1f}(I)"
+            elif study_active and threshold > 70.0:
+                thresh_label = f"{threshold:.1f}(S)"
+            else:
+                thresh_label = f"{threshold:.1f}"
+
+            current_style = "green"
+            status_style = "bold green"
+            comp_style = "cyan"
+            if float(value) > float(threshold):
+                current_style = "bold red"
+                status_style = "bold red"
+                comp_style = "bold red"
+            elif float(value) > 70.0 and in_study_zone:
+                current_style = "bold yellow"
+                status_style = "bold yellow"
+                comp_style = "bold yellow"
+
             if name == "NETWORK":
                 latency_ms = 0.0
                 retrans = 0.0
+                speed_mbps = 0.0
                 try:
                     latency_ms = float(info.get("latency_ms", 0.0) or 0.0)
                 except Exception:
@@ -175,34 +230,53 @@ class HealingDashboard:
                     retrans = float(info.get("retrans_per_sec", 0.0) or 0.0)
                 except Exception:
                     retrans = 0.0
+                try:
+                    speed_mbps = float(info.get("speed_mbps", 0.0) or 0.0)
+                except Exception:
+                    speed_mbps = 0.0
                 if site_down:
                     row_style = "bold white on bright_red blink"
                     status = Text("[ SITE DOWN ]", style=row_style)
                     current_text = Text("Unreachable", style=row_style)
                     baseline_text = Text("-", style=row_style)
                     deviation_text = Text("-", style=row_style)
+                    threshold_text = Text("-", style=row_style)
                     comp = Text(f"[{label}]", style=row_style)
                 else:
-                    status = Text("[ ANOMALY ]" if is_anomaly else "[ NORMAL ]", style="bold red" if is_anomaly else "bold green")
-                    current_text = Text(f"Lat: {latency_ms:.0f}ms | Ret: {retrans:.2f}/s", style="bold red" if is_anomaly else "green")
-                    baseline_text = Text(f"{baseline:.0f}ms", style="bold red" if is_anomaly else "dim")
-                    deviation_text = Text(f"{deviation:.0f}ms", style="bold red" if is_anomaly else "yellow")
-                    comp = Text(f"[{label}]", style="bold red" if is_anomaly else "cyan")
+                    status = Text("[ ANOMALY ]" if float(value) > float(threshold) else "[ NORMAL ]", style=status_style)
+                    if speed_mbps < 1.0:
+                        pulse_value = speed_mbps * 1024.0
+                        pulse_unit = "Kbps"
+                    else:
+                        pulse_value = speed_mbps
+                        pulse_unit = "Mbps"
+                    activity_style = current_style
+                    if activity_style in ("green", "bold green") and speed_mbps > 0.0:
+                        activity_style = "bold green"
+                    current_text = Text(
+                        f"Load: {value:.1f}% | Lat: {latency_ms:.0f}ms | Ret: {retrans:.2f}/s | Pulse: {pulse_value:.2f} {pulse_unit}",
+                        style=activity_style,
+                    )
+                    baseline_text = Text(f"{baseline:.1f}%", style="dim")
+                    deviation_text = Text(f"{abs(float(deviation)):.1f}%", style="yellow")
+                    threshold_text = Text(f"{thresh_label}%", style="dim")
+                    comp = Text(f"[{label}]", style=comp_style)
             else:
-                status = Text("[ ANOMALY ]" if is_anomaly else "[ NORMAL ]", style="bold red" if is_anomaly else "bold green")
-                current_text = Text(formatter(value), style="bold red" if is_anomaly else "green")
-                baseline_text = Text(formatter(baseline), style="bold red" if is_anomaly else "dim")
-                deviation_text = Text(formatter(deviation), style="bold red" if is_anomaly else "yellow")
-                comp = Text(f"[{label}]", style="bold red" if is_anomaly else "cyan")
-            table.add_row(comp, status, current_text, baseline_text, deviation_text)
+                status = Text("[ ANOMALY ]" if float(value) > float(threshold) else "[ NORMAL ]", style=status_style)
+                current_text = Text(formatter(value), style=current_style)
+                baseline_text = Text(formatter(baseline), style="dim")
+                deviation_text = Text(f"{abs(float(deviation)):.1f}%", style="yellow")
+                threshold_text = Text(f"{thresh_label}%", style="dim")
+                comp = Text(f"[{label}]", style=comp_style)
+            table.add_row(comp, status, current_text, baseline_text, deviation_text, threshold_text)
 
-        row_for("CPU", "CPU", lambda v: f"{v * 100:.1f}%")
-        row_for("MEMORY", "MEM", lambda v: f"{v * 100:.1f}%")
-        row_for("STORAGE", "STG", lambda v: f"{v * 100:.1f}%")
-        row_for("NETWORK", "NET", lambda v: f"{v * 100:.1f}%")
+        row_for("CPU", "CPU", lambda v: f"{v:.1f}%")
+        row_for("MEMORY", "MEM", lambda v: f"{v:.1f}%")
+        row_for("STORAGE", "STG", lambda v: f"{v:.1f}%")
+        row_for("NETWORK", "NET", lambda v: f"{v:.1f}%")
 
         state_style = "bold white"
-        if "VERIFYING" in str(action):
+        if "VERIFYING" in str(action) or "WARNING" in str(action):
             state_style = "bold yellow"
         if "WARMING UP" in str(action):
             state_style = "bold cyan"
@@ -211,9 +285,17 @@ class HealingDashboard:
         stab_style = "bold yellow" if remaining > 0 else "dim green"
         stab_text = Text(f"\nStabilization Window: {remaining}s remaining", style=stab_style)
 
+        culprits_list = list(culprits or [])
+        if culprits_list:
+            culprits_text = " ".join([f"[{c}]" for c in culprits_list])
+            culprits_line = Text(f"\nCulprits: {culprits_text}", style="bold red")
+        else:
+            culprits_line = Text("\nCulprits: -", style="dim")
+
         panel_content = Table.grid(expand=True)
         panel_content.add_row(table)
         panel_content.add_row(Align.center(state_text))
+        panel_content.add_row(Align.center(culprits_line))
         panel_content.add_row(Align.center(stab_text))
 
         return Panel(panel_content, title="Decision Heads", border_style="white")

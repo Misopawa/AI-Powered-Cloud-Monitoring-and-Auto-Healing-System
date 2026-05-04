@@ -119,7 +119,7 @@ def train(config=None, additional_data=None):
     # multivariate anomaly detection
     model = IsolationForest(
         n_estimators=100,
-        contamination=0.01,  # 1% contamination for clean lab environment
+        contamination=0.15,
         random_state=42
     )
     

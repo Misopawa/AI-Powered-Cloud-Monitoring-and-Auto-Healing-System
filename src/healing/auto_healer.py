@@ -58,7 +58,7 @@ class PolicyEngine:
         self.current_level_idx = 0
         self.current_level = 0
         self._last_notified_level = 0
-        self.required_consecutive_head_anomalies = 10
+        self.required_consecutive_head_anomalies = 5
         self.component_counters = {"CPU": 0, "MEMORY": 0, "STORAGE": 0, "NETWORK": 0}
 
     def manual_resume(self):
@@ -236,21 +236,6 @@ class PolicyEngine:
 
         culprits = anomaly.get("culprits") or []
         culprits = [str(c).upper() for c in culprits]
-        if "SITE_DOWN" in culprits:
-            try:
-                proxmox = get_proxmox_client(self.config)
-                proxmox.nodes(self.node).lxc(self.vmid).exec.post(command="systemctl restart nginx")
-                self.current_level = max(1, int(self.current_level or 0))
-                self.current_level_idx = max(0, int(self.current_level) - 1)
-                self.last_action_timestamp = time.time()
-                if self.notifier:
-                    self.notifier.send("🚨 [CRITICAL] SITE_DOWN detected. Restarting nginx immediately.", min_interval_seconds=60)
-                time.sleep(self.cooldown_period)
-                return "site_down_nginx_restart"
-            except Exception:
-                if self.notifier:
-                    self.notifier.send("🚨 [CRITICAL] SITE_DOWN detected, but nginx restart failed.", min_interval_seconds=60)
-                return "site_down_nginx_restart_failed"
 
         current_time = time.time()
         time_diff = current_time - self.last_action_timestamp
@@ -288,28 +273,6 @@ class PolicyEngine:
             self.current_level = 0
             return "none"
 
-        heads = anomaly.get("heads") or {}
-
-        cpu_usage = 0.0
-        mem_usage = 0.0
-        try:
-            cpu_usage = float((heads.get("CPU") or {}).get("value", anomaly.get("features", {}).get("cpu_usage_ratio", 0.0)) or 0.0)
-        except Exception:
-            cpu_usage = 0.0
-        try:
-            mem_usage = float((heads.get("MEMORY") or {}).get("value", anomaly.get("features", {}).get("mem_used_ratio", 0.0)) or 0.0)
-        except Exception:
-            mem_usage = 0.0
-
-        if cpu_usage < 0.40 and mem_usage < 0.70:
-            self.current_level = 0
-            for key in self.component_counters.keys():
-                self.component_counters[key] = 0
-            if self.notifier:
-                culprit_text = ",".join(culprits) if culprits else "UNKNOWN"
-                self.notifier.send(f"🛡️ [GATE] High [{culprit_text}] usage detected, but bypassed due to safety limits.", min_interval_seconds=60)
-            return "sanity_skip"
-
         for head in self.component_counters.keys():
             if head in culprits:
                 self.component_counters[head] = int(self.component_counters.get(head, 0)) + 1
@@ -325,32 +288,47 @@ class PolicyEngine:
 
         if int(worst_count) < int(self.required_consecutive_head_anomalies):
             label = worst_head or (culprits[0] if culprits else "UNKNOWN")
-            return f"[ VERIFYING {label} ] {worst_count}/{self.required_consecutive_head_anomalies}"
+            logger.warning(
+                "[Cycle %d/%d] Sustained Anomaly Detected. Culprit=%s",
+                int(worst_count),
+                int(self.required_consecutive_head_anomalies),
+                str(label),
+            )
+            return f"[ WARNING ] {label} [Cycle {worst_count}/{self.required_consecutive_head_anomalies}]"
 
-        self.current_level = min(5, int(self.current_level) + 1)
-        self.current_level_idx = max(0, int(self.current_level) - 1)
+        triggered_metric = worst_head or (culprits[0] if culprits else "UNKNOWN")
+        head_info = (heads.get(triggered_metric) or {}) if isinstance(heads, dict) else {}
+        value_pct = head_info.get("value", None)
+        threshold_pct = head_info.get("threshold", None)
+        study_active = bool(head_info.get("study_active", False))
+        try:
+            value_pct = float(value_pct)
+        except Exception:
+            value_pct = 0.0
+        try:
+            threshold_pct = float(threshold_pct)
+        except Exception:
+            threshold_pct = 70.0
 
-        anomaly_type = "general"
-        if len(culprits) == 1:
-            mapping = {"CPU": "cpu", "MEMORY": "memory", "STORAGE": "storage", "NETWORK": "network"}
-            anomaly_type = mapping.get(culprits[0], "general")
+        self.current_level = 1
+        self.current_level_idx = 0
 
-        culprit_text = ",".join(culprits) if culprits else "UNKNOWN"
-        if self.notifier and self._last_notified_level != self.current_level:
-            self._last_notified_level = self.current_level
-            self.notifier.send(f"⚠️ [ALERT] Anomaly detected in [{culprit_text}]. Escalating to Level {self.current_level}.", min_interval_seconds=60)
+        mapping = {"CPU": "cpu", "MEMORY": "memory", "STORAGE": "storage", "NETWORK": "network"}
+        anomaly_type = mapping.get(str(triggered_metric).upper(), "general")
 
-        action_taken = self._trigger_level_action(self.current_level, anomaly_type)
-        self._record_forensics(anomaly, self.current_level)
+        if self.notifier:
+            learned_text = "Learned from high-load study" if study_active else "Fixed floor"
+            self.notifier.send(
+                "[CRITICAL] Anomaly Sustained for 5 cycles.\n"
+                f"Metric: [{triggered_metric}]\n"
+                f"Value: {value_pct:.1f}%\n"
+                f"Limit: {threshold_pct:.1f}% ({learned_text})",
+                min_interval_seconds=60,
+            )
+
+        action_taken = self._trigger_level_action(1, anomaly_type)
+        self._record_forensics(anomaly, 1)
         self._save_state()
-
-        if self.current_level >= 5 or action_taken == "admin_escalation_halt":
-            self.is_halted = True
-            self.current_level = 5
-            if self.notifier and self._last_notified_level != 5:
-                self._last_notified_level = 5
-                self.notifier.send("🚨 [CRITICAL] SYSTEM HALTED. Level 5 reached. Manual intervention required.", min_interval_seconds=60)
-            return "[ MAINTENANCE REQUIRED ]"
 
         for key in self.component_counters.keys():
             self.component_counters[key] = 0
@@ -359,6 +337,7 @@ class PolicyEngine:
             return action_taken
 
         time.sleep(self.cooldown_period)
+        self.current_level = 0
         return action_taken
 
     def reset_state(self):

@@ -76,6 +76,13 @@ def main():
 
     logger.info("Starting Plug & Play Auto-Healing Engine...")
 
+    try:
+        metrics_path = os.path.join("data", "metrics.csv")
+        if os.path.exists(metrics_path):
+            os.remove(metrics_path)
+    except Exception as e:
+        logger.error(f"Cold start metrics cleanup failed: {e}")
+
     # Load configuration
     config = load_config("config/config.yaml")
     monitoring_cfg = config.get('monitoring', {})
@@ -119,7 +126,8 @@ def main():
         _configure_tui_logging()
         dashboard = HealingDashboard(config)
         dashboard.set_telegram_active(bool(telegram_notifier.is_active))
-        dashboard.set_source_label("PROMETHEUS")
+        prom_url = str((prometheus_collector.cfg or {}).get("prometheus_url") or "").strip()
+        dashboard.set_source_label(f"PROMETHEUS {prom_url}" if prom_url else "PROMETHEUS")
         net_label = None
         stg_label = None
         try:
@@ -175,6 +183,7 @@ def main():
                     if args.tui:
                         dashboard.poll_keys()
 
+                    print(f"SCRAPE_ATTEMPT prometheus_url={str((prometheus_collector.cfg or {}).get('prometheus_url') or '').strip()}")
                     metrics = prometheus_collector.collect()
                     connected = metrics is not None
 
@@ -191,6 +200,8 @@ def main():
                                 is_connected=False,
                                 raw_score=0.0,
                                 decision_heads={},
+                                cycle_count=cycle_count,
+                                culprits=[],
                             )
                         time.sleep(interval)
                         cycle_count += 1
@@ -236,8 +247,13 @@ def main():
                         else:
                             smoothed_score = (0.2 * raw_score) + (0.8 * smoothed_score)
                         anomaly["raw_score"] = raw_score
-                        anomaly["score"] = float(smoothed_score)
-                        anomaly["anomaly"] = bool(float(smoothed_score) < float(policy_engine.threshold))
+                        anomaly["score"] = float(raw_score)
+                        anomaly["cycle_count"] = int(cycle_count)
+                        logger.info(
+                            "[ANOMALY_SCORE] %.4f culprits=%s",
+                            float(raw_score),
+                            ",".join(list(anomaly.get("culprits") or [])),
+                        )
 
                     current_time = time.time()
                     if args.tui and dashboard.resume_requested:
@@ -256,6 +272,8 @@ def main():
                             is_connected=True,
                             raw_score=float(raw_score),
                             decision_heads=anomaly.get("heads", {}) if isinstance(anomaly, dict) else {},
+                            cycle_count=cycle_count,
+                            culprits=anomaly.get("culprits", []) if isinstance(anomaly, dict) else [],
                         )
                         time.sleep(interval)
                         cycle_count += 1
@@ -275,6 +293,8 @@ def main():
                                 is_connected=True,
                                 raw_score=anomaly.get("raw_score", anomaly.get("score", 0.0)),
                                 decision_heads=anomaly.get("heads", {}) if isinstance(anomaly, dict) else {},
+                                cycle_count=cycle_count,
+                                culprits=anomaly.get("culprits", []) if isinstance(anomaly, dict) else [],
                             )
                         time.sleep(interval)
                         cycle_count += 1
@@ -311,6 +331,8 @@ def main():
                             is_connected=True,
                             raw_score=anomaly.get("raw_score", anomaly.get("score", 0.0)),
                             decision_heads=anomaly.get("heads", {}) if isinstance(anomaly, dict) else {},
+                            cycle_count=cycle_count,
+                            culprits=anomaly.get("culprits", []) if isinstance(anomaly, dict) else [],
                         )
 
                     if action == "[ MAINTENANCE REQUIRED ]":
