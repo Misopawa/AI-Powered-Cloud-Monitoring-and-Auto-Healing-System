@@ -13,8 +13,18 @@ class PrometheusCollector:
         self.config_path = config_path or os.path.join("config", "prometheus_config.json")
         self.timeout_seconds = int(timeout_seconds)
         self.cfg = self._load_config()
+        self.url = "http://127.0.0.1:9090"
+        self.prometheus_url = self.url
+        try:
+            self.cfg["prometheus_url"] = self.url
+        except Exception:
+            self.cfg = {"prometheus_url": self.url}
+        self.expected_metrics = list(self.METRIC_LIST)
         self._last_values = {}
         self._last_cpu_print_ts = 0.0
+        self.connection_ok = self.check_connection()
+        self.connection_status = "ONLINE" if self.connection_ok else "OFFLINE"
+        self.source_status = "CONNECTED" if self.connection_ok else "OFFLINE (Check Prometheus)"
 
     def _load_config(self) -> Dict[str, Any]:
         try:
@@ -26,7 +36,7 @@ class PrometheusCollector:
         return {}
 
     def _query(self, promql: str) -> Optional[float]:
-        url = str(self.cfg.get("prometheus_url") or "").rstrip("/")
+        url = str(self.url or "").rstrip("/")
         if not url or "<PROMETHEUS_IP>" in url:
             return None
         endpoint = f"{url}/api/v1/query"
@@ -46,8 +56,25 @@ class PrometheusCollector:
         except Exception:
             return None
 
+    def check_connection(self) -> bool:
+        url = str(self.url or "").rstrip("/")
+        if not url or "<PROMETHEUS_IP>" in url:
+            return False
+        try:
+            resp = requests.get(f"{url}/-/ready", timeout=min(3, self.timeout_seconds))
+            if 200 <= int(resp.status_code) < 300:
+                return True
+        except Exception:
+            pass
+        try:
+            resp = requests.get(f"{url}/api/v1/status/buildinfo", timeout=min(3, self.timeout_seconds))
+            data = resp.json() if resp.ok else None
+            return bool(data and data.get("status") == "success")
+        except Exception:
+            return False
+
     def _query_with_raw(self, promql: str):
-        url = str(self.cfg.get("prometheus_url") or "").rstrip("/")
+        url = str(self.url or "").rstrip("/")
         if not url or "<PROMETHEUS_IP>" in url:
             return None, None, False
         endpoint = f"{url}/api/v1/query"
@@ -88,23 +115,23 @@ class PrometheusCollector:
             if instance_regex:
                 inst = ', instance=~"' + instance_regex + '"'
             primary = (
-                'sum(rate(node_network_receive_bytes_total{device="' + network_device + '", job="' + job_name + '"' + inst + '}[1m])) + '
-                'sum(rate(node_network_transmit_bytes_total{device="' + network_device + '", job="' + job_name + '"' + inst + '}[1m]))'
+                'sum(rate(net_bytes_recv{interface="' + network_device + '", job="' + job_name + '"' + inst + '}[1m])) + '
+                'sum(rate(net_bytes_sent{interface="' + network_device + '", job="' + job_name + '"' + inst + '}[1m]))'
             )
             value, _, ok = self._query_with_raw(primary)
             if ok:
                 return value
 
             fallback = (
-                'sum(rate(node_network_receive_bytes_total{job="' + job_name + '"' + inst + '}[1m]))'
+                'sum(rate(net_bytes_recv{job="' + job_name + '"' + inst + '}[1m])) + sum(rate(net_bytes_sent{job="' + job_name + '"' + inst + '}[1m]))'
             )
             value, _, ok = self._query_with_raw(fallback)
             if ok:
                 return value
 
         generic = (
-            "rate(node_network_receive_bytes_total" + sel() + "[1m]) + "
-            "rate(node_network_transmit_bytes_total" + sel() + "[1m])"
+            "rate(net_bytes_recv" + sel() + "[1m]) + "
+            "rate(net_bytes_sent" + sel() + "[1m])"
         )
         value, _, ok = self._query_with_raw(generic)
         if ok:
@@ -115,6 +142,28 @@ class PrometheusCollector:
         base_selector = str(self.cfg.get("label_selector") or "").strip()
         base_selector = base_selector.strip()
         base_selector = base_selector.strip("{}").strip()
+        url = str(self.url or "").rstrip("/")
+        try:
+            if url and "<PROMETHEUS_IP>" not in url:
+                resp = requests.get(f"{url}/api/v1/status/buildinfo", timeout=min(3, self.timeout_seconds))
+                self.source_status = "CONNECTED" if int(resp.status_code) == 200 else "OFFLINE (Check Prometheus)"
+                try:
+                    raw = resp.json() if resp.ok else {"status_code": int(resp.status_code), "text": resp.text}
+                except Exception:
+                    raw = {"status_code": int(resp.status_code), "text": resp.text}
+                os.makedirs("logs", exist_ok=True)
+                with open(os.path.join("logs", "prometheus_debug.log"), "a", encoding="utf-8") as f:
+                    f.write(json.dumps({"ts": time.time(), "query": "BUILDINFO", "response": raw}, ensure_ascii=False) + "\n")
+            else:
+                self.source_status = "OFFLINE (Check Prometheus)"
+        except Exception as e:
+            self.source_status = "OFFLINE (Check Prometheus)"
+            try:
+                os.makedirs("logs", exist_ok=True)
+                with open(os.path.join("logs", "prometheus_debug.log"), "a", encoding="utf-8") as f:
+                    f.write(json.dumps({"ts": time.time(), "query": "BUILDINFO", "error": str(e)}, ensure_ascii=False) + "\n")
+            except Exception:
+                pass
         instance_regex = str(self.cfg.get("instance_regex") or "10.0.2.100.*").strip()
         if instance_regex and "instance=" not in base_selector:
             if base_selector:
@@ -131,8 +180,8 @@ class PrometheusCollector:
                 return "{" + extra + "}"
             return ""
 
-        cpu_q = '1 - avg(irate(node_cpu_seconds_total' + sel('mode="idle"') + '[1m]))'
-        mem_q = "node_memory_Active_bytes" + sel() + " / node_memory_MemTotal_bytes" + sel()
+        cpu_q = "avg(cpu_usage_active" + sel('cpu=\"cpu-total\"') + ")"
+        mem_q = "avg(mem_used_percent" + sel() + ")"
         job_name = str(self.cfg.get("job_name") or "").strip()
         network_device = str(self.cfg.get("network_device") or "").strip()
         website_url = str(self.cfg.get("website_url") or "").strip()
@@ -160,20 +209,10 @@ class PrometheusCollector:
 
         mountpoint = str(self.cfg.get("storage_mountpoint") or "/")
         storage_device = str(self.cfg.get("storage_device") or "").strip()
-        if storage_device:
-            extra = 'device="' + storage_device + '"'
-            if job_name:
-                extra = extra + ', job="' + job_name + '"'
-            storage_q = "1 - (node_filesystem_avail_bytes{" + extra + "} / node_filesystem_size_bytes{" + extra + "})"
-        else:
-            storage_extra = f'mountpoint="{mountpoint}",fstype!~"tmpfs|overlay|squashfs"'
-            storage_q = (
-                "(1 - (node_filesystem_avail_bytes" + sel(storage_extra) + " / "
-                "node_filesystem_size_bytes" + sel(storage_extra) + "))"
-            )
+        storage_q = "avg(disk_used_percent" + sel() + ")"
 
-        cpu = self._query(cpu_q)
-        mem = self._query(mem_q)
+        cpu_pct = self._query(cpu_q)
+        mem_pct = self._query(mem_q)
         latency_ms = self._query(latency_ms_q) if latency_ms_q else None
         retrans_per_sec = self._query(retrans_q)
         probe_success = self._query(probe_success_q) if probe_success_q else None
@@ -183,22 +222,21 @@ class PrometheusCollector:
             base_selector=base_selector,
             instance_regex=instance_regex,
         )
-        storage = self._query(storage_q)
+        storage_pct = self._query(storage_q)
 
-        if cpu is None:
-            cpu = self._last_values.get("cpu")
-        if mem is None:
-            mem = self._last_values.get("mem")
-        if cpu is None:
-            cpu = 0.0
-        if mem is None:
-            mem = 0.0
-        self._last_values["cpu"] = float(cpu or 0.0)
-        self._last_values["mem"] = float(mem or 0.0)
+        if cpu_pct is None:
+            cpu_pct = self._last_values.get("cpu_pct")
+        if mem_pct is None:
+            mem_pct = self._last_values.get("mem_pct")
+        if cpu_pct is None:
+            cpu_pct = 0.0
+        if mem_pct is None:
+            mem_pct = 0.0
+        self._last_values["cpu_pct"] = float(cpu_pct or 0.0)
+        self._last_values["mem_pct"] = float(mem_pct or 0.0)
         now_ts = time.time()
         if float(now_ts - float(self._last_cpu_print_ts)) >= 5.0:
             self._last_cpu_print_ts = float(now_ts)
-            print(f"PROM_CPU_RAW={float(cpu)}")
 
         def clamp01(x: float) -> float:
             try:
@@ -214,8 +252,8 @@ class PrometheusCollector:
             probe_success = self._last_values.get("probe_success")
         if net_bps is None:
             net_bps = self._last_values.get("net_bps")
-        if storage is None:
-            storage = self._last_values.get("storage_ratio")
+        if storage_pct is None:
+            storage_pct = self._last_values.get("storage_pct")
 
         network_health_ratio = 1.0
         if probe_success is not None and float(probe_success) <= 0.0:
@@ -238,17 +276,21 @@ class PrometheusCollector:
             self._last_values["probe_success"] = float(probe_success)
         if net_bps is not None:
             self._last_values["net_bps"] = float(net_bps)
-        if storage is not None:
-            self._last_values["storage_ratio"] = float(storage)
+        if storage_pct is not None:
+            self._last_values["storage_pct"] = float(storage_pct)
+
+        cpu_ratio = clamp01(float(cpu_pct) / 100.0)
+        mem_ratio = clamp01(float(mem_pct) / 100.0)
+        storage_ratio = clamp01(float(storage_pct or 0.0) / 100.0)
 
         return {
             "timestamp": float(time.time()),
-            "cpu_usage_ratio": clamp01(cpu),
-            "cpu_usage_pct": float(clamp01(cpu) * 100.0),
-            "mem_used_ratio": clamp01(mem),
-            "mem_used_pct": float(clamp01(mem) * 100.0),
-            "storage_used_ratio": clamp01(storage if storage is not None else 0.0),
-            "storage_used_pct": float(clamp01(storage if storage is not None else 0.0) * 100.0),
+            "cpu_usage_ratio": float(cpu_ratio),
+            "cpu_usage_pct": float(max(0.0, min(100.0, float(cpu_pct)))),
+            "mem_used_ratio": float(mem_ratio),
+            "mem_used_pct": float(max(0.0, min(100.0, float(mem_pct)))),
+            "storage_used_ratio": float(storage_ratio),
+            "storage_used_pct": float(max(0.0, min(100.0, float(storage_pct or 0.0)))),
             "network_ratio": clamp01(throughput_ratio),
             "network_pct": float(clamp01(throughput_ratio) * 100.0),
             "network_health_ratio": clamp01(network_health_ratio),

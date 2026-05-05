@@ -43,3 +43,262 @@
 2026-05-04 13:33:24,749 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
 2026-05-04 13:34:23,417 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
 2026-05-04 13:34:23,421 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-04 13:40:11,180 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-04 13:40:11,186 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-04 13:43:19,874 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-04 13:43:19,881 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-04 13:47:53,769 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-04 13:47:53,775 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-04 13:48:23,157 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-04 13:48:23,163 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-04 13:48:40,390 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-04 13:48:40,396 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-05 12:49:38,118 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-05 12:49:38,153 - AutoHealingEngine - INFO - [ACTION] Demo Mode active. Polling interval reduced to 2s
+2026-05-05 12:49:44,172 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-05 12:49:44,172 - AutoHealingEngine - INFO - System initialized. Monitoring LXC 101 at 127.0.0.1
+2026-05-05 12:49:44,172 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 12:50:24,796 - AutoHealingEngine - INFO - Shutdown requested by user.
+2026-05-05 12:50:24,796 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-05-05 13:00:31,642 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-05 13:00:31,645 - AutoHealingEngine - INFO - [ACTION] Demo Mode active. Polling interval reduced to 2s
+2026-05-05 13:00:31,660 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-05 13:00:31,660 - AutoHealingEngine - INFO - System initialized. Monitoring LXC 101 at 127.0.0.1
+2026-05-05 13:00:31,660 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:00:31,720 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:00:31,720 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:00:41,720 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:00:41,746 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:00:41,746 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:00:51,746 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:00:51,772 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:00:51,772 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:01:01,772 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:01:01,800 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:01:01,800 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:01:11,800 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:01:11,827 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:01:11,827 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:01:21,827 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:01:21,856 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:01:21,856 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:01:31,856 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:01:31,883 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:01:31,883 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:01:41,883 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:01:41,910 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:01:41,910 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:01:51,910 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:01:51,936 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:01:51,936 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:02:01,937 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:02:01,964 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:02:01,964 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:02:11,964 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:02:11,992 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:02:11,992 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:02:21,992 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:02:22,021 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:02:22,022 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:02:32,022 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:02:32,050 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:02:32,050 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:02:42,050 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:02:42,080 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:02:42,080 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:02:52,081 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:02:52,107 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:02:52,107 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:02,107 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:02,133 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:02,133 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:10,038 - AutoHealingEngine - INFO - Starting Plug & Play Auto-Healing Engine...
+2026-05-05 13:03:10,041 - AutoHealingEngine - INFO - [ACTION] Demo Mode active. Polling interval reduced to 2s
+2026-05-05 13:03:10,044 - healing.auto_healer - INFO - [ACTION] Demo Mode active. Cooldown reduced to 30s
+2026-05-05 13:03:10,044 - AutoHealingEngine - INFO - System initialized. Monitoring LXC 101 at 127.0.0.1
+2026-05-05 13:03:10,044 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:10,072 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:10,072 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:12,133 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:12,161 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:12,161 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:20,072 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:20,102 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:20,102 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:22,161 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:22,185 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:22,185 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:25,362 - AutoHealingEngine - INFO - Shutdown requested by user.
+2026-05-05 13:03:25,362 - AutoHealingEngine - INFO - [SHUTDOWN] Initiating Cleanup Routine...
+2026-05-05 13:03:25,771 - AutoHealingEngine - INFO - Cleanup complete. Exiting.
+2026-05-05 13:03:32,186 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:32,210 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:32,211 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:42,211 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:42,237 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:42,237 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:03:52,237 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:03:52,262 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:03:52,262 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:04:02,263 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:04:02,288 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:04:02,288 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:04:12,288 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:04:12,315 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:04:12,316 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:04:22,316 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:04:22,348 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:04:22,348 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:04:32,348 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:04:32,373 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:04:32,373 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:04:42,373 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:04:42,409 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:04:42,409 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:04:52,409 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:04:52,439 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:04:52,439 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:05:02,439 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:05:02,467 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:05:02,467 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:05:12,467 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:05:12,494 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:05:12,494 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:05:22,495 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:05:22,519 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:05:22,520 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:05:32,520 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:05:32,550 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:05:32,551 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:05:42,551 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:05:42,575 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:05:42,576 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:05:52,576 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:05:52,602 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:05:52,602 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:06:02,603 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:06:02,629 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:06:02,629 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:06:12,630 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:06:12,659 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:06:12,659 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:06:22,659 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:06:22,688 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:06:22,688 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:06:32,688 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:06:32,718 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:06:32,718 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:06:42,718 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:06:42,741 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:06:42,742 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:06:52,742 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:06:52,769 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:06:52,769 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:07:02,769 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:07:02,795 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:07:02,795 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:07:12,795 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:07:12,825 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:07:12,825 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:07:22,825 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:07:22,869 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:07:22,869 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:07:32,869 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:07:32,899 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:07:32,900 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:07:42,900 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:07:42,924 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:07:42,924 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:07:52,924 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:07:52,949 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:07:52,950 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:08:02,950 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:08:02,978 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:08:02,978 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:08:12,978 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:08:13,007 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:08:13,007 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:08:23,007 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:08:23,032 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:08:23,032 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:08:33,032 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:08:33,063 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:08:33,063 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:08:43,063 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:08:43,090 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:08:43,090 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:08:53,090 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:08:53,116 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:08:53,116 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:09:03,116 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:09:03,145 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:09:03,146 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:09:13,146 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:09:13,174 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:09:13,174 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:09:23,174 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:09:23,202 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:09:23,202 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:09:33,202 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:09:33,230 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:09:33,230 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:09:43,230 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:09:43,281 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:09:43,281 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:09:53,282 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:09:53,310 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:09:53,311 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:10:03,311 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:10:03,408 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:10:03,408 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:10:13,408 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:10:13,433 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:10:13,433 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:10:23,433 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:10:23,458 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:10:23,458 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:10:33,458 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:10:33,482 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:10:33,482 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:10:43,482 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:10:43,514 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:10:43,514 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:10:53,514 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:10:53,543 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:10:53,544 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:11:03,544 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:11:03,571 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:11:03,571 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:11:13,571 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:11:13,598 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:11:13,598 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:11:23,598 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:11:23,624 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:11:23,624 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:11:33,624 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:11:33,650 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:11:33,651 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:11:43,651 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:11:43,687 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:11:43,687 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:11:53,687 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:11:53,713 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:11:53,714 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:12:03,714 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:12:03,743 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:12:03,743 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:12:13,743 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:12:13,769 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:12:13,769 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:12:23,769 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:12:23,794 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:12:23,794 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:12:33,794 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:12:33,819 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:12:33,819 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:12:43,819 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:12:43,843 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:12:43,843 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'
+2026-05-05 13:12:53,843 - AutoHealingEngine - INFO - --------------------------- NEW CYCLE ---------------------------
+2026-05-05 13:12:53,869 - cloud_monitor - INFO - Metrics written to data/metrics.csv
+2026-05-05 13:12:53,869 - AutoHealingEngine - ERROR - Survivor Loop Error: 'AnomalyDetector' object has no attribute 'ai_cfg'

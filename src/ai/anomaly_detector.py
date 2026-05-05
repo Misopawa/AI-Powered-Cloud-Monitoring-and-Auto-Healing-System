@@ -1,5 +1,6 @@
 from collections import deque
 import math
+import time
 
 from utils.logger import get_logger
 
@@ -15,7 +16,10 @@ class AnomalyDetector:
         self.study_min_points = 20
         self.safe_start_min_points = 10
         self.floor_threshold = 70.0
+        self.ceiling_threshold = 95.0
         self.study_padding = 2.0
+        self.recalibration_period_seconds = 172800
+        self.next_calibration_ts = float(time.time() + float(self.recalibration_period_seconds))
 
         self.cpu_recent = deque(maxlen=self.recent_maxlen)
         self.mem_recent = deque(maxlen=self.recent_maxlen)
@@ -30,6 +34,18 @@ class AnomalyDetector:
     def detect_anomaly(self, metrics):
         if metrics is None:
             return {"anomaly": False, "score": 0.0, "skip": True, "culprits": [], "heads": {}}
+
+        now_ts = float(time.time())
+        if now_ts >= float(self.next_calibration_ts):
+            self.cpu_recent.clear()
+            self.mem_recent.clear()
+            self.stg_recent.clear()
+            self.net_recent.clear()
+            self.cpu_study.clear()
+            self.mem_study.clear()
+            self.stg_study.clear()
+            self.net_study.clear()
+            self.next_calibration_ts = float(now_ts + float(self.recalibration_period_seconds))
 
         cpu = self._as_float(metrics.get("cpu_usage_pct", metrics.get("cpu_usage_ratio", 0.0) * 100.0))
         mem = self._as_float(metrics.get("mem_used_pct", metrics.get("mem_used_ratio", 0.0) * 100.0))
@@ -78,11 +94,13 @@ class AnomalyDetector:
             logger.info("[DETECTION] Thermostat healthy")
 
         status = "Initializing..." if init_mode else "OK"
+        next_in = max(0, int(float(self.next_calibration_ts) - float(now_ts)))
         return {
             "anomaly": bool(culprits),
             "score": float(score),
             "threshold": float(chosen_threshold),
             "status": str(status),
+            "next_calibration_in": int(next_in),
             "features": metrics,
             "culprits": culprits,
             "heads": heads,
@@ -130,6 +148,7 @@ class AnomalyDetector:
                 threshold_active = float(self.floor_threshold)
             else:
                 threshold_active = float(max(self.floor_threshold, float(p95) + float(self.study_padding)))
+                threshold_active = float(min(self.ceiling_threshold, threshold_active))
         except Exception:
             threshold_active = float(self.floor_threshold)
 

@@ -102,6 +102,8 @@ def main():
             logger.info("[ACTION] Demo Mode active. Polling interval reduced to %ds", interval)
     else:
         interval = monitoring_cfg.get("interval", 60)
+    if args.tui:
+        interval = 5
     
     # Initialize Layers
     prometheus_collector = PrometheusCollector()
@@ -124,10 +126,13 @@ def main():
     if args.tui:
         os.makedirs("logs", exist_ok=True)
         _configure_tui_logging()
-        dashboard = HealingDashboard(config)
+        dashboard = HealingDashboard(config, collector=prometheus_collector)
         dashboard.set_telegram_active(bool(telegram_notifier.is_active))
-        prom_url = str((prometheus_collector.cfg or {}).get("prometheus_url") or "").strip()
-        dashboard.set_source_label(f"PROMETHEUS {prom_url}" if prom_url else "PROMETHEUS")
+        prom_url = str(getattr(prometheus_collector, "url", "") or (prometheus_collector.cfg or {}).get("prometheus_url") or "").strip()
+        if bool(getattr(prometheus_collector, "connection_ok", False)):
+            dashboard.set_source_label(prom_url.replace("http://", "").replace("https://", ""))
+        else:
+            dashboard.set_source_label(prom_url.replace("http://", "").replace("https://", ""))
         net_label = None
         stg_label = None
         try:
@@ -183,11 +188,18 @@ def main():
                     if args.tui:
                         dashboard.poll_keys()
 
-                    print(f"SCRAPE_ATTEMPT prometheus_url={str((prometheus_collector.cfg or {}).get('prometheus_url') or '').strip()}")
                     metrics = prometheus_collector.collect()
                     connected = metrics is not None
+                    if args.tui:
+                        src_status = str(getattr(prometheus_collector, "source_status", "") or "").strip()
+                        if src_status.startswith("CONNECTED"):
+                            dashboard.set_source_label(prometheus_collector.prometheus_url.replace("http://", "").replace("https://", ""))
+                        else:
+                            prom_url = str(getattr(prometheus_collector, "url", "") or (prometheus_collector.cfg or {}).get("prometheus_url") or "").strip()
+                            dashboard.set_source_label(prom_url.replace("http://", "").replace("https://", ""))
 
                     if not connected:
+                        logger.warning("[DETECTOR] Empty metrics input (collector returned None). Skipping analysis.")
                         if args.tui:
                             dashboard.update_view(
                                 metrics={},
@@ -202,6 +214,7 @@ def main():
                                 decision_heads={},
                                 cycle_count=cycle_count,
                                 culprits=[],
+                                next_calibration_in=None,
                             )
                         time.sleep(interval)
                         cycle_count += 1
@@ -240,7 +253,13 @@ def main():
 
                         detector.ai_cfg["anomaly_threshold"] = float(policy_engine.threshold)
                         config.setdefault("ai", {})["anomaly_threshold"] = float(policy_engine.threshold)
-                        anomaly = detector.detect_anomaly(metrics)
+                        try:
+                            anomaly = detector.detect_anomaly(metrics)
+                        except Exception as e:
+                            logger.error("[DETECTOR] detect_anomaly failed: %s", str(e))
+                            anomaly = None
+                        if not isinstance(anomaly, dict):
+                            anomaly = {"anomaly": False, "threshold": 70.0, "culprits": [], "heads": {}, "features": metrics, "status": "Initializing...", "next_calibration_in": None}
                         raw_score = float(anomaly.get("score", 0.0) or 0.0)
                         if cycle_count == 0:
                             smoothed_score = raw_score
@@ -274,6 +293,7 @@ def main():
                             decision_heads=anomaly.get("heads", {}) if isinstance(anomaly, dict) else {},
                             cycle_count=cycle_count,
                             culprits=anomaly.get("culprits", []) if isinstance(anomaly, dict) else [],
+                            next_calibration_in=anomaly.get("next_calibration_in", None) if isinstance(anomaly, dict) else None,
                         )
                         time.sleep(interval)
                         cycle_count += 1
@@ -295,6 +315,7 @@ def main():
                                 decision_heads=anomaly.get("heads", {}) if isinstance(anomaly, dict) else {},
                                 cycle_count=cycle_count,
                                 culprits=anomaly.get("culprits", []) if isinstance(anomaly, dict) else [],
+                                next_calibration_in=anomaly.get("next_calibration_in", None) if isinstance(anomaly, dict) else None,
                             )
                         time.sleep(interval)
                         cycle_count += 1
@@ -333,6 +354,7 @@ def main():
                             decision_heads=anomaly.get("heads", {}) if isinstance(anomaly, dict) else {},
                             cycle_count=cycle_count,
                             culprits=anomaly.get("culprits", []) if isinstance(anomaly, dict) else [],
+                            next_calibration_in=anomaly.get("next_calibration_in", None) if isinstance(anomaly, dict) else None,
                         )
 
                     if action == "[ MAINTENANCE REQUIRED ]":

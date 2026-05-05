@@ -31,6 +31,7 @@ class HealingDashboard:
         self.stg_label = None
         self.cycle_count = 0
         self.culprits = []
+        self.next_calibration_in = None
         self._stdin_fd = None
         self._stdin_old_settings = None
         self._setup_layout()
@@ -102,7 +103,7 @@ class HealingDashboard:
     def generate_layout(self):
         return self.layout
 
-    def update_view(self, metrics, anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp, is_connected=False, ui_messages=None, raw_score=None, decision_heads=None, cycle_count=None, culprits=None):
+    def update_view(self, metrics, anomaly_score, threshold, escalation_level, action_name, stabilization_window, last_action_timestamp, is_connected=False, ui_messages=None, raw_score=None, decision_heads=None, cycle_count=None, culprits=None, next_calibration_in=None):
         if ui_messages:
             self.ui_messages.extend(list(ui_messages))
         if cycle_count is not None:
@@ -115,8 +116,13 @@ class HealingDashboard:
                 self.culprits = list(culprits)
             except Exception:
                 self.culprits = []
+        if next_calibration_in is not None:
+            try:
+                self.next_calibration_in = int(next_calibration_in)
+            except Exception:
+                self.next_calibration_in = None
         self.layout["header"].update(self._make_header(True))
-        self.layout["ai_brain"].update(self._make_ai_brain_panel(decision_heads, escalation_level, action_name, stabilization_window, last_action_timestamp, self.culprits))
+        self.layout["ai_brain"].update(self._make_ai_brain_panel(decision_heads, escalation_level, action_name, stabilization_window, last_action_timestamp, self.culprits, self.next_calibration_in))
         self.layout["forensics"].update(self._make_logs_panel())
         self.layout["right"].update(self._make_background_panel())
         self.layout["footer"].update(self._make_footer())
@@ -140,7 +146,7 @@ class HealingDashboard:
         header_content = title + status_text + info
         return Panel(Align.center(header_content), style="blue")
 
-    def _make_ai_brain_panel(self, decision_heads, level, action, window, last_action, culprits):
+    def _make_ai_brain_panel(self, decision_heads, level, action, window, last_action, culprits, next_calibration_in):
         current_time = time.time()
         time_diff = current_time - last_action
         remaining = max(0, int(window - time_diff)) if last_action > 0 else 0
@@ -159,13 +165,13 @@ class HealingDashboard:
         table.add_column("Thresh", justify="right")
 
         if not heads:
-            waiting = Text("Waiting for Data...", style="dim")
-            dash = Text("-", style="dim")
-            thresh = Text("70.0(I)%", style="dim")
-            table.add_row(Text("[CPU]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
-            table.add_row(Text("[MEM]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
-            table.add_row(Text("[STG]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
-            table.add_row(Text("[NET]", style="cyan"), Text("[ NORMAL ]", style="dim"), waiting, dash, dash, thresh)
+            wait = Text("WAIT...", style="dim")
+            na = Text("N/A", style="dim")
+            thresh = Text("70.0(I)", style="dim")
+            table.add_row(Text("[CPU]", style="cyan"), Text("[ NORMAL ]", style="dim"), wait, na, na, thresh)
+            table.add_row(Text("[MEMORY]", style="cyan"), Text("[ NORMAL ]", style="dim"), wait, na, na, thresh)
+            table.add_row(Text("[STORAGE]", style="cyan"), Text("[ NORMAL ]", style="dim"), wait, na, na, thresh)
+            table.add_row(Text("[NETWORK]", style="cyan"), Text("[ NORMAL ]", style="dim"), wait, na, na, thresh)
             state_text = Text(f"\nEscalation State: Level {level}\nAction: {action}", style="bold green")
             panel_content = Table.grid(expand=True)
             panel_content.add_row(table)
@@ -285,6 +291,14 @@ class HealingDashboard:
         stab_style = "bold yellow" if remaining > 0 else "dim green"
         stab_text = Text(f"\nStabilization Window: {remaining}s remaining", style=stab_style)
 
+        if next_calibration_in is None:
+            calib_line = Text("\nNext Calibration: -", style="dim")
+        else:
+            hours = int(next_calibration_in // 3600)
+            minutes = int((next_calibration_in % 3600) // 60)
+            seconds = int(next_calibration_in % 60)
+            calib_line = Text(f"\nNext Calibration: {hours:02d}:{minutes:02d}:{seconds:02d}", style="dim cyan")
+
         culprits_list = list(culprits or [])
         if culprits_list:
             culprits_text = " ".join([f"[{c}]" for c in culprits_list])
@@ -295,6 +309,7 @@ class HealingDashboard:
         panel_content = Table.grid(expand=True)
         panel_content.add_row(table)
         panel_content.add_row(Align.center(state_text))
+        panel_content.add_row(Align.center(calib_line))
         panel_content.add_row(Align.center(culprits_line))
         panel_content.add_row(Align.center(stab_text))
 

@@ -310,8 +310,9 @@ class PolicyEngine:
         except Exception:
             threshold_pct = 70.0
 
-        self.current_level = 1
-        self.current_level_idx = 0
+        next_level = min(5, max(1, int(self.current_level or 0) + 1))
+        self.current_level = int(next_level)
+        self.current_level_idx = max(0, int(self.current_level) - 1)
 
         mapping = {"CPU": "cpu", "MEMORY": "memory", "STORAGE": "storage", "NETWORK": "network"}
         anomaly_type = mapping.get(str(triggered_metric).upper(), "general")
@@ -322,12 +323,13 @@ class PolicyEngine:
                 "[CRITICAL] Anomaly Sustained for 5 cycles.\n"
                 f"Metric: [{triggered_metric}]\n"
                 f"Value: {value_pct:.1f}%\n"
-                f"Limit: {threshold_pct:.1f}% ({learned_text})",
+                f"Limit: {threshold_pct:.1f}% ({learned_text})\n"
+                f"Escalating to Level {self.current_level}.",
                 min_interval_seconds=60,
             )
 
-        action_taken = self._trigger_level_action(1, anomaly_type)
-        self._record_forensics(anomaly, 1)
+        action_taken = self._trigger_level_action(self.current_level, anomaly_type)
+        self._record_forensics(anomaly, self.current_level)
         self._save_state()
 
         for key in self.component_counters.keys():
@@ -337,7 +339,6 @@ class PolicyEngine:
             return action_taken
 
         time.sleep(self.cooldown_period)
-        self.current_level = 0
         return action_taken
 
     def reset_state(self):
@@ -439,54 +440,43 @@ class PolicyEngine:
         docker_containers = self.policy_cfg.get('docker_containers', [])
 
         if level == 1:
-            logger.warning(f"[ACTION] [Level 1] Attempting Recovery for Service: {service_name} (Retry {self.retries + 1}/{self.max_retries + 1})")
+            logger.warning(f"[ACTION] [Level 1] Process Kill: Identifying high-resource PIDs in LXC {self.vmid}")
+            try:
+                cmd = "ps -eo pid,ppid,%cpu,%mem,comm --sort=-%cpu | head -n 2 | tail -n 1 | awk '{print $1}'"
+                proxmox.nodes(self.node).lxc(self.vmid).exec.post(command=f"bash -c \"kill -9 $({cmd})\"")
+                logger.info(f"[ACTION] Process kill triggered for high-resource PID in LXC {self.vmid}")
+                self.last_action_timestamp = time.time()
+                self.STABILIZATION_WINDOW = 90
+                return "process_kill_success"
+            except Exception as e:
+                logger.error(f"Process kill failed in LXC {self.vmid}: {e}")
+                return "process_kill_failed"
             
-            # Container-Aware Logic (Prometheus/Grafana etc)
+        elif level == 2:
+            logger.warning(f"[ACTION] [Level 2] Attempting Recovery for Service: {service_name} (Retry {self.retries + 1}/{self.max_retries + 1})")
+            
             if service_name in docker_containers:
                 if self._verified_docker_restart(service_name):
                     self.last_action_timestamp = time.time()
                     self.STABILIZATION_WINDOW = 90
                     return "docker_restart_success"
-                else:
-                    return "docker_restart_verification_failed"
+                return "docker_restart_verification_failed"
             
-            # LXC-Aware Logic (Daemon inside LXC)
             logger.info(f"[ACTION] {service_name} identified as LXC daemon. Using Proxmox pct exec.")
             try:
-                # pct exec <vmid> systemctl restart <service>
                 proxmox.nodes(self.node).lxc(self.vmid).exec.post(command=f"systemctl restart {service_name}")
-                time.sleep(5) # Give it a moment before verification
-                
-                # 2. Verification (LXC)
+                time.sleep(5)
                 if self._verify_service(service_name, docker_containers):
                     self.last_action_timestamp = time.time()
                     self.STABILIZATION_WINDOW = 90
                     return "pct_exec_restart_success"
-                else:
-                    return "pct_exec_verification_failed"
+                return "pct_exec_verification_failed"
             except Exception as e:
                 logger.error(f"Proxmox pct exec failed for {service_name}: {e}")
                 return "pct_exec_restart_failed"
             
-        elif level == 2:
-            logger.warning(f"[ACTION] [Level 2] Process Reset: Identifying high-resource PIDs in LXC {self.vmid}")
-            try:
-                # Identify and terminate high-resource processes using pct exec
-                # This is a simplified implementation that kills the top CPU process
-                cmd = "ps -eo pid,ppid,%cpu,%mem,comm --sort=-%cpu | head -n 2 | tail -n 1 | awk '{print $1}'"
-                result = proxmox.nodes(self.node).lxc(self.vmid).exec.post(command=f"bash -c \"kill -9 $({cmd})\"")
-                logger.info(f"[ACTION] Process reset triggered for high-resource PID in LXC {self.vmid}")
-                
-                self.last_action_timestamp = time.time()
-                self.STABILIZATION_WINDOW = 90
-                return "process_reset_success"
-            except Exception as e:
-                logger.error(f"Process reset failed in LXC {self.vmid}: {e}")
-                return "process_reset_failed"
-            
         elif level == 3:
             logger.warning(f"[ACTION] [Level 3] Traffic Rerouting triggered for {anomaly_type} anomaly")
-            # Simulated traffic redirection logic
             logger.info("[SIMULATION] Updating IP tables / Nginx config to redirect traffic to backup node...")
             self.last_action_timestamp = time.time()
             self.STABILIZATION_WINDOW = 90
@@ -514,10 +504,20 @@ class PolicyEngine:
                 return "lxc_soft_reboot_failed"
             
         elif level == 5:
-            logger.critical(f"[ACTION] [Level 5] CRITICAL: Automated loop halted. Manual intervention required!")
-            # Log to a simulated database or specific audit log
-            logger.info(f"[AUDIT] Failure logged for VMID {self.vmid}. Anomaly Type: {anomaly_type}. Escalating to Admin.")
-            return "admin_escalation_halt"
+            logger.critical(f"[ACTION] [Level 5] CRITICAL: Container hard reboot (VMID {self.vmid})")
+            try:
+                proxmox.nodes(self.node).lxc(self.vmid).status.stop.post()
+                time.sleep(5)
+                proxmox.nodes(self.node).lxc(self.vmid).status.start.post()
+                time.sleep(10)
+                if self._verify_service(service_name, docker_containers):
+                    self.last_action_timestamp = time.time()
+                    self.STABILIZATION_WINDOW = 180
+                    return "lxc_hard_reboot"
+                return "lxc_hard_reboot_verification_failed"
+            except Exception as e:
+                logger.error(f"Proxmox hard reboot failed for LXC {self.vmid}: {e}")
+                return "lxc_hard_reboot_failed"
             
         return "unknown_action"
             
