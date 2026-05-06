@@ -16,25 +16,89 @@ from rich.align import Align
 from rich.live import Live
 
 class HealingDashboard:
-    def __init__(self, config):
+    def __init__(self, config, collector=None):
+        # 1. Basic configuration
         self.config = config
-        self.console = Console()
-        self.layout = Layout(name="root")
-        self.forensics_file = "anomalies_forensics.csv"
+        self.collector = collector
+        self.study_timer = 172800  # 48 hours in seconds
+        
+        # 2. Initialize ALL state variables BEFORE the UI starts
+        # This prevents the "AttributeError" in your header/footer
+        self.cycle_count = 0
+        self.ui_messages = deque(maxlen=50)
+        self.source_label = "UNKNOWN"
         self.is_connected = True
         self.waiting_for_data = False
-        self.ui_messages = deque(maxlen=50)
         self.resume_requested = False
         self.telegram_active = False
-        self.source_label = "UNKNOWN"
         self.net_label = None
         self.stg_label = None
-        self.cycle_count = 0
+        self.current_healing_level = 0
+        self.current_level = 0
+        self.current_thresholds = {"CPU": 70.0, "MEMORY": 70.0, "STORAGE": 70.0, "NETWORK": 70.0}
         self.culprits = []
         self.next_calibration_in = None
+        self.forensics_file = "anomalies_forensics.csv"
         self._stdin_fd = None
         self._stdin_old_settings = None
+
+        # 3. Finally, initialize the visual layout
+        from rich.console import Console
+        from rich.layout import Layout
+        self.console = Console()
+        self.layout = Layout()
+        
+        # This call now has access to self.cycle_count and self.source_label
         self._setup_layout()
+
+    def update_metrics(self):
+        """Fetches live data and refreshes the TUI panels."""
+        if not self.collector:
+            return
+
+        metrics = self.collector.get_metrics()
+        cpu_val = metrics.get('CPU', 0.0)
+        mem_val = metrics.get('MEMORY', 0.0)
+        storage_val = metrics.get('STORAGE', 0.0)
+        network_val = metrics.get('NETWORK', 0.0)
+
+        suffix = "(I)" if self.study_timer > 0 else "(AI)"
+        panel_text = Text.from_markup(
+            f"[bold cyan]LIVE TELEMETRY[/bold cyan]\n"
+            f"CPU Usage: {cpu_val:>5.2f}%\n"
+            f"MEM Usage: {mem_val:>5.2f}%\n"
+            f"Storage: {storage_val:>5.2f}%\n"
+            f"Network: {network_val:>5.2f}%\n"
+            f"Calibration: {self.format_timer(self.study_timer)}\n"
+            f"[bold yellow]Current Healing Level: {self.current_healing_level}[/bold yellow]"
+        )
+
+        threshold_table = Table.grid(expand=True)
+        threshold_table.add_column("Component", style="cyan")
+        threshold_table.add_column("Threshold", justify="right", style="bold white")
+        for name in ("CPU", "MEMORY", "STORAGE", "NETWORK"):
+            threshold_table.add_row(f"{name}", f"{self.current_thresholds.get(name, 70.0):.1f}%{suffix}")
+
+        panel_body = Table.grid(expand=True)
+        panel_body.add_row(panel_text)
+        panel_body.add_row(Text("Current Thresholds:", style="bold white"))
+        panel_body.add_row(threshold_table)
+
+        self.ui_messages.append("[INFO] Scraped metrics from 127.0.0.1:9090")
+
+        self.layout["ai_brain"].update(Panel(panel_body, title="AI Decision Logic", border_style="cyan"))
+        self.layout["footer"].update(Panel(Align.center(Text("[ SOURCE: 127.0.0.1:9090 ]  [ STATUS: CONNECTED ]", style="bold cyan")), border_style="dim"))
+        self.refresh_operations()
+
+        if self.study_timer > 0:
+            self.study_timer -= 5
+
+    def format_timer(self, seconds: int) -> str:
+        seconds = max(0, int(seconds))
+        hours = seconds // 3600
+        minutes = (seconds % 3600) // 60
+        secs = seconds % 60
+        return f"{hours:02d}:{minutes:02d}:{secs:02d}"
 
     def set_telegram_active(self, active: bool):
         self.telegram_active = bool(active)
@@ -95,9 +159,9 @@ class HealingDashboard:
         )
 
         self.layout["header"].update(self._make_header(True))
-        self.layout["ai_brain"].update(Panel(Align.center(Text("Analyzing...", style="dim")), title="AI Decision Logic", border_style="dim"))
-        self.layout["forensics"].update(Panel(Text("System boot sequence initiated...", style="dim"), title="Anomaly Forensics (Last 10)", border_style="dim"))
-        self.layout["right"].update(self._make_background_panel())
+        self.layout["ai_brain"].update(Panel(Align.center(Text.from_markup("Analyzing...", style="dim")), title="AI Decision Logic", border_style="dim"))
+        self.layout["forensics"].update(Panel(Text.from_markup("System boot sequence initiated...", style="dim"), title="Anomaly Forensics (Last 10)", border_style="dim"))
+        self.refresh_operations()
         self.layout["footer"].update(self._make_footer())
 
     def generate_layout(self):
@@ -111,6 +175,18 @@ class HealingDashboard:
                 self.cycle_count = int(cycle_count)
             except Exception:
                 pass
+        if escalation_level is not None:
+            try:
+                self.current_healing_level = int(escalation_level)
+                self.current_level = int(escalation_level)
+            except Exception:
+                pass
+        if decision_heads and isinstance(decision_heads, dict):
+            for name in ("CPU", "MEMORY", "STORAGE", "NETWORK"):
+                self.current_thresholds[name] = float((decision_heads.get(name) or {}).get("threshold", self.current_thresholds.get(name, 70.0)))
+        elif threshold is not None:
+            for name in ("CPU", "MEMORY", "STORAGE", "NETWORK"):
+                self.current_thresholds[name] = float(threshold)
         if culprits is not None:
             try:
                 self.culprits = list(culprits)
@@ -173,8 +249,15 @@ class HealingDashboard:
             table.add_row(Text("[STORAGE]", style="cyan"), Text("[ NORMAL ]", style="dim"), wait, na, na, thresh)
             table.add_row(Text("[NETWORK]", style="cyan"), Text("[ NORMAL ]", style="dim"), wait, na, na, thresh)
             state_text = Text(f"\nEscalation State: Level {level}\nAction: {action}", style="bold green")
+            threshold_summary = Table.grid(expand=True)
+            threshold_summary.add_column("Metric", style="cyan")
+            threshold_summary.add_column("Threshold", justify="right", style="bold white")
+            for name in ("CPU", "MEMORY", "STORAGE", "NETWORK"):
+                threshold_summary.add_row(name, f"{self.current_thresholds.get(name, 70.0):.1f}%")
             panel_content = Table.grid(expand=True)
             panel_content.add_row(table)
+            panel_content.add_row(Text("Current Thresholds:", style="bold white"))
+            panel_content.add_row(threshold_summary)
             panel_content.add_row(Align.center(state_text))
             return Panel(panel_content, title="System Status", border_style="blue")
 
@@ -188,6 +271,8 @@ class HealingDashboard:
             in_study_zone = bool(info.get("in_study_zone", False))
             study_active = bool(info.get("study_active", False))
             init_mode = bool(info.get("init_mode", False))
+            if self.study_timer <= 0:
+                init_mode = False
             site_down = bool(info.get("site_down", False)) if name == "NETWORK" else False
             try:
                 value = float(value)
@@ -306,8 +391,16 @@ class HealingDashboard:
         else:
             culprits_line = Text("\nCulprits: -", style="dim")
 
+        threshold_summary = Table.grid(expand=True)
+        threshold_summary.add_column("Metric", style="cyan")
+        threshold_summary.add_column("Threshold", justify="right", style="bold white")
+        for name in ("CPU", "MEMORY", "STORAGE", "NETWORK"):
+            threshold_summary.add_row(name, f"{self.current_thresholds.get(name, 70.0):.1f}%")
+
         panel_content = Table.grid(expand=True)
         panel_content.add_row(table)
+        panel_content.add_row(Text("Current Thresholds:", style="bold white"))
+        panel_content.add_row(threshold_summary)
         panel_content.add_row(Align.center(state_text))
         panel_content.add_row(Align.center(calib_line))
         panel_content.add_row(Align.center(culprits_line))
@@ -338,9 +431,12 @@ class HealingDashboard:
         return Panel(logs_text, title="Anomaly Forensics (Last 10)", border_style="white")
 
     def _make_background_panel(self):
-        logs = "\n".join(list(self.ui_messages))
+        logs = "\n".join(list(self.ui_messages)[-20:])
         logs_text = Text(logs if logs else "No background operations yet.", style="dim green")
         return Panel(logs_text, title="Background Operations", border_style="green")
+
+    def refresh_operations(self):
+        self.layout["right"].update(self._make_background_panel())
 
     def _make_footer(self):
         content = Text()

@@ -85,6 +85,7 @@ def main():
 
     # Load configuration
     config = load_config("config/config.yaml")
+    prometheus_collector = PrometheusCollector(config)
     monitoring_cfg = config.get('monitoring', {})
 
     try:
@@ -109,6 +110,9 @@ def main():
     prometheus_collector = PrometheusCollector()
     detector = AnomalyDetector(config)
     telegram_notifier = TelegramNotifier()
+    startup_notification_sent = False
+    if telegram_notifier.is_active:
+        startup_notification_sent = telegram_notifier.send("🚀 System Initialized: 48-hour Behavioral Study started.", min_interval_seconds=60)
     policy_engine = PolicyEngine(config, notifier=telegram_notifier if telegram_notifier.is_active else None)
     policy_engine.current_level_idx = 0
     policy_engine.current_level = 0
@@ -122,7 +126,7 @@ def main():
             logger.error(f"Failed to initialize threshold file: {e}")
     
     # TUI Initialization
-    dashboard = None
+    dashboard = HealingDashboard(config, collector=prometheus_collector)
     if args.tui:
         os.makedirs("logs", exist_ok=True)
         _configure_tui_logging()
@@ -148,6 +152,8 @@ def main():
             net_label = None
             stg_label = None
         dashboard.set_prometheus_labels(network_device=net_label, storage_label=stg_label)
+        if startup_notification_sent:
+            dashboard.ui_messages.append("[TELEGRAM] System Initialized notification sent.")
         dashboard_log_handler = DashboardLogHandler(dashboard.ui_messages)
         logging.getLogger().addHandler(dashboard_log_handler)
         for logger_name in list(logging.root.manager.loggerDict.keys()):
@@ -166,6 +172,27 @@ def main():
     start_time = time.time()
     warmup_finished_alert_sent = False
     last_heartbeat_time = time.time()
+
+    if args.tui:
+        from rich.live import Live
+        # This starts the full-screen dashboard mode
+        with Live(dashboard.layout, refresh_per_second=1, screen=True):
+            while True:
+                # 1. Scrape live data from 127.0.0.1:9090
+                prometheus_collector.scrape()
+                
+                # 2. Update the TUI panels with the results
+                dashboard.update_metrics()
+                
+                # 3. Wait 5 seconds for the next cycle
+                time.sleep(5)
+    else:
+        # Headless mode for background monitoring
+        logger.info("Starting headless monitoring mode...")
+        while True:
+            prometheus_collector.scrape()
+            # In a real run, you'd call your anomaly detection logic here
+            time.sleep(5)
 
     try:
         tui_console = None
@@ -189,6 +216,8 @@ def main():
                         dashboard.poll_keys()
 
                     metrics = prometheus_collector.collect()
+                    if args.tui:
+                        dashboard.update_metrics()
                     connected = metrics is not None
                     if args.tui:
                         src_status = str(getattr(prometheus_collector, "source_status", "") or "").strip()
@@ -201,6 +230,7 @@ def main():
                     if not connected:
                         logger.warning("[DETECTOR] Empty metrics input (collector returned None). Skipping analysis.")
                         if args.tui:
+                            dashboard.current_level = policy_engine.current_level
                             dashboard.update_view(
                                 metrics={},
                                 anomaly_score=0.0,
@@ -274,12 +304,25 @@ def main():
                             ",".join(list(anomaly.get("culprits") or [])),
                         )
 
+                        if args.tui and anomaly.get('anomaly'):
+                            culprits = anomaly.get('culprits', [])
+                            for culprit in culprits:
+                                value_key = {"CPU": "cpu_usage_pct", "MEMORY": "mem_used_pct", "STORAGE": "storage_used_pct", "NETWORK": "network_pct"}.get(culprit, "unknown")
+                                value = metrics.get(value_key, 0.0)
+                                dashboard.ui_messages.append(f"[bold red]⚠️ ANOMALY: {culprit} at {value:.1f}%[/bold red]")
+                            # Log to forensics
+                            import csv
+                            with open(dashboard.forensics_file, "a", newline="") as f:
+                                writer = csv.writer(f)
+                                writer.writerow([datetime.now().isoformat(), anomaly.get("score", 0.0), policy_engine.current_level])
+
                     current_time = time.time()
                     if args.tui and dashboard.resume_requested:
                         dashboard.resume_requested = False
                         action = policy_engine.manual_resume()
                         smoothed_score = float(raw_score)
                         last_heal_time = time.time()
+                        dashboard.current_level = policy_engine.current_level
                         dashboard.update_view(
                             metrics=metrics,
                             anomaly_score=float(smoothed_score),
@@ -302,6 +345,7 @@ def main():
                     if (current_time - start_time) < 30:
                         action = "[ INITIALIZING... ]"
                         if args.tui:
+                            dashboard.current_level = policy_engine.current_level
                             dashboard.update_view(
                                 metrics=metrics,
                                 anomaly_score=anomaly.get('score', 0.0),
@@ -341,6 +385,7 @@ def main():
                                 last_heal_time = now
 
                     if args.tui:
+                        dashboard.current_level = policy_engine.current_level
                         dashboard.update_view(
                             metrics=metrics,
                             anomaly_score=anomaly.get('score', 0.0),
@@ -357,14 +402,23 @@ def main():
                             next_calibration_in=anomaly.get("next_calibration_in", None) if isinstance(anomaly, dict) else None,
                         )
 
+                    if telegram_notifier.is_active and isinstance(anomaly, dict) and (anomaly.get('anomaly') or float(anomaly.get('score', 0.0) or 0.0) > float(policy_engine.threshold)):
+                        alert_message = f"⚠️ Anomaly Alert: score={float(anomaly.get('score', 0.0)):.4f} threshold={float(policy_engine.threshold):.1f} action={action}"
+                        alert_sent = telegram_notifier.send(alert_message, min_interval_seconds=60)
+                        if alert_sent and args.tui:
+                            dashboard.ui_messages.append(f"[TELEGRAM] {alert_message}")
+
                     if action == "[ MAINTENANCE REQUIRED ]":
                         policy_engine.current_level_idx = 4
                         policy_engine.current_level = 5
 
                     now = time.time()
-                    if telegram_notifier.is_active and (now - last_heartbeat_time) >= (6 * 60 * 60):
+                    if telegram_notifier.is_active and (now - last_heartbeat_time) >= (24 * 60 * 60):
                         last_heartbeat_time = now
-                        telegram_notifier.send(f"🏠 Heartbeat: System Healthy. Score: {float(smoothed_score):.4f}.", min_interval_seconds=60)
+                        heartbeat_message = f"🏠 Daily Status Summary: Score={float(smoothed_score):.4f}, Threshold={float(policy_engine.threshold):.1f}, Cycle={cycle_count}."
+                        heartbeat_sent = telegram_notifier.send(heartbeat_message, min_interval_seconds=60)
+                        if heartbeat_sent and args.tui:
+                            dashboard.ui_messages.append(f"[TELEGRAM] {heartbeat_message}")
 
                     time.sleep(interval)
                     cycle_count += 1

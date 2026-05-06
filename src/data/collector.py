@@ -115,25 +115,46 @@ class PrometheusCollector:
             if instance_regex:
                 inst = ', instance=~"' + instance_regex + '"'
             primary = (
-                'sum(rate(net_bytes_recv{interface="' + network_device + '", job="' + job_name + '"' + inst + '}[1m])) + '
-                'sum(rate(net_bytes_sent{interface="' + network_device + '", job="' + job_name + '"' + inst + '}[1m]))'
+                'sum(irate(node_network_receive_bytes_total{device!="lo", interface="' + network_device + '", job="' + job_name + '"' + inst + '}[5m])) + '
+                'sum(irate(node_network_transmit_bytes_total{device!="lo", interface="' + network_device + '", job="' + job_name + '"' + inst + '}[5m]))'
             )
             value, _, ok = self._query_with_raw(primary)
             if ok:
                 return value
 
             fallback = (
-                'sum(rate(net_bytes_recv{job="' + job_name + '"' + inst + '}[1m])) + sum(rate(net_bytes_sent{job="' + job_name + '"' + inst + '}[1m]))'
+                'sum(irate(node_network_receive_bytes_total{device!="lo", job="' + job_name + '"' + inst + '}[5m])) + '
+                'sum(irate(node_network_transmit_bytes_total{device!="lo", job="' + job_name + '"' + inst + '}[5m]))'
             )
             value, _, ok = self._query_with_raw(fallback)
             if ok:
                 return value
 
         generic = (
-            "rate(net_bytes_recv" + sel() + "[1m]) + "
-            "rate(net_bytes_sent" + sel() + "[1m])"
+            'sum(irate(node_network_receive_bytes_total{device=~"eth.*|ens.*|veth.*"}' + sel() + '[5m])) + '
+            'sum(irate(node_network_transmit_bytes_total{device=~"eth.*|ens.*|veth.*"}' + sel() + '[5m]))'
         )
         value, _, ok = self._query_with_raw(generic)
+        if ok:
+            return value
+
+        if job_name and network_device:
+            inst = ''
+            if instance_regex:
+                inst = ', instance=~"' + instance_regex + '"'
+            fallback = (
+                'sum(rate(net_bytes_recv{interface="' + network_device + '", job="' + job_name + '"' + inst + '}[1m])) + '
+                'sum(rate(net_bytes_sent{interface="' + network_device + '", job="' + job_name + '"' + inst + '}[1m]))'
+            )
+            value, _, ok = self._query_with_raw(fallback)
+            if ok:
+                return value
+
+        fallback_generic = (
+            'sum(rate(net_bytes_recv{device!="lo"}' + sel() + '[1m])) + '
+            'sum(rate(net_bytes_sent{device!="lo"}' + sel() + '[1m]))'
+        )
+        value, _, ok = self._query_with_raw(fallback_generic)
         if ok:
             return value
         return None
@@ -283,7 +304,7 @@ class PrometheusCollector:
         mem_ratio = clamp01(float(mem_pct) / 100.0)
         storage_ratio = clamp01(float(storage_pct or 0.0) / 100.0)
 
-        return {
+        metrics = {
             "timestamp": float(time.time()),
             "cpu_usage_ratio": float(cpu_ratio),
             "cpu_usage_pct": float(max(0.0, min(100.0, float(cpu_pct)))),
@@ -303,4 +324,23 @@ class PrometheusCollector:
             "network_latency_threshold_ms": float(latency_threshold_ms),
             "network_retrans_threshold": float(retrans_threshold),
             "critical_data_loss": False,
+        }
+        self._last_metrics = metrics
+        return metrics
+
+    def scrape(self) -> Optional[Dict[str, Any]]:
+        metrics = self.collect()
+        if metrics is not None:
+            self._last_metrics = metrics
+        return metrics
+
+    def get_metrics(self) -> Dict[str, float]:
+        metrics = getattr(self, "_last_metrics", None)
+        if metrics is None:
+            metrics = self.collect() or {}
+        return {
+            "CPU": float(metrics.get("cpu_usage_pct", 0.0) or 0.0),
+            "MEMORY": float(metrics.get("mem_used_pct", 0.0) or 0.0),
+            "STORAGE": float(metrics.get("storage_used_pct", 0.0) or 0.0),
+            "NETWORK": float(metrics.get("network_pct", 0.0) or 0.0),
         }
