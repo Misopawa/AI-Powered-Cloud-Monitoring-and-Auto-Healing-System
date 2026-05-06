@@ -380,7 +380,7 @@ def main():
                             remaining = max(0, int(60 - (now - last_heal_time)))
                             action = f"[ COOLDOWN ] Healing blocked for {remaining}s"
                         else:
-                            action = policy_engine.evaluate_and_heal(anomaly)
+                            action = policy_engine.execute_remediation(anomaly)
                             if action not in ("none", "stabilization_skip", "sanity_skip") and not str(action).startswith("manual_resume_cooldown_") and not str(action).startswith("[ VERIFYING"):
                                 last_heal_time = now
 

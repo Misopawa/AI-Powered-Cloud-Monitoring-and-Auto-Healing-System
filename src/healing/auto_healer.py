@@ -218,7 +218,7 @@ class PolicyEngine:
         except Exception as e:
             logger.error(f"Failed to record forensics: {e}")
 
-    def evaluate_and_heal(self, anomaly):
+    def execute_remediation(self, anomaly):
         """
         Evaluate anomalies against the Policy Engine and trigger Hierarchical Recovery.
         Aligns with Chapter 3 5-Tier Escalation Path.

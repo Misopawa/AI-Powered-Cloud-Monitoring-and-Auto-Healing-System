@@ -131,8 +131,8 @@ class PrometheusCollector:
                 return value
 
         generic = (
-            'sum(irate(node_network_receive_bytes_total{device=~"eth.*|ens.*|veth.*"}' + sel() + '[5m])) + '
-            'sum(irate(node_network_transmit_bytes_total{device=~"eth.*|ens.*|veth.*"}' + sel() + '[5m]))'
+            'sum(irate(node_network_receive_bytes_total{device=~"eth.*|ens.*|veth.*"}' + sel() + '[1m])) + '
+            'sum(irate(node_network_transmit_bytes_total{device=~"eth.*|ens.*|veth.*"}' + sel() + '[1m]))'
         )
         value, _, ok = self._query_with_raw(generic)
         if ok:
